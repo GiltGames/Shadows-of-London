@@ -11,7 +11,7 @@ public class MBSBasicNavigationGUy : MonoBehaviour
     [SerializeField] float fltDistance;
     [SerializeField] float fltChanceIdle;
     [SerializeField] float fltDelay;
-    [SerializeField] float fltDelayCount;
+    public float fltDelayCount;
     public bool isWaiting;
     
   
