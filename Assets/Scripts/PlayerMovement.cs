@@ -1,19 +1,23 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Camera playerCamera;
-    [SerializeField] float moveSpeed = 10f;
-    [SerializeField] float runMultiplier = 1.5f;
-    [SerializeField] float jumpForce = 5;
+    //private Camera playerCamera;
+    Animator anim;
+    float moveSpeed;
+    [SerializeField] float walkSpeed = 4f;
+    [SerializeField] float runSpeed = 10f;
+    [SerializeField] float jumpForce = 2;
     [SerializeField] float gravity = 10f;
-    float mouseSensitivity = 7f;
+    //float mouseSensitivity = 7f;
     [SerializeField] float lookXlimit = 60f;
-    float rotationX = 0;
+    float rotationSpeed = 5.0f;
     Vector3 moveDirection;
     CharacterController controller;
+    bool isRunning = false;
 
     float minJumpStamina = 30;
     float minRunStamina = 10;
@@ -29,10 +33,13 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        playerCamera = Camera.main;
+        anim = GetComponentInChildren<Animator>();
+        //playerCamera = Camera.main;
 
-        Cursor.visible = false;
+        Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Locked;
+
+        moveSpeed = walkSpeed;
     }
 
     void Update()
@@ -44,16 +51,33 @@ public class PlayerMovement : MonoBehaviour
             float horizontalInput = Input.GetAxis("Horizontal");
             float verticalInput = Input.GetAxis("Vertical");
 
+            if(verticalInput != 0 && !isRunning) 
+            {
+                anim.SetBool("isWalking", true);
+                anim.SetBool("isIdle", false);
+            }
+            else if(verticalInput == 0 && horizontalInput == 0) 
+            {
+                anim.SetBool("isWalking", false);
+                anim.SetBool("isIdle", true);
+            }
+
             // preserve y velocity of the player, if player is grounded
             float movementDirectionY = moveDirection.y;
 
             moveDirection = (horizontalInput * transform.right) + (verticalInput * transform.forward);
+
+            // rotate player based on horizontal input
+            transform.Rotate(0, horizontalInput * rotationSpeed, 0);
+            if(horizontalInput != 0 && !isRunning) anim.SetBool("isWalking", true); 
+            if(horizontalInput != 0 && isRunning) anim.SetBool("isRunning", true);
 
             if(Input.GetButtonDown("Jump") && stamina >= minJumpStamina)
             // hardcoding jumping rather than relying on rigidbodies 
             {
                 moveDirection.y = jumpForce;
                 stamina -= minJumpStamina;
+                anim.SetTrigger("isJumping");
             }
             else 
             {
@@ -70,7 +94,10 @@ public class PlayerMovement : MonoBehaviour
         // sprint mechanic
         if(Input.GetKeyDown(KeyCode.LeftShift) && stamina >= minRunStamina) 
         { 
-            moveSpeed *= runMultiplier;
+            moveSpeed = runSpeed;
+            isRunning = true;
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isRunning", true);
         }
 
         if(Input.GetKey(KeyCode.LeftShift) && stamina >= minRunStamina)
@@ -87,31 +114,22 @@ public class PlayerMovement : MonoBehaviour
                 stamina += Time.deltaTime * staminaDrainSpeed;
                 StaminaBarUpdate();
             }
+
         }
-        if(Input.GetKeyUp(KeyCode.LeftShift)) 
+        if(Input.GetKeyUp(KeyCode.LeftShift) || stamina < minRunStamina) 
         {
-            moveSpeed /= runMultiplier;
+            // change so setting a fixed speed
+            moveSpeed = walkSpeed;
+            anim.SetBool("isRunning", false);
+            isRunning = false;
         }
 
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
-
-
-        #endregion
-
-        #region Rotation
         
-        // rotate player on y axis
-        transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * mouseSensitivity);
 
-        // allow camera to rotate up and down
-        rotationX += -Input.GetAxis("Mouse Y") * mouseSensitivity;
-        // check if rotation is trying to go outside of the look limit, stop it using clamp
-        rotationX = Mathf.Clamp(rotationX, -lookXlimit, lookXlimit);
-
-        // change local rotation to rotationX while keeping other axes at 0
-        playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
 
         #endregion
+
     }
 
     void StaminaBarUpdate()
@@ -130,4 +148,13 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("game over");
         }
     }
+
+    // IEnumerator TurnAnimTrigger()
+    // {
+    //     isTurning = true;
+    //     anim.SetBool("isTurning", true);
+    //     yield return new WaitForSeconds(0.5f);
+    //     isTurning = false;
+    //     anim.SetBool("isTurning", false);
+    // }
 }
