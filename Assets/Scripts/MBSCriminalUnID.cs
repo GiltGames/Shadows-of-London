@@ -15,11 +15,14 @@ public class MBSCriminalUnID : MonoBehaviour
     public bool isArrested;
     public int intCriminalIndex;
     public bool isInCustody;
+    public bool isTryingtoMakeProgress;
+
 
     [Header ("Criminal Move")]
     public Transform trnNewTarget;
     [SerializeField] Transform[] trnWayPointsCriminal;
-    [SerializeField] int intCriminalProgress;
+  
+    public int intCriminalProgress;
 
    
 
@@ -46,6 +49,10 @@ public class MBSCriminalUnID : MonoBehaviour
         {
             FnClueGive();
         }
+
+
+
+
 
     }
 
@@ -129,20 +136,21 @@ public class MBSCriminalUnID : MonoBehaviour
         trnNewTarget = transform;
 
 
-        intCriminalProgress++;
+     
         if (intCriminalProgress > trnWayPointsCriminal.Length)
         {
             //Gets away
             FnEscape();
         }
 
-
+        isTryingtoMakeProgress = true;
         trnNewTarget = trnWayPointsCriminal[intCriminalProgress];
 
 
 
         
-        mbsNav.agent.SetDestination(trnNewTarget.position);
+        
+        
     }
 
 
@@ -150,6 +158,22 @@ public class MBSCriminalUnID : MonoBehaviour
     {
         Destroy(gameObject);
 
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.tag == "CriminalWaypoint")
+        {
+          int indexTmp = other.GetComponent<MBSCriminalWaypoint>().intWaypointIndex;
+
+            if (indexTmp == intCriminalProgress)
+            {
+                intCriminalProgress++;
+            }
+
+        }
 
     }
 

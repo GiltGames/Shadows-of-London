@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5707491912378529334}
   - component: {fileID: 5009538486857478821}
   - component: {fileID: 5900296558650102664}
+  - component: {fileID: 7708326054786145817}
   m_Layer: 0
   m_Name: BasePerson
   m_TagString: Crowd
@@ -36,6 +37,7 @@ Transform:
   m_Children:
   - {fileID: 8681846964267137001}
   - {fileID: 4560680614391934224}
+  - {fileID: 2675878283752012276}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &350641467131553552
@@ -57,8 +59,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.83, y: 1.96, z: 0.78}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 0.95, y: 2.02, z: 1.09}
+  m_Center: {x: 0, y: 1.3, z: 0}
 --- !u!54 &6273864757344059945
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -95,7 +97,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 2919660104478618255}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1
+  m_Radius: 0.53
   m_Speed: 2
   m_Acceleration: 2
   avoidancePriority: 50
@@ -132,10 +134,19 @@ MonoBehaviour:
   fltDistance: 4
   fltChanceIdle: 0.4
   fltDelay: 3
+  fltDelayLongstop: 15
   fltDelayCount: 0
   isWaiting: 0
   fltVariationInTarget: 2
   isWanderingMode: 1
+  fltDistancetoTarget: 0
+  fltMoveRange: 30
+  isCriminal: 0
+  isCriminalWaypointReached: 
+  fltMoveAdvance: 0.3
+  fltRandomSelectiontoAdvance: 0
+  vecNavTarget: {x: 0, y: 0, z: 0}
+  isNeerdoWell: 0
 --- !u!114 &5900296558650102664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +170,56 @@ MonoBehaviour:
   trnCustodyLocation: {fileID: 0}
   isArrested: 0
   txtSpeech: {fileID: 1314373905238706336}
+  fltReacttoPoliceDistance: 0
+  trnTargetTemp: {fileID: 2675878283752012276}
+  fltWalkAwayDistance: 5
+  fltEvadeTimer: 0
+  fltEvadeInterval: 100
+  fltClosestDistanceforEvade: 0
+--- !u!114 &7708326054786145817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2919660104478618255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01a80f5f3fb0a842bfa4162054b0ebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderTarget: {fileID: 5455420997966218425}
+--- !u!1 &3444446636967156980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2675878283752012276}
+  m_Layer: 0
+  m_Name: TargetTemp
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2675878283752012276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3444446636967156980}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.42, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4930622058690186057}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5150264944602767714
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4560680614391934224
 RectTransform:
   m_ObjectHideFlags: 0
@@ -409,6 +470,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4156783170970249243}
   m_SourcePrefab: {fileID: 100100000, guid: aa198d46caba1444b86c03c0df504531, type: 3}
+--- !u!1 &5455420997966218425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5457473432743275333, guid: aa198d46caba1444b86c03c0df504531, type: 3}
+  m_PrefabInstance: {fileID: 9220738353074229250}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8302330371912133971 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: aa198d46caba1444b86c03c0df504531, type: 3}

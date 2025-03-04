@@ -7,10 +7,11 @@ public class MBSBasicNavigationGUy : MonoBehaviour
     [SerializeField] Transform[] trnWaypoint;
     public NavMeshAgent agent;
     public Animator anim;
-    [SerializeField] Transform trnCurrentTarget;
+    public Transform trnCurrentTarget;
     [SerializeField] float fltDistance;
     [SerializeField] float fltChanceIdle;
     [SerializeField] float fltDelay;
+    [SerializeField] float fltDelayLongstop;
     public float fltDelayCount;
     public bool isWaiting;
     [SerializeField] float fltVariationInTarget=3f;
@@ -20,7 +21,15 @@ public class MBSBasicNavigationGUy : MonoBehaviour
 
     [Header ("Crimnal Variables")]
     public bool isCriminal;
+    public bool[] isCriminalWaypointReached;
     [SerializeField] float fltMoveAdvance =.3f;
+    [SerializeField] float fltRandomSelectiontoAdvance;
+
+    public Vector3 vecNavTarget;
+
+
+    [Header("NeerdoWell")]
+    public bool isNeerdoWell;
     
   
 
@@ -49,27 +58,48 @@ public class MBSBasicNavigationGUy : MonoBehaviour
         if (isWanderingMode)
         {
             // if stationary, count before changing waypoiubt
+            fltDistancetoTarget = (trnCurrentTarget.position - transform.position).magnitude;
+
+            if ((vecNavTarget - transform.position).magnitude < fltDistancetoTarget)
+            {
+                fltDistancetoTarget = (vecNavTarget - transform.position).magnitude;
+            }
 
 
-            fltDelayCount += Time.deltaTime;
+         
+
+          //  if (fltDelayCount > fltDelayLongstop)
+            //{
+          //      FnWaypointUpdatequery();
+           // }
 
 
-            if (isWaiting)
+         /*   if (isWaiting)
             {
                 if (fltDelayCount > fltDelay)
                 {
                     FnWaypointUpdatequery();
+                    isWaiting = false;
                 }
 
             }
             else
             {
-                if ((trnCurrentTarget.position - transform.position).magnitude < fltDistance)
+         */
+                if (fltDistancetoTarget < fltDistance)
                 {
-                    FnWaypointUpdatequery();
+                    fltDelayCount += Time.deltaTime;
+
+                    if (fltDelayCount > fltDelay)
+                    {
+                        FnWaypointUpdatequery();
+                        isWaiting = false;
+                    }
+
+                  
 
                 }
-            }
+            //}
 
 
         }
@@ -82,15 +112,19 @@ public class MBSBasicNavigationGUy : MonoBehaviour
 
         if (Random.Range(0, 1f) < fltChanceIdle)
         {
-            isWaiting = true;
+          
             agent.SetDestination(transform.position);
+            trnCurrentTarget = transform;
             fltDelayCount = 0;
             anim.SetBool("Still",true);
+
+
         }
         else
         {
-            isWaiting = false;
+            //isWaiting = false;
             FnWaypointUpdate();
+            fltDelayCount = 0;
 
         }
 
@@ -98,14 +132,13 @@ public class MBSBasicNavigationGUy : MonoBehaviour
 
     public void FnWaypointUpdate()
     {
-        
-        
+
        
 
-        
-        
 
-        
+
+
+
  int intNewWaypointTmp = Random.Range(0,trnWaypoint.Length);
     trnCurrentTarget = trnWaypoint[intNewWaypointTmp];
 
@@ -134,12 +167,17 @@ public class MBSBasicNavigationGUy : MonoBehaviour
 
     public void FnCriminalMove()
     {
-        if (Random.RandomRange(0, 1f) < fltMoveAdvance)
+
+        fltRandomSelectiontoAdvance = Random.Range(0f, 1.0f);
+        
+        if (fltRandomSelectiontoAdvance < fltMoveAdvance)
         {
 
             GetComponent<MBSCriminalUnID>().FnCriminalMoveUpdate();
 
             trnCurrentTarget = GetComponent<MBSCriminalUnID>().trnNewTarget;
+            agent.SetDestination(trnCurrentTarget.position);
+
         }
     }
 

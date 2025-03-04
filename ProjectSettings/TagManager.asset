@@ -8,6 +8,7 @@ TagManager:
   - Neerdowelll
   - Police
   - Crowd
+  - CriminalWaypoint
   layers:
   - Default
   - TransparentFX
