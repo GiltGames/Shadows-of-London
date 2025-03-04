@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using UnityEngine.Android;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     float moveSpeed;
     [SerializeField] float walkSpeed = 4f;
     [SerializeField] float runSpeed = 10f;
+    [SerializeField] float crouchSpeed = 2f;
     [SerializeField] float jumpForce = 2;
     [SerializeField] float gravity = 10f;
     //float mouseSensitivity = 7f;
@@ -18,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveDirection;
     CharacterController controller;
     bool isRunning = false;
+    [SerializeField] bool isCrouching = false;
 
     float minJumpStamina = 30;
     float minRunStamina = 10;
@@ -124,9 +127,16 @@ public class PlayerMovement : MonoBehaviour
             isRunning = false;
         }
 
+        // crouch or uncrouch when left control is pressed
+        if(Input.GetKeyDown(KeyCode.LeftControl)) 
+            { 
+                isCrouching = !isCrouching; 
+                anim.SetBool("isCrouching", isCrouching);
+                if (isCrouching) anim.SetTrigger("crouchDown");
+            }            
+
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
         
-
 
         #endregion
 
