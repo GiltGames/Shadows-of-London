@@ -40,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
         //playerCamera = Camera.main;
 
         Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Locked;
 
         moveSpeed = walkSpeed;
     }
