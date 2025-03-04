@@ -71,6 +71,9 @@ public class PlayerMovement : MonoBehaviour
 
             // rotate player based on horizontal input
             transform.Rotate(0, horizontalInput * rotationSpeed, 0);
+            //if(horizontalInput != 0) anim.SetBool("isTurning", true); 
+
+            // set walking and running animation states while turning
             if(horizontalInput != 0 && !isRunning) anim.SetBool("isWalking", true); 
             if(horizontalInput != 0 && isRunning) anim.SetBool("isRunning", true);
 

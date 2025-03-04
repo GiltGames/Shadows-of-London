@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,6 +15,7 @@ public class MBSArrestGuy : MonoBehaviour
     [SerializeField] Transform trnCustodyLocation;
   
     [SerializeField] bool isArrested;
+    [SerializeField] TMP_Text txtSpeech;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -96,6 +98,8 @@ public class MBSArrestGuy : MonoBehaviour
 
         mbsClosestPolice.isArresting = true;
         mbsClosestPolice.trnPersonArrested = transform;
+
+        txtSpeech.text = "Arrested by "+ trnClosestPolice.name;
 
         isArrested = true;
 
