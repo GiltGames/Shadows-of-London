@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class RaycastPlayer : MonoBehaviour
 {
     public Camera playerCamera;
@@ -8,7 +7,7 @@ public class RaycastPlayer : MonoBehaviour
 
     void Start()
     {
-        playerCamera = GetComponentInParent<Camera>();
+        
     }
 
     void Update()
