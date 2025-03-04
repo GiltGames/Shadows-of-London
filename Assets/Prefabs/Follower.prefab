@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 8793095116225054740}
   - component: {fileID: 4023280467010996174}
   - component: {fileID: 8933344897331538713}
-  - component: {fileID: 5785125609528539748}
   - component: {fileID: 8868490079766842378}
+  - component: {fileID: 3156376847717183677}
   m_Layer: 0
   m_Name: Follower
-  m_TagString: Untagged
+  m_TagString: Crowd
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,11 +94,11 @@ NavMeshAgent:
   m_GameObject: {fileID: 5555045944410825923}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Radius: 1
+  m_Speed: 2
+  m_Acceleration: 2
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 180
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -107,34 +107,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5785125609528539748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5555045944410825923}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Graph: {fileID: 7607215683958134166, guid: 58f5a6528ab565742828dc4e9e4fa8e1, type: 2}
-  m_BlackboardVariableOverridesList:
-  - rid: 988907431220216415
-  m_IsInitialised: 0
-  m_IsStarted: 0
-  references:
-    version: 2
-    RefIds:
-    - rid: 988907431220216415
-      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 1
-          m_Value1: 0
-        Name: Self
-        m_Value: {fileID: 5555045944410825923}
 --- !u!114 &8868490079766842378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +125,29 @@ MonoBehaviour:
   fltDistance: 1.5
   isWaiting: 0
   mbsParentNav: {fileID: 0}
+  isWanderingMode: 1
+--- !u!114 &3156376847717183677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5555045944410825923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df5fcc93561dfee4899fb9fd54178f6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mbsPoliceGuy: []
+  fltDistance: 4
+  trnClosestPolice: {fileID: 0}
+  mbsClosestPolice: {fileID: 0}
+  mbsClosePoliceNav: {fileID: 0}
+  mbsClosePoliceNavFollow: {fileID: 0}
+  mbsNav: {fileID: 0}
+  mbsFollower: {fileID: 0}
+  trnCustodyLocation: {fileID: 0}
+  isArrested: 0
 --- !u!1001 &3363533714862207082
 PrefabInstance:
   m_ObjectHideFlags: 0
