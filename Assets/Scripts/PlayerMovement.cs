@@ -132,7 +132,12 @@ public class PlayerMovement : MonoBehaviour
             { 
                 isCrouching = !isCrouching; 
                 anim.SetBool("isCrouching", isCrouching);
-                if (isCrouching) anim.SetTrigger("crouchDown");
+                if (isCrouching) 
+                {
+                    anim.SetTrigger("crouchDown");
+                    moveSpeed = crouchSpeed;
+                }
+                if(!isCrouching) moveSpeed = walkSpeed;
             }            
 
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
