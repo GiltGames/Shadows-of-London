@@ -139,8 +139,8 @@ public class MBSBasicNavigationGUy : MonoBehaviour
 
 
 
- int intNewWaypointTmp = Random.Range(0,trnWaypoint.Length);
-    trnCurrentTarget = trnWaypoint[intNewWaypointTmp];
+            int intNewWaypointTmp = Random.Range(0,trnWaypoint.Length);
+          trnCurrentTarget = trnWaypoint[intNewWaypointTmp];
 
         fltDistancetoTarget = (trnCurrentTarget.position - transform.position).magnitude;
         if (fltDistancetoTarget > fltMoveRange)
@@ -179,6 +179,24 @@ public class MBSBasicNavigationGUy : MonoBehaviour
             agent.SetDestination(trnCurrentTarget.position);
 
         }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other != null)
+        {
+            if (other.tag == "OOB")
+
+            {
+               
+                
+                FnWaypointUpdate();
+            }
+
+        }
+
+
     }
 
 

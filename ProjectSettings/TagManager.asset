@@ -9,6 +9,7 @@ TagManager:
   - Police
   - Crowd
   - CriminalWaypoint
+  - OOB
   layers:
   - Default
   - TransparentFX
