@@ -16,6 +16,13 @@ public class MBSArrestGuy : MonoBehaviour
   
     [SerializeField] bool isArrested;
     [SerializeField] TMP_Text txtSpeech;
+    [SerializeField] float fltReacttoPoliceDistance;
+    [SerializeField] Transform trnTargetTemp;
+    [SerializeField] float fltWalkAwayDistance;
+    [SerializeField] float fltEvadeTimer;
+    [SerializeField] float fltEvadeInterval;
+    [SerializeField] float fltClosestDistanceforEvade;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -38,7 +45,24 @@ public class MBSArrestGuy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (mbsNav != null)
+        {
+            if (!isArrested)
+            {
+
+                if (mbsNav.isCriminal || mbsNav.isNeerdoWell)
+                {
+                    fltEvadeTimer += Time.deltaTime;
+                    if (fltEvadeTimer > fltEvadeInterval)
+                    {
+                        fltEvadeTimer = 0;
+                        FnEvade();
+                    }
+                }
+            }
+        }
+
     }
 
     private void OnMouseOver()
@@ -117,8 +141,9 @@ public class MBSArrestGuy : MonoBehaviour
             mbsNav.agent.SetDestination(trnCustodyLocation.position);
             mbsNav.anim.SetBool("Still", false);
 
-            mbsNav.isWaiting = true;
+            mbsNav.isWaiting = false;
             mbsNav.isWanderingMode = false;
+            mbsNav.fltDelayCount = 0;
             
         }
 
@@ -135,5 +160,44 @@ public class MBSArrestGuy : MonoBehaviour
        
     }
 
+
+    void FnEvade()
+    {
+
+
+
+        fltClosestDistanceforEvade = 1000;
+        foreach (MBSPoliceGuy policeman in mbsPoliceGuy)
+        {
+
+
+            Vector3 vectortmp = (policeman.transform.position - transform.position);
+            if (vectortmp.magnitude < fltReacttoPoliceDistance && vectortmp.magnitude < fltClosestDistanceforEvade)
+            {
+                trnClosestPolice = policeman.transform;
+                fltClosestDistanceforEvade = vectortmp.magnitude;
+
+            }
+
+        }
+
+        if (fltClosestDistanceforEvade < 900)
+        {
+            trnTargetTemp.position = transform.position+ (trnClosestPolice.position - transform.position).normalized * - fltWalkAwayDistance;
+
+            mbsNav.trnCurrentTarget = trnTargetTemp;
+            mbsNav.agent.SetDestination(trnTargetTemp.position);
+            mbsNav.vecNavTarget = trnTargetTemp.position;
+            GetComponent<MBSCriminalUnID>().isTryingtoMakeProgress = false;
+            
+            mbsNav.anim.SetBool("Still" ,false);
+            mbsNav.isWaiting = false;   
+
+        }
+
+        
+
+
+    }
 
 }
