@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float gravity = 10f;
     //float mouseSensitivity = 7f;
     [SerializeField] float lookXlimit = 60f;
-    float rotationSpeed = 5.0f;
+    float rotationSpeed = 2.0f;
     Vector3 moveDirection;
     CharacterController controller;
     bool isRunning = false;
@@ -40,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
         //playerCamera = Camera.main;
 
         Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Locked;
 
         moveSpeed = walkSpeed;
     }
