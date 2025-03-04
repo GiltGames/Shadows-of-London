@@ -15,6 +15,12 @@ public class MBSBasicNavigationGUy : MonoBehaviour
     public bool isWaiting;
     [SerializeField] float fltVariationInTarget=3f;
     public bool isWanderingMode;
+    [SerializeField] float fltDistancetoTarget;
+    [SerializeField] float fltMoveRange = 30f;
+
+    [Header ("Crimnal Variables")]
+    public bool isCriminal;
+    [SerializeField] float fltMoveAdvance =.3f;
     
   
 
@@ -26,6 +32,12 @@ public class MBSBasicNavigationGUy : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         trnCurrentTarget = transform;
         isWanderingMode = true;
+
+        if (GetComponent<MBSCriminalUnID>()  != null )
+        {
+            isCriminal = true;
+
+        }
 
     }
 
@@ -88,18 +100,48 @@ public class MBSBasicNavigationGUy : MonoBehaviour
     {
         
         
-        int intNewWaypointTmp = Random.Range(0,trnWaypoint.Length); 
+       
 
-        trnCurrentTarget = trnWaypoint[intNewWaypointTmp];
+        
+        
+
+        
+ int intNewWaypointTmp = Random.Range(0,trnWaypoint.Length);
+    trnCurrentTarget = trnWaypoint[intNewWaypointTmp];
+
+        fltDistancetoTarget = (trnCurrentTarget.position - transform.position).magnitude;
+        if (fltDistancetoTarget > fltMoveRange)
+        {
+            trnCurrentTarget = transform;
+        }
+
+
+
+
 
         Vector3 fltOffsetTmp = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)) * fltVariationInTarget;
 
         agent.SetDestination(trnCurrentTarget.position + fltOffsetTmp);
         anim.SetBool("Still", false);
 
-
+        if (isCriminal)
+        {
+            FnCriminalMove();
+        }
 
 
     }
+
+    public void FnCriminalMove()
+    {
+        if (Random.RandomRange(0, 1f) < fltMoveAdvance)
+        {
+
+            GetComponent<MBSCriminalUnID>().FnCriminalMoveUpdate();
+
+            trnCurrentTarget = GetComponent<MBSCriminalUnID>().trnNewTarget;
+        }
+    }
+
 
 }

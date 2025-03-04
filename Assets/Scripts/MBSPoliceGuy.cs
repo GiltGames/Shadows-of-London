@@ -31,17 +31,19 @@ public class MBSPoliceGuy : MonoBehaviour
     if (isArresting)
         {
 
+            Vector3 vecArrest = trnPersonArrested.position;
+
             txtSpeech.text = "On the case, ma'am";
             if (mbsNav != null)
             {
 
-                mbsNav.agent.SetDestination(trnPersonArrested.position);
+                mbsNav.agent.SetDestination(vecArrest);
                 mbsNav.agent.speed = fltRunSpeed;
             }
 
             if (mbsNavFollow!= null)
             {
-                mbsNavFollow.agent.SetDestination(trnPersonArrested.position);
+                mbsNavFollow.agent.SetDestination(vecArrest);
                 mbsNavFollow.agent.speed = fltRunSpeed;
 
             }
@@ -69,12 +71,14 @@ public class MBSPoliceGuy : MonoBehaviour
         isHasSomeoneInCustody = true;
         txtSpeech.text = "Got you bang to rights";
 
+        Vector3 vecCustody = trnCustodyLocation.position;
+
         // ACTIONS ON THE POLICEMAN 
 
         if (mbsNav != null)
         {
             mbsNav.anim.SetBool("Run", false);
-            mbsNav.agent.SetDestination(trnCustodyLocation.position);
+            mbsNav.agent.SetDestination(vecCustody);
             mbsNav.anim.SetBool("Still", false);
             mbsNav.isWaiting = false;
             mbsNav.isWanderingMode = false;
@@ -85,7 +89,7 @@ public class MBSPoliceGuy : MonoBehaviour
         {
             mbsNavFollow.anim.SetBool("Run", false);
            
-            mbsNavFollow.agent.SetDestination(trnCustodyLocation.position);
+            mbsNavFollow.agent.SetDestination(vecCustody);
             mbsNavFollow.anim.SetBool("Still", false);
             mbsNavFollow.isWaiting = false;
             mbsNavFollow.isWanderingMode = false;

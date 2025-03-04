@@ -158,6 +158,7 @@ MonoBehaviour:
   mbsFollower: {fileID: 0}
   trnCustodyLocation: {fileID: 0}
   isArrested: 0
+  txtSpeech: {fileID: 1314373905238706336}
 --- !u!1 &5150264944602767714
 GameObject:
   m_ObjectHideFlags: 0
