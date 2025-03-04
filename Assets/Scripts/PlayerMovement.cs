@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float gravity = 10f;
     //float mouseSensitivity = 7f;
     [SerializeField] float lookXlimit = 60f;
-    float rotationSpeed = 5.0f;
+    float rotationSpeed = 2.0f;
     Vector3 moveDirection;
     CharacterController controller;
     bool isRunning = false;
@@ -40,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
         //playerCamera = Camera.main;
 
         Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Locked;
 
         moveSpeed = walkSpeed;
     }
@@ -72,6 +71,9 @@ public class PlayerMovement : MonoBehaviour
 
             // rotate player based on horizontal input
             transform.Rotate(0, horizontalInput * rotationSpeed, 0);
+            //if(horizontalInput != 0) anim.SetBool("isTurning", true); 
+
+            // set walking and running animation states while turning
             if(horizontalInput != 0 && !isRunning) anim.SetBool("isWalking", true); 
             if(horizontalInput != 0 && isRunning) anim.SetBool("isRunning", true);
 
