@@ -5,8 +5,8 @@ public class MBSBasicNavigationGUy : MonoBehaviour
 {
     [Header ("Navigation")]
     [SerializeField] Transform[] trnWaypoint;
-    [SerializeField] NavMeshAgent agent;
-    [SerializeField] Animator anim;
+    public NavMeshAgent agent;
+    public Animator anim;
     [SerializeField] Transform trnCurrentTarget;
     [SerializeField] float fltDistance;
     [SerializeField] float fltChanceIdle;
