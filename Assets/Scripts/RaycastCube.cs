@@ -6,15 +6,14 @@ using Unity.VisualScripting;
 public class RaycastCube : MonoBehaviour
 {
     private Vector3 initialScale;
-    //public Material glow;
     private Renderer objectRenderer;
     private Color originalColor;
-
+    [SerializeField] GameObject renderTarget;
     Color mouseOverColor = Color.yellow;
 
     private void Start()
     {
-        objectRenderer = GetComponent<Renderer>();
+        objectRenderer = renderTarget.GetComponent<Renderer>();
     }
     private void Awake()
     {
@@ -34,7 +33,7 @@ public class RaycastCube : MonoBehaviour
     private void OnMouseExit()
     {
         IncreaseScale(false);
-        objectRenderer.material.color = Color.white;
+        objectRenderer.material.color = originalColor;
     }
     private void IncreaseScale(bool status)
     {
