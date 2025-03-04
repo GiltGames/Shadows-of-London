@@ -5,14 +5,16 @@ public class MBSBasicNavigationGUy : MonoBehaviour
 {
     [Header ("Navigation")]
     [SerializeField] Transform[] trnWaypoint;
-    [SerializeField] NavMeshAgent agent;
-    [SerializeField] Animator anim;
+    public NavMeshAgent agent;
+    public Animator anim;
     [SerializeField] Transform trnCurrentTarget;
     [SerializeField] float fltDistance;
     [SerializeField] float fltChanceIdle;
     [SerializeField] float fltDelay;
     public float fltDelayCount;
     public bool isWaiting;
+    [SerializeField] float fltVariationInTarget=3f;
+    public bool isWanderingMode;
     
   
 
@@ -23,38 +25,42 @@ public class MBSBasicNavigationGUy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
         trnCurrentTarget = transform;
-      
+        isWanderingMode = true;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        // if stationary, count before changing waypoiubt
+       
+        // only use this script to set destinations if wanderingmode is on, which it is by default 
+        if (isWanderingMode)
+        {
+            // if stationary, count before changing waypoiubt
 
-      
+
             fltDelayCount += Time.deltaTime;
 
 
-        if (isWaiting)
-        {
-            if (fltDelayCount > fltDelay)
+            if (isWaiting)
             {
-                FnWaypointUpdatequery();
-            }
-
-        }
-        else
-        {
-            if ((trnCurrentTarget.position - transform.position).magnitude < fltDistance)
-            {
-                FnWaypointUpdatequery();
+                if (fltDelayCount > fltDelay)
+                {
+                    FnWaypointUpdatequery();
+                }
 
             }
+            else
+            {
+                if ((trnCurrentTarget.position - transform.position).magnitude < fltDistance)
+                {
+                    FnWaypointUpdatequery();
+
+                }
+            }
+
+
         }
-
-
-
     }
 
     
@@ -86,7 +92,9 @@ public class MBSBasicNavigationGUy : MonoBehaviour
 
         trnCurrentTarget = trnWaypoint[intNewWaypointTmp];
 
-        agent.SetDestination(trnCurrentTarget.position);
+        Vector3 fltOffsetTmp = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)) * fltVariationInTarget;
+
+        agent.SetDestination(trnCurrentTarget.position + fltOffsetTmp);
         anim.SetBool("Still", false);
 
 
