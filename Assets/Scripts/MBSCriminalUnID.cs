@@ -9,6 +9,7 @@ public class MBSCriminalUnID : MonoBehaviour
     [SerializeField] Animator anim;
     [SerializeField] GameObject gmoAura;
     [SerializeField] bool isDetectable;
+    [SerializeField] int intHintType;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,7 +33,10 @@ public class MBSCriminalUnID : MonoBehaviour
         }
 
 
-
+        if (isDetectable)
+        {
+            FnClueGive();
+        }
 
     }
 
@@ -53,5 +57,22 @@ public class MBSCriminalUnID : MonoBehaviour
     {
         gmoAura.SetActive(false);
     }
+
+    void FnClueGive()
+    {
+        // different effect depending on type of clue
+        switch (intHintType)
+        {
+            case 0:
+
+
+                break;
+
+
+
+        }
+
+    }
+
 
 }
