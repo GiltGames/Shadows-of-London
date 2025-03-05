@@ -550,6 +550,9 @@ MonoBehaviour:
   trnCustodyLocation: {fileID: 0}
   isArrested: 0
   txtSpeech: {fileID: 4563726008442474874}
+  fltSpeechTime: 1.5
+  fltSpeechCounter: 0
+  gmoSpeech: {fileID: 3490753507314473795}
   playerCamera: {fileID: 0}
   lineRange: 50
   gmoHighlight: {fileID: 422508964776726600}
