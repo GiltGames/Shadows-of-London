@@ -1,7 +1,6 @@
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
 
 public class AddToInventory : MonoBehaviour
 {
