@@ -5,13 +5,15 @@ using Unity.VisualScripting;
 
 public class RaycastCube : MonoBehaviour
 {
-    public List<GameObject> evidence;
+    public Material bloodYellow;
+    public Material originalMaterial;
 
     private Vector3 initialScale;
     private Renderer objectRenderer;
     private Color originalColor;
     [SerializeField] GameObject renderTarget;
     Color mouseOverColor = Color.yellow;
+    
 
     public bool evidence1, evidence2, evidence3, evidence4, evidence5, evidence6;
 
@@ -75,13 +77,13 @@ public class RaycastCube : MonoBehaviour
     private void OnMouseEnter()
     {
         IncreaseScale(true);
-        objectRenderer.material.color = Color.yellow;
+        objectRenderer.material = bloodYellow;
         Debug.Log("Hover enter.");
     }
     private void OnMouseExit()
     {
         IncreaseScale(false);
-        objectRenderer.material.color = originalColor;
+        objectRenderer.material = originalMaterial;
         Debug.Log("Hover exit.");
     }
     private void IncreaseScale(bool status)
