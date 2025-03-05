@@ -146,10 +146,8 @@ public class PlayerMovement : MonoBehaviour
                 if(!isCrouching) moveSpeed = walkSpeed;
             }            
 
-        if (playerPickingScript.isPickingUp == false)
-        {
-            controller.Move(moveDirection * moveSpeed * Time.deltaTime);
-        }
+
+        controller.Move(moveDirection * moveSpeed * Time.deltaTime);
 
         #endregion
 
