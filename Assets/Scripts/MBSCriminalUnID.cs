@@ -17,14 +17,20 @@ public class MBSCriminalUnID : MonoBehaviour
     public bool isInCustody;
     public bool isTryingtoMakeProgress;
 
+    [SerializeField] Transform[] trnWayPointinWorld;
+    [SerializeField]
+    Transform[] trnWayPointinRange;
+
 
     [Header ("Criminal Move")]
     public Transform trnNewTarget;
     [SerializeField] Transform[] trnWayPointsCriminal;
-  
+    public float[] fltTimetoMovetoCriminalWaypoint;
     public int intCriminalProgress;
+    [SerializeField] Timer mbsTimer;
+    public bool isEscaping;
 
-   
+
 
 
 
@@ -37,6 +43,16 @@ public class MBSCriminalUnID : MonoBehaviour
      
         mbsNav.isWanderingMode = true;
         mbsArrest = GetComponent<MBSArrestGuy>();
+
+        mbsTimer = FindFirstObjectByType<Timer>(); 
+
+        for (int i = 0; i<mbsNav.trnWaypoint.Length; i++)
+        {
+            trnWayPointinRange[i] = mbsNav.trnWaypoint[i];
+
+        }
+       
+
        
     }
 
@@ -133,12 +149,69 @@ public class MBSCriminalUnID : MonoBehaviour
 
     public void FnCriminalMoveUpdate()
     {
-        trnNewTarget = transform;
+        
 
 
-     
-        if (intCriminalProgress > trnWayPointsCriminal.Length)
+
+        for (int i = 0; i < trnWayPointsCriminal.Length; i++)
         {
+            if (mbsTimer.timeLeft < fltTimetoMovetoCriminalWaypoint[i])
+            {
+                trnNewTarget = trnWayPointsCriminal[intCriminalProgress];
+                intCriminalProgress = i;
+
+            }
+
+            
+        }
+
+
+        foreach (Transform possibleWayPoint in trnWayPointinWorld)
+        {
+            float dist = (possibleWayPoint.position - transform.position).magnitude;
+
+            if (dist < (trnWayPointinRange[0].position - transform.position).magnitude)
+            {
+                trnWayPointinRange[0] = possibleWayPoint;
+
+            }
+
+            else if (dist < (trnWayPointinRange[1].position - transform.position).magnitude)
+            {
+                trnWayPointinRange[1] = possibleWayPoint;
+
+            }
+
+            else if (dist < (trnWayPointinRange[2].position - transform.position).magnitude)
+            {
+                trnWayPointinRange[2] = possibleWayPoint;
+
+            }
+            else if (dist < (trnWayPointinRange[3].position - transform.position).magnitude)
+            {
+                trnWayPointinRange[3] = possibleWayPoint;
+
+            }
+
+            else if (dist < (trnWayPointinRange[4].position - transform.position).magnitude)
+            {
+                trnWayPointinRange[4] = possibleWayPoint;
+
+            }
+
+
+        }
+
+        for (int i = 0; i < trnWayPointinRange.Length; i++)
+        {
+            mbsNav.trnWaypoint[i] = trnWayPointinRange[i];
+
+        }
+
+        if (intCriminalProgress == trnWayPointsCriminal.Length-1)
+        {
+
+
             //Gets away
             FnEscape();
         }
@@ -156,14 +229,20 @@ public class MBSCriminalUnID : MonoBehaviour
 
     void FnEscape()
     {
-        Destroy(gameObject);
+        isEscaping = true;
 
+
+    }
+
+    public void FnGotAway()
+    {
+        Destroy(gameObject);
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
+    /*    No longer used
         if (other.tag == "CriminalWaypoint")
         {
           int indexTmp = other.GetComponent<MBSCriminalWaypoint>().intWaypointIndex;
@@ -174,7 +253,7 @@ public class MBSCriminalUnID : MonoBehaviour
             }
 
         }
-
+    */
     }
 
 

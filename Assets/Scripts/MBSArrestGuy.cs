@@ -13,9 +13,15 @@ public class MBSArrestGuy : MonoBehaviour
    [SerializeField] MBSBasicNavigationGUy mbsNav;
     [SerializeField] MBSFollowerGuy mbsFollower;
     [SerializeField] Transform trnCustodyLocation;
-  
+  [Header ("Arrest")]
     [SerializeField] bool isArrested;
     [SerializeField] TMP_Text txtSpeech;
+ public Camera playerCamera;
+    public float lineRange = 50f;
+    public static Vector3 hitPosition;
+    [SerializeField] GameObject gmoHighlight;
+
+    [Header("Evade")]
     [SerializeField] float fltReacttoPoliceDistance;
     [SerializeField] Transform trnTargetTemp;
     [SerializeField] float fltWalkAwayDistance;
@@ -23,7 +29,8 @@ public class MBSArrestGuy : MonoBehaviour
     [SerializeField] float fltEvadeInterval;
     [SerializeField] float fltClosestDistanceforEvade;
 
-
+    
+   
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -61,8 +68,47 @@ public class MBSArrestGuy : MonoBehaviour
                     }
                 }
             }
+
+           
         }
 
+        if (!isArrested)
+        {
+
+            Vector3 mousePos = Input.mousePosition;
+
+           
+                RaycastHit hit;
+                Ray ray = playerCamera.ScreenPointToRay(mousePos);
+
+                if (Physics.Raycast(ray, out hit, lineRange))
+                {
+                    if (hit.collider.transform == transform)
+                    {
+                    gmoHighlight.SetActive(true);
+
+                    if (Input.GetMouseButtonDown(1))
+                    {
+
+                        FnArrested();
+                    }
+
+
+                    }
+
+                    else
+                {
+                    gmoHighlight.SetActive(false);
+                }
+
+                    hitPosition = hit.point;
+                    //Debug.Log("Hit position " + hit.point);
+                    Debug.Log("Hit object: " + hit.collider.name);
+                }
+
+            
+
+        }
     }
 
     private void OnMouseOver()
