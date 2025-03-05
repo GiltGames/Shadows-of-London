@@ -6,37 +6,41 @@ using UnityEngine.Android;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //private Camera playerCamera;
-    Animator anim;
+    [Header ("Movement variables")]
     float moveSpeed;
     [SerializeField] float walkSpeed = 4f;
     [SerializeField] float runSpeed = 10f;
     [SerializeField] float crouchSpeed = 2f;
     [SerializeField] float jumpForce = 2;
     [SerializeField] float gravity = 10f;
-    //float mouseSensitivity = 7f;
-    [SerializeField] float lookXlimit = 60f;
     float rotationSpeed = 2.0f;
     Vector3 moveDirection;
-    CharacterController controller;
-    bool isRunning = false;
-    [SerializeField] bool isCrouching = false;
 
+    [Header ("Stamina variables")]
     float minJumpStamina = 30;
     float minRunStamina = 10;
     public float stamina = 100f;
     public float staminaDrainSpeed = 40f;
     public Image staminaBar;
+    bool isRunning = false;
 
-    public float health = 100f;
-    public Image healthBar;
+    //public float health = 100f;
+    //public Image healthBar;
 
+    [Header ("Components")]
+    Animator anim;
+    CharacterController controller;
+    PlayerPickingUp playerPickingScript;
+
+    [Header ("Booleans")]
     public bool gameOver = false;
+    bool isCrouching = false;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponentInChildren<Animator>();
+        playerPickingScript = GetComponent<PlayerPickingUp>();
         //playerCamera = Camera.main;
 
         Cursor.visible = true;
@@ -142,8 +146,10 @@ public class PlayerMovement : MonoBehaviour
                 if(!isCrouching) moveSpeed = walkSpeed;
             }            
 
-        controller.Move(moveDirection * moveSpeed * Time.deltaTime);
-        
+        if (playerPickingScript.isPickingUp == false)
+        {
+            controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+        }
 
         #endregion
 
@@ -154,17 +160,17 @@ public class PlayerMovement : MonoBehaviour
         staminaBar.fillAmount = stamina / 100f;
     }
 
-    public void TakeDamage()
-    {
-        health -= 10f;
-        Debug.Log("health = " + health);
-        healthBar.fillAmount = health / 100f;
-        if(health <= 0)
-        {
-            gameOver = true;
-            Debug.Log("game over");
-        }
-    }
+    // public void TakeDamage()
+    // {
+    //     health -= 10f;
+    //     Debug.Log("health = " + health);
+    //     healthBar.fillAmount = health / 100f;
+    //     if(health <= 0)
+    //     {
+    //         gameOver = true;
+    //         Debug.Log("game over");
+    //     }
+    // }
 
     // IEnumerator TurnAnimTrigger()
     // {
