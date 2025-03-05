@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class MBSCriminalUnID : MonoBehaviour
 {
     [SerializeField] MBSBasicNavigationGUy mbsNav;
+    [SerializeField] AddToInventory mbsInventory;
     [SerializeField] MBSArrestGuy mbsArrest;
     [SerializeField] MBSArrestUpdateUI mbsArrestUpdateUI;
     [SerializeField] bool isPretendingToBeCrowd;
@@ -13,7 +14,7 @@ public class MBSCriminalUnID : MonoBehaviour
     [SerializeField] bool isDetectable;
     [SerializeField] int intHintType;
     public bool isArrested;
-    public int intCriminalIndex;
+
     public bool isInCustody;
     public bool isTryingtoMakeProgress;
 
@@ -22,7 +23,7 @@ public class MBSCriminalUnID : MonoBehaviour
     Transform[] trnWayPointinRange;
 
 
-    [Header ("Criminal Move")]
+    [Header("Criminal Move")]
     public Transform trnNewTarget;
     [SerializeField] Transform[] trnWayPointsCriminal;
     public float[] fltTimetoMovetoCriminalWaypoint;
@@ -30,8 +31,10 @@ public class MBSCriminalUnID : MonoBehaviour
     [SerializeField] Timer mbsTimer;
     public bool isEscaping;
 
-
-
+    [Header("Clue Related")]
+    public int intCriminalIndex;
+    public GameObject[] gmoHint;
+    public int[] intClue;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -40,46 +43,53 @@ public class MBSCriminalUnID : MonoBehaviour
         mbsNav = GetComponent<MBSBasicNavigationGUy>();
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
-     
+
         mbsNav.isWanderingMode = true;
         mbsArrest = GetComponent<MBSArrestGuy>();
 
-        mbsTimer = FindFirstObjectByType<Timer>(); 
+        mbsTimer = FindFirstObjectByType<Timer>();
 
-        for (int i = 0; i<mbsNav.trnWaypoint.Length; i++)
+        for (int i = 0; i < mbsNav.trnWaypoint.Length; i++)
         {
             trnWayPointinRange[i] = mbsNav.trnWaypoint[i];
 
         }
-       
 
-       
+
+        // intClue[i] = i by default but we set up so it can be randmoised
+        for (int i = 0; i < intClue.Length; i++)
+        {
+            intClue[i] = i;
+        }
+
+
+
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-
-        if (isDetectable)
+        if (!isDetectable)
         {
-            FnClueGive();
+            FnCheckIfClueFound();
+            
         }
-
 
 
 
 
     }
 
-    private void OnMouseEnter()
+    private void OnMouseStay()
     {
-       
+
         if (Input.GetMouseButtonDown(1))
         {
             FnArrest();
         }
-        
+
 
         // highlights not needed now
         /*
@@ -122,11 +132,11 @@ public class MBSCriminalUnID : MonoBehaviour
     void FnArrest()
     {
         //Update the UI
-       
+
 
         mbsArrestUpdateUI.FnArrestUpdateUI(intCriminalIndex);
         // Call the arrest animation
-      
+
 
         //Stop moving....
         /*
@@ -136,7 +146,7 @@ public class MBSCriminalUnID : MonoBehaviour
         */
     }
 
-   
+
 
 
     void FnEvade()
@@ -149,7 +159,7 @@ public class MBSCriminalUnID : MonoBehaviour
 
     public void FnCriminalMoveUpdate()
     {
-        
+
 
 
 
@@ -162,7 +172,7 @@ public class MBSCriminalUnID : MonoBehaviour
 
             }
 
-            
+
         }
 
 
@@ -208,7 +218,7 @@ public class MBSCriminalUnID : MonoBehaviour
 
         }
 
-        if (intCriminalProgress == trnWayPointsCriminal.Length-1)
+        if (intCriminalProgress == trnWayPointsCriminal.Length - 1)
         {
 
 
@@ -221,9 +231,9 @@ public class MBSCriminalUnID : MonoBehaviour
 
 
 
-        
-        
-        
+
+
+
     }
 
 
@@ -242,19 +252,39 @@ public class MBSCriminalUnID : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-    /*    No longer used
-        if (other.tag == "CriminalWaypoint")
-        {
-          int indexTmp = other.GetComponent<MBSCriminalWaypoint>().intWaypointIndex;
-
-            if (indexTmp == intCriminalProgress)
+        /*    No longer used
+            if (other.tag == "CriminalWaypoint")
             {
-                intCriminalProgress++;
-            }
+              int indexTmp = other.GetComponent<MBSCriminalWaypoint>().intWaypointIndex;
 
-        }
-    */
+                if (indexTmp == intCriminalProgress)
+                {
+                    intCriminalProgress++;
+                }
+
+            }
+        */
     }
 
+void    FnCheckIfClueFound()
+    {
+        for (int i = 0; i < intClue.Length; i++)
+        {
+            if (mbsInventory.enemyOrder[i] == intCriminalIndex)
+            {
+                FnSwitchOnHint(intCriminalIndex);
+                isDetectable = true;
+            }
+        }
+    }
+
+
+
+    public void FnSwitchOnHint(int intHintTmp)
+    {
+        // intClue[i] = i by default but we set up so it can be randmoised
+        gmoHint[intClue[intHintTmp]].SetActive(true);
+
+    }
 
 }

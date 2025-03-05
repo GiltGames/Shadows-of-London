@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,12 +15,15 @@ public class MBSArrestGuy : MonoBehaviour
     [SerializeField] MBSFollowerGuy mbsFollower;
     [SerializeField] Transform trnCustodyLocation;
   [Header ("Arrest")]
-    [SerializeField] bool isArrested;
+    public bool isArrested;
     [SerializeField] TMP_Text txtSpeech;
+    [SerializeField] float fltSpeechTime=1.5f;
+    [SerializeField] float fltSpeechCounter;
+    [SerializeField] GameObject gmoSpeech;
  public Camera playerCamera;
     public float lineRange = 50f;
     public static Vector3 hitPosition;
-    [SerializeField] GameObject gmoHighlight;
+    public GameObject gmoHighlight;
 
     [Header("Evade")]
     [SerializeField] float fltReacttoPoliceDistance;
@@ -74,38 +78,8 @@ public class MBSArrestGuy : MonoBehaviour
 
         if (!isArrested)
         {
-
-            Vector3 mousePos = Input.mousePosition;
-
-           
-                RaycastHit hit;
-                Ray ray = playerCamera.ScreenPointToRay(mousePos);
-
-                if (Physics.Raycast(ray, out hit, lineRange))
-                {
-                    if (hit.collider.transform == transform)
-                    {
-                    gmoHighlight.SetActive(true);
-
-                    if (Input.GetMouseButtonDown(1))
-                    {
-
-                        FnArrested();
-                    }
-
-
-                    }
-
-                    else
-                {
-                    gmoHighlight.SetActive(false);
-                }
-
-                    hitPosition = hit.point;
-                    //Debug.Log("Hit position " + hit.point);
-                    Debug.Log("Hit object: " + hit.collider.name);
-                }
-
+          //  FnRayArrest();
+            
             
 
         }
@@ -113,7 +87,7 @@ public class MBSArrestGuy : MonoBehaviour
 
     private void OnMouseOver()
     {
-
+        gmoHighlight.SetActive(true);
 
 
         if (Input.GetMouseButtonDown(1) && !isArrested)
@@ -122,6 +96,12 @@ public class MBSArrestGuy : MonoBehaviour
             FnArrested();
         }
     }
+
+    private void OnMouseExit()
+    {
+        gmoHighlight.SetActive(false);
+    }
+
 
     public void FnArrested()
     {
@@ -168,8 +148,9 @@ public class MBSArrestGuy : MonoBehaviour
 
         mbsClosestPolice.isArresting = true;
         mbsClosestPolice.trnPersonArrested = transform;
-
-        txtSpeech.text = "Arrested by "+ trnClosestPolice.name;
+        gmoSpeech.SetActive(true);
+        txtSpeech.text = "You have got me, Mr  "+ trnClosestPolice.name;
+        StartCoroutine(IESpeechOff());
 
         isArrested = true;
 
@@ -243,6 +224,53 @@ public class MBSArrestGuy : MonoBehaviour
 
         
 
+
+    }
+
+
+    void FnRayArrest()
+    {
+        Vector3 mousePos = Input.mousePosition;
+
+
+        RaycastHit hit;
+        Ray ray = playerCamera.ScreenPointToRay(mousePos);
+
+        if (Physics.Raycast(ray, out hit, lineRange))
+        {
+            if (hit.collider.transform == transform)
+            {
+                gmoHighlight.SetActive(true);
+
+                if (Input.GetMouseButtonDown(1))
+                {
+
+                    FnArrested();
+                }
+
+
+            }
+
+            else
+            {
+                gmoHighlight.SetActive(false);
+            }
+
+            hitPosition = hit.point;
+            //Debug.Log("Hit position " + hit.point);
+            Debug.Log("Hit object: " + hit.collider.name);
+        }
+
+
+    }
+
+    IEnumerator IESpeechOff()
+    {
+
+
+        yield return new WaitForSeconds(fltSpeechTime);
+
+        gmoSpeech.SetActive(false);
 
     }
 
