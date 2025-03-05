@@ -4,7 +4,8 @@ using UnityEngine.AI;
 public class MBSBasicNavigationGUy : MonoBehaviour
 {
     [Header ("Navigation")]
-    [SerializeField] Transform[] trnWaypoint;
+    public Transform[] trnWaypoint;
+    [SerializeField] MBSCriminalUnID mbsCrim;
     public NavMeshAgent agent;
     public Animator anim;
     public Transform trnCurrentTarget;
@@ -22,6 +23,7 @@ public class MBSBasicNavigationGUy : MonoBehaviour
     [Header ("Crimnal Variables")]
     public bool isCriminal;
     public bool[] isCriminalWaypointReached;
+   
     [SerializeField] float fltMoveAdvance =.3f;
     [SerializeField] float fltRandomSelectiontoAdvance;
 
@@ -41,6 +43,7 @@ public class MBSBasicNavigationGUy : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         trnCurrentTarget = transform;
         isWanderingMode = true;
+        mbsCrim = GetComponent<MBSCriminalUnID>();
 
         if (GetComponent<MBSCriminalUnID>()  != null )
         {
@@ -89,6 +92,16 @@ public class MBSBasicNavigationGUy : MonoBehaviour
                 if (fltDistancetoTarget < fltDistance)
                 {
                     fltDelayCount += Time.deltaTime;
+               
+                if (isCriminal)
+                {
+
+                    if (mbsCrim.isEscaping)
+                    {
+                        mbsCrim.FnGotAway();
+
+                    }
+                }
 
                     if (fltDelayCount > fltDelay)
                     {
@@ -143,19 +156,21 @@ public class MBSBasicNavigationGUy : MonoBehaviour
           trnCurrentTarget = trnWaypoint[intNewWaypointTmp];
 
         fltDistancetoTarget = (trnCurrentTarget.position - transform.position).magnitude;
+
+        // if its not close enough, wander about a bit
         if (fltDistancetoTarget > fltMoveRange)
         {
             trnCurrentTarget = transform;
         }
 
-
-
-
+// set waypoint with variation
 
         Vector3 fltOffsetTmp = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)) * fltVariationInTarget;
 
         agent.SetDestination(trnCurrentTarget.position + fltOffsetTmp);
         anim.SetBool("Still", false);
+
+        // possible override to location if character is a criminal
 
         if (isCriminal)
         {
@@ -173,9 +188,11 @@ public class MBSBasicNavigationGUy : MonoBehaviour
         if (fltRandomSelectiontoAdvance < fltMoveAdvance)
         {
 
-            GetComponent<MBSCriminalUnID>().FnCriminalMoveUpdate();
+           mbsCrim.FnCriminalMoveUpdate();
 
-            trnCurrentTarget = GetComponent<MBSCriminalUnID>().trnNewTarget;
+
+
+           trnCurrentTarget = mbsCrim.trnNewTarget;
             agent.SetDestination(trnCurrentTarget.position);
 
         }
