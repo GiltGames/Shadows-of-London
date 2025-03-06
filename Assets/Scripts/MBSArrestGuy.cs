@@ -148,9 +148,7 @@ public class MBSArrestGuy : MonoBehaviour
 
         mbsClosestPolice.isArresting = true;
         mbsClosestPolice.trnPersonArrested = transform;
-        gmoSpeech.SetActive(true);
-        txtSpeech.text = "You have got me, Mr  "+ trnClosestPolice.name;
-        StartCoroutine(IESpeechOff());
+      
 
         isArrested = true;
 
@@ -159,24 +157,29 @@ public class MBSArrestGuy : MonoBehaviour
 
     public void FnInCustody()
     {
-        
-        
-      
+
+        gmoSpeech.SetActive(true);
+        txtSpeech.text = "You have got me, Mr  " + trnClosestPolice.name;
+        StartCoroutine(IESpeechOff());
+
 
         if (mbsNav != null)
         {
             mbsNav.agent.SetDestination(trnCustodyLocation.position);
             mbsNav.anim.SetBool("Still", false);
+            Debug.Log("Arrested with destination set at " + trnCustodyLocation.position);
+
 
             mbsNav.isWaiting = false;
             mbsNav.isWanderingMode = false;
-            mbsNav.fltDelayCount = 0;
+           
             
         }
 
         if (mbsFollower != null)
         {
             mbsFollower.agent.SetDestination(trnCustodyLocation.position);
+
             mbsFollower.anim.SetBool("Still", false);
             mbsFollower.isWanderingMode = false;
             mbsFollower.isWaiting = false;
