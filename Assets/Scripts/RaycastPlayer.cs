@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 public class RaycastPlayer : MonoBehaviour
 {
@@ -34,11 +35,22 @@ public class RaycastPlayer : MonoBehaviour
             EvidenceProperties evidenceProps = hit.transform.GetComponent<EvidenceProperties>();
             if(clueObject != null)
             {
-                anim.SetTrigger("isPickingUp");
                 Debug.Log("there is a clue");
-                addToInventoryScript.nextSlot = addToInventoryScript.AddClue(clueObject.evidenceValue, evidenceProps.clueIcon, evidenceProps.enemyInt);
-                Destroy(clueObject.gameObject);
+                StartCoroutine(PickUpItem(clueObject, evidenceProps));
             }
         }
     }
+
+    IEnumerator PickUpItem(RaycastCube clueObject, EvidenceProperties evidenceProps)
+    {
+        anim.SetTrigger("isPickingUp");
+        yield return new WaitForSeconds(2.1f);
+
+        // nextSlot is assigned return value of AddClue()
+        // AddClue() needs evidenceValue, clueIcon and enemyInt
+        addToInventoryScript.nextSlot = addToInventoryScript.AddClue(clueObject.evidenceValue, evidenceProps.clueIcon, evidenceProps.enemyInt);
+        Destroy(clueObject.gameObject);
+
+    }
+
 }
