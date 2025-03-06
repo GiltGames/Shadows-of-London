@@ -395,6 +395,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 8910264559049018284}
     m_Position: {x: 840, y: -410, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -1255529238019032359}
+    m_Position: {x: 875, y: -345, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -7356307529378190772}
@@ -458,6 +461,32 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1102 &-1255529238019032359
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PointAndWhistle
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 4c64bfceeed55f44cbc1dd7f0198977b, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -1073,7 +1102,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 4ace2b58c8a852044a4aa2dc10ee35e1, type: 3}
+  m_Motion: {fileID: 7400000, guid: 4c64bfceeed55f44cbc1dd7f0198977b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
