@@ -30,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
     [Header ("Components")]
     Animator anim;
     CharacterController controller;
-    PlayerPickingUp playerPickingScript;
 
     [Header ("Booleans")]
     public bool gameOver = false;
@@ -40,7 +39,6 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponentInChildren<Animator>();
-        playerPickingScript = GetComponent<PlayerPickingUp>();
         //playerCamera = Camera.main;
 
         Cursor.visible = true;
