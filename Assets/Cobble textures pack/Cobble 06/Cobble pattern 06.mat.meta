@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: cdfcb7253a06f3a49b490aeeaf08152a
+labels:
+- Cobble
+- Ground
+- Nature
+- Pattern
+- Stone
+- Terrain
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 12957
+  packageName: Cobble Textures Pack
+  packageVersion: 1.00
+  assetPath: Assets/Cobble textures pack/Cobble 06/Cobble pattern 06.mat
+  uploadId: 29418

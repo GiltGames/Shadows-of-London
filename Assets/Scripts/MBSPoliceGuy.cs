@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,8 @@ public class MBSPoliceGuy : MonoBehaviour
     [SerializeField] float fltRunSpeed;
     [SerializeField] float fltWalkSpeed;
     [SerializeField] TMP_Text txtSpeech;
+    [SerializeField] float fltSpeechTime = 1.5f;
+    [SerializeField] GameObject gmoSpeech;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,8 +35,12 @@ public class MBSPoliceGuy : MonoBehaviour
         {
 
             Vector3 vecArrest = trnPersonArrested.position;
-
+            
+            gmoSpeech.SetActive(true);
             txtSpeech.text = "On the case, ma'am";
+            StartCoroutine(IEPSpeechOff());
+
+
             if (mbsNav != null)
             {
 
@@ -69,7 +76,10 @@ public class MBSPoliceGuy : MonoBehaviour
     {
         isArresting = false;
         isHasSomeoneInCustody = true;
+        gmoSpeech.SetActive(true);
         txtSpeech.text = "Got you bang to rights";
+        StartCoroutine(IEPSpeechOff());
+        
 
         Vector3 vecCustody = trnCustodyLocation.position;
 
@@ -102,6 +112,17 @@ public class MBSPoliceGuy : MonoBehaviour
 
        
         
+
+    }
+
+    
+    IEnumerator IEPSpeechOff()
+    {
+
+
+        yield return new WaitForSeconds(fltSpeechTime);
+
+        gmoSpeech.SetActive(false);
 
     }
 
