@@ -32,10 +32,10 @@ public class RaycastPlayer : MonoBehaviour
             }
 
             RaycastCube clueObject = hit.transform.GetComponent<RaycastCube>();
-            EvidenceProperties evidenceProps = hit.transform.GetComponent<EvidenceProperties>();
             if(clueObject != null)
             {
                 Debug.Log("there is a clue");
+                EvidenceProperties evidenceProps = hit.transform.GetComponent<EvidenceProperties>();
                 StartCoroutine(PickUpItem(clueObject, evidenceProps));
             }
         }
