@@ -4900,7 +4900,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.8}
+  m_AnchoredPosition: {x: 0, y: 2.547}
   m_SizeDelta: {x: 25.03, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &7159056765716163223
@@ -5338,6 +5338,7 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   lineRange: 50
   gmoHighlight: {fileID: 2730037537273237584}
+  aniPlayer: {fileID: 0}
   fltReacttoPoliceDistance: 4
   trnTargetTemp: {fileID: 1683496146744530425}
   fltWalkAwayDistance: 6
@@ -15940,7 +15941,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.4, y: 1, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5072786492360585825
 MonoBehaviour:
@@ -15980,7 +15981,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 1
 --- !u!1001 &1594051392499460091
 PrefabInstance:
