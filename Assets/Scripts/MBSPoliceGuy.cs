@@ -1,4 +1,3 @@
-using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +7,7 @@ public class MBSPoliceGuy : MonoBehaviour
 
     public bool isArresting;
     public Transform trnPersonArrested;
-    public bool isHasSomeoneInCustody;
+    [SerializeField] bool isHasSomeoneInCustody;
     [SerializeField] float fltArrestDistance;
     [SerializeField] MBSBasicNavigationGUy mbsNav;
     [SerializeField] MBSFollowerGuy mbsNavFollow;
@@ -16,8 +15,6 @@ public class MBSPoliceGuy : MonoBehaviour
     [SerializeField] float fltRunSpeed;
     [SerializeField] float fltWalkSpeed;
     [SerializeField] TMP_Text txtSpeech;
-    [SerializeField] float fltSpeechTime = 1.5f;
-    [SerializeField] GameObject gmoSpeech;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,23 +31,17 @@ public class MBSPoliceGuy : MonoBehaviour
     if (isArresting)
         {
 
-            Vector3 vecArrest = trnPersonArrested.position;
-            
-            gmoSpeech.SetActive(true);
             txtSpeech.text = "On the case, ma'am";
-            StartCoroutine(IEPSpeechOff());
-
-
             if (mbsNav != null)
             {
 
-                mbsNav.agent.SetDestination(vecArrest);
+                mbsNav.agent.SetDestination(trnPersonArrested.position);
                 mbsNav.agent.speed = fltRunSpeed;
             }
 
             if (mbsNavFollow!= null)
             {
-                mbsNavFollow.agent.SetDestination(vecArrest);
+                mbsNavFollow.agent.SetDestination(trnPersonArrested.position);
                 mbsNavFollow.agent.speed = fltRunSpeed;
 
             }
@@ -76,19 +67,14 @@ public class MBSPoliceGuy : MonoBehaviour
     {
         isArresting = false;
         isHasSomeoneInCustody = true;
-        gmoSpeech.SetActive(true);
         txtSpeech.text = "Got you bang to rights";
-        StartCoroutine(IEPSpeechOff());
-        
-
-        Vector3 vecCustody = trnCustodyLocation.position;
 
         // ACTIONS ON THE POLICEMAN 
 
         if (mbsNav != null)
         {
             mbsNav.anim.SetBool("Run", false);
-            mbsNav.agent.SetDestination(vecCustody);
+            mbsNav.agent.SetDestination(trnCustodyLocation.position);
             mbsNav.anim.SetBool("Still", false);
             mbsNav.isWaiting = false;
             mbsNav.isWanderingMode = false;
@@ -99,7 +85,7 @@ public class MBSPoliceGuy : MonoBehaviour
         {
             mbsNavFollow.anim.SetBool("Run", false);
            
-            mbsNavFollow.agent.SetDestination(vecCustody);
+            mbsNavFollow.agent.SetDestination(trnCustodyLocation.position);
             mbsNavFollow.anim.SetBool("Still", false);
             mbsNavFollow.isWaiting = false;
             mbsNavFollow.isWanderingMode = false;
@@ -112,17 +98,6 @@ public class MBSPoliceGuy : MonoBehaviour
 
        
         
-
-    }
-
-    
-    IEnumerator IEPSpeechOff()
-    {
-
-
-        yield return new WaitForSeconds(fltSpeechTime);
-
-        gmoSpeech.SetActive(false);
 
     }
 
