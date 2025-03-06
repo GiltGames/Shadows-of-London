@@ -1,6 +1,12 @@
 fileFormatVersion: 2
-guid: 10ec8e346d54fa44ea9a5bf143076a8d
+<<<<<<<< Updated upstream:Assets/Prefabs/Criminal.prefab.meta
+guid: 78647f6ffd521ae49b00d10e284ea1d3
 PrefabImporter:
+========
+guid: aad3d879661a4ee4b9969a722046f3bb
+folderAsset: yes
+DefaultImporter:
+>>>>>>>> Stashed changes:Assets/Scenes/Museum.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
