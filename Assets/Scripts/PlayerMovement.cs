@@ -6,34 +6,32 @@ using UnityEngine.Android;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header ("Movement variables")]
+    //private Camera playerCamera;
+    Animator anim;
     float moveSpeed;
     [SerializeField] float walkSpeed = 4f;
     [SerializeField] float runSpeed = 10f;
     [SerializeField] float crouchSpeed = 2f;
     [SerializeField] float jumpForce = 2;
     [SerializeField] float gravity = 10f;
-    float rotationSpeed = 2.0f;
+    //float mouseSensitivity = 7f;
+    [SerializeField] float lookXlimit = 60f;
+    float rotationSpeed = 5.0f;
     Vector3 moveDirection;
+    CharacterController controller;
+    bool isRunning = false;
+    [SerializeField] bool isCrouching = false;
 
-    [Header ("Stamina variables")]
     float minJumpStamina = 30;
     float minRunStamina = 10;
     public float stamina = 100f;
     public float staminaDrainSpeed = 40f;
     public Image staminaBar;
-    bool isRunning = false;
 
-    //public float health = 100f;
-    //public Image healthBar;
+    public float health = 100f;
+    public Image healthBar;
 
-    [Header ("Components")]
-    Animator anim;
-    CharacterController controller;
-
-    [Header ("Booleans")]
     public bool gameOver = false;
-    bool isCrouching = false;
 
     void Start()
     {
@@ -42,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         //playerCamera = Camera.main;
 
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Locked;
 
         moveSpeed = walkSpeed;
     }
@@ -73,9 +72,6 @@ public class PlayerMovement : MonoBehaviour
 
             // rotate player based on horizontal input
             transform.Rotate(0, horizontalInput * rotationSpeed, 0);
-            //if(horizontalInput != 0) anim.SetBool("isTurning", true); 
-
-            // set walking and running animation states while turning
             if(horizontalInput != 0 && !isRunning) anim.SetBool("isWalking", true); 
             if(horizontalInput != 0 && isRunning) anim.SetBool("isRunning", true);
 
@@ -144,8 +140,8 @@ public class PlayerMovement : MonoBehaviour
                 if(!isCrouching) moveSpeed = walkSpeed;
             }            
 
-
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
+        
 
         #endregion
 
@@ -156,17 +152,17 @@ public class PlayerMovement : MonoBehaviour
         staminaBar.fillAmount = stamina / 100f;
     }
 
-    // public void TakeDamage()
-    // {
-    //     health -= 10f;
-    //     Debug.Log("health = " + health);
-    //     healthBar.fillAmount = health / 100f;
-    //     if(health <= 0)
-    //     {
-    //         gameOver = true;
-    //         Debug.Log("game over");
-    //     }
-    // }
+    public void TakeDamage()
+    {
+        health -= 10f;
+        Debug.Log("health = " + health);
+        healthBar.fillAmount = health / 100f;
+        if(health <= 0)
+        {
+            gameOver = true;
+            Debug.Log("game over");
+        }
+    }
 
     // IEnumerator TurnAnimTrigger()
     // {
