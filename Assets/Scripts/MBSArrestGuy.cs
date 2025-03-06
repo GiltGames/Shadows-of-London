@@ -25,6 +25,9 @@ public class MBSArrestGuy : MonoBehaviour
     public static Vector3 hitPosition;
     public GameObject gmoHighlight;
 
+    [SerializeField] Animator aniPlayer;
+
+
     [Header("Evade")]
     [SerializeField] float fltReacttoPoliceDistance;
     [SerializeField] Transform trnTargetTemp;
@@ -34,7 +37,9 @@ public class MBSArrestGuy : MonoBehaviour
     [SerializeField] float fltClosestDistanceforEvade;
 
     
-   
+
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -56,6 +61,7 @@ public class MBSArrestGuy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // EVADES if not arrested and is criminal or Neerdowell
 
         if (mbsNav != null)
         {
@@ -79,10 +85,15 @@ public class MBSArrestGuy : MonoBehaviour
         if (!isArrested)
         {
           //  FnRayArrest();
-            
+        // redundant raycast check to see if the mouse is on    
             
 
         }
+
+
+
+
+
     }
 
     private void OnMouseOver()
@@ -107,9 +118,15 @@ public class MBSArrestGuy : MonoBehaviour
     {
         fltDistance = 1000;
 
+        aniPlayer.SetTrigger("isArresting");
+
         foreach (MBSPoliceGuy policeman in mbsPoliceGuy)
         {
             bool isArrestingTmp = policeman.GetComponent<MBSPoliceGuy>().isArresting;
+            if ( policeman.GetComponent<MBSPoliceGuy>().isHasSomeoneInCustody)
+            {
+                isArrestingTmp = true;
+            }
 
             Vector3 vectortmp = (policeman.transform.position- transform.position);
             if ( vectortmp.magnitude < fltDistance && !isArrestingTmp)
