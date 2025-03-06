@@ -8,7 +8,7 @@ public class MBSPoliceGuy : MonoBehaviour
 
     public bool isArresting;
     public Transform trnPersonArrested;
-    [SerializeField] bool isHasSomeoneInCustody;
+    public bool isHasSomeoneInCustody;
     [SerializeField] float fltArrestDistance;
     [SerializeField] MBSBasicNavigationGUy mbsNav;
     [SerializeField] MBSFollowerGuy mbsNavFollow;
