@@ -1,6 +1,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using NUnit.Framework;
 
 public class AddToInventory : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class AddToInventory : MonoBehaviour
 
     }
 
+    // this function is called from RaycastCube script
     public int AddClue(int clueNum, Sprite clueSprite, int enemyInt)
     {
         // clues[nextSlot] is set to the sprite on the object (scriptable object?)
@@ -39,10 +41,31 @@ public class AddToInventory : MonoBehaviour
         return nextSlot;
     }
 
-    
-    public void AddEnemy()
+    // if enemy is captured, mugShots[enemy.enemyslot] is set to enemy.Image
+    // this function is called from MBSArrestUpdateUI script
+    public void AddEnemy(Sprite mugshot, int enemyInt)
     {
-        // if enemy is captured, mugShots[enemy.enemyslot] is set to enemy.Image
+        // find enemyInt position in enemyOrder[]
+        int enemyPos = -1;
+        for (int i = 0; i < enemyOrder.Length; i++)
+        {
+            if (enemyOrder[i] == enemyInt) 
+            {
+                enemyPos = i;
+                break;
+            }
+        }
+
+        // for debugging...
+        if (enemyPos == -1)
+        {
+            Debug.Log("Enemy not found");
+        } 
+        else{
+            Debug.Log("enemyInt:" + enemyInt + " enemyPos: " + enemyPos);
+        }
+        
+        mugShots[enemyPos].sprite = mugshot;
 
     }
     
