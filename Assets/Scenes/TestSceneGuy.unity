@@ -16261,6 +16261,10 @@ PrefabInstance:
       propertyPath: 'trnWaypoint.Array.data[4]'
       value: 
       objectReference: {fileID: 2055485129}
+    - target: {fileID: 6408541901428217787, guid: da9e715359a6fad42b23ca968ae21c10, type: 3}
+      propertyPath: mugshot
+      value: 
+      objectReference: {fileID: 21300000, guid: a5ba4966f4c915e4bb87eeb1658f5d0e, type: 3}
     - target: {fileID: 8737073126122040104, guid: da9e715359a6fad42b23ca968ae21c10, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.32
