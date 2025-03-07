@@ -5738,7 +5738,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 228326041447105813, guid: 9c70ac3baedee8f40b11fa45ded5a2c6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1269591698860936866, guid: 9c70ac3baedee8f40b11fa45ded5a2c6, type: 3}
@@ -10010,6 +10011,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2091707125}
     m_Modifications:
+    - target: {fileID: 3431845314605454855, guid: 8004e3ccc7479bc429011f24095baf74, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 1e64964bd425bd64688e95b2de687296, type: 3}
     - target: {fileID: 8134155638537426144, guid: 8004e3ccc7479bc429011f24095baf74, type: 3}
       propertyPath: m_Name
       value: Vic
@@ -15566,6 +15571,14 @@ PrefabInstance:
       propertyPath: camCamera
       value: 
       objectReference: {fileID: 444982547}
+    - target: {fileID: 4117135455775317195, guid: cebc41d3be9fe4046b8a77422f91dd0c, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117135455775317195, guid: cebc41d3be9fe4046b8a77422f91dd0c, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5122414159615587768, guid: cebc41d3be9fe4046b8a77422f91dd0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.82
@@ -16134,10 +16147,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 841248439}
     - target: {fileID: 237778248275737915, guid: da9e715359a6fad42b23ca968ae21c10, type: 3}
-      propertyPath: intCriminalIndex
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 237778248275737915, guid: da9e715359a6fad42b23ca968ae21c10, type: 3}
       propertyPath: 'trnWayPointinWorld.Array.data[0]'
       value: 
       objectReference: {fileID: 992835381}
@@ -16261,10 +16270,6 @@ PrefabInstance:
       propertyPath: 'trnWaypoint.Array.data[4]'
       value: 
       objectReference: {fileID: 2055485129}
-    - target: {fileID: 6408541901428217787, guid: da9e715359a6fad42b23ca968ae21c10, type: 3}
-      propertyPath: mugshot
-      value: 
-      objectReference: {fileID: 21300000, guid: a5ba4966f4c915e4bb87eeb1658f5d0e, type: 3}
     - target: {fileID: 8737073126122040104, guid: da9e715359a6fad42b23ca968ae21c10, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.32
