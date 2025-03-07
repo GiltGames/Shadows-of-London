@@ -12,12 +12,15 @@ public class MBSManualArrest : MonoBehaviour
     [SerializeField] Transform trnSuspect;
     [SerializeField] float fltDistancetoSuspect;
     [SerializeField] float fltAngletoSuspect;
+    [SerializeField] float fltCheckInterval = 1f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        StartCoroutine(IECheckforSuspect());
+
+
     }
 
     // Update is called once per frame
@@ -27,7 +30,7 @@ public class MBSManualArrest : MonoBehaviour
         // Arrest Check on pressing F -
 
 
-        if (Input.GetKeyDown(KeyCode.P))
+       /*if (Input.GetKeyDown(KeyCode.P))
         {
             
 
@@ -38,8 +41,11 @@ public class MBSManualArrest : MonoBehaviour
                 }
 
         }
+       */
 
-        if (Input.GetKeyDown(KeyCode.Y))
+
+
+        if (Input.GetKeyDown(KeyCode.F))
         {
             if (trnSuspect != null)
             {
@@ -48,7 +54,7 @@ public class MBSManualArrest : MonoBehaviour
                 trnSuspect = null;
             }
         }
-
+/*
         if (Input.GetKeyDown(KeyCode.N))
         {
             if (trnSuspect != null)
@@ -57,7 +63,7 @@ public class MBSManualArrest : MonoBehaviour
                 trnSuspect = null;
             }
         }
-
+*/
     }
 
     void FnSelectSuspect()
@@ -108,7 +114,7 @@ public class MBSManualArrest : MonoBehaviour
         if (trnSuspect != null)
         {
             trnSuspect.Find("Speech").gameObject.SetActive(true);
-            trnSuspect.Find("Speech").GetComponent<TextMeshPro>().text = "Arrest? (Y/N)";
+            trnSuspect.Find("Speech").GetComponent<TextMeshPro>().text = "F";
             StartCoroutine(IEUnselect());
 
 
@@ -141,4 +147,15 @@ public class MBSManualArrest : MonoBehaviour
     }
 
 
+    IEnumerator IECheckforSuspect()
+    {
+        while (true)
+        {
+            FnSelectSuspect();
+
+            yield return new WaitForSeconds(fltCheckInterval);
+
+        }
+
+    }
 }
