@@ -19,8 +19,7 @@ public class MBSCriminalUnID : MonoBehaviour
     public bool isTryingtoMakeProgress;
 
     [SerializeField] Transform[] trnWayPointinWorld;
-    [SerializeField]
-    Transform[] trnWayPointinRange;
+    [SerializeField] Transform[] trnWayPointinRange;
 
 
     [Header("Criminal Move")]
@@ -48,13 +47,13 @@ public class MBSCriminalUnID : MonoBehaviour
         mbsArrest = GetComponent<MBSArrestGuy>();
 
         mbsTimer = FindFirstObjectByType<Timer>();
-
+/*
         for (int i = 0; i < mbsNav.trnWaypoint.Length; i++)
         {
             trnWayPointinRange[i] = mbsNav.trnWaypoint[i];
 
         }
-
+*/
 
         // intClue[i] = i by default but we set up so it can be randmoised
         for (int i = 0; i < intClue.Length; i++)
@@ -176,47 +175,8 @@ public class MBSCriminalUnID : MonoBehaviour
         }
 
 
-        foreach (Transform possibleWayPoint in trnWayPointinWorld)
-        {
-            float dist = (possibleWayPoint.position - transform.position).magnitude;
+        mbsNav.FnSetWayPoint();
 
-            if (dist < (trnWayPointinRange[0].position - transform.position).magnitude)
-            {
-                trnWayPointinRange[0] = possibleWayPoint;
-
-            }
-
-            else if (dist < (trnWayPointinRange[1].position - transform.position).magnitude)
-            {
-                trnWayPointinRange[1] = possibleWayPoint;
-
-            }
-
-            else if (dist < (trnWayPointinRange[2].position - transform.position).magnitude)
-            {
-                trnWayPointinRange[2] = possibleWayPoint;
-
-            }
-            else if (dist < (trnWayPointinRange[3].position - transform.position).magnitude)
-            {
-                trnWayPointinRange[3] = possibleWayPoint;
-
-            }
-
-            else if (dist < (trnWayPointinRange[4].position - transform.position).magnitude)
-            {
-                trnWayPointinRange[4] = possibleWayPoint;
-
-            }
-
-
-        }
-
-        for (int i = 0; i < trnWayPointinRange.Length; i++)
-        {
-            mbsNav.trnWaypoint[i] = trnWayPointinRange[i];
-
-        }
 
         if (intCriminalProgress == trnWayPointsCriminal.Length - 1)
         {
