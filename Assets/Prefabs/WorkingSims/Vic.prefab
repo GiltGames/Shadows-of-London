@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6a6b937c65b10d44926eec7ca11acbc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.6212482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6a6b937c65b10d44926eec7ca11acbc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000047683716
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6a6b937c65b10d44926eec7ca11acbc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.617423
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6a6b937c65b10d44926eec7ca11acbc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -673,7 +673,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8134155638537426144}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: ffa0e9f5e53bdf541bb87bbd469b591a, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 1e64964bd425bd64688e95b2de687296, type: 3}
   m_Controller: {fileID: 9100000, guid: 58c35671c64b3da4da7cb99b4e90e2ad, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
