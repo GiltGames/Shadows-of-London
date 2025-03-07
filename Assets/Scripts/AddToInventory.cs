@@ -66,6 +66,7 @@ public class AddToInventory : MonoBehaviour
         }
         
         mugShots[enemyPos].sprite = mugshot;
+        mugShots[enemyPos].gameObject.SetActive(true);
 
     }
     
