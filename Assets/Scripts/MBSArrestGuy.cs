@@ -98,7 +98,7 @@ public class MBSArrestGuy : MonoBehaviour
 
     private void OnMouseOver()
     {
-        gmoHighlight.SetActive(true);
+     /*   gmoHighlight.SetActive(true);
 
 
         if (Input.GetMouseButtonDown(1) && !isArrested)
@@ -106,11 +106,12 @@ public class MBSArrestGuy : MonoBehaviour
 
             FnArrested();
         }
+     */
     }
 
     private void OnMouseExit()
     {
-        gmoHighlight.SetActive(false);
+       // gmoHighlight.SetActive(false);
     }
 
 
@@ -142,33 +143,43 @@ public class MBSArrestGuy : MonoBehaviour
 
         }
 
-        mbsClosestPolice = trnClosestPolice.GetComponent<MBSPoliceGuy>();
-        
-        
-        mbsClosePoliceNav = trnClosestPolice.GetComponent <MBSBasicNavigationGUy>();
-        mbsClosePoliceNavFollow = trnClosestPolice.GetComponent<MBSFollowerGuy>();
-        if (mbsClosePoliceNav != null)
+        if (trnClosestPolice != null)
         {
-            mbsClosePoliceNav.isWanderingMode = false;
-            mbsClosePoliceNav.anim.SetBool("Still", false);
-            mbsClosePoliceNav.anim.SetBool("Run", true);
-           
+
+
+            mbsClosestPolice = trnClosestPolice.GetComponent<MBSPoliceGuy>();
+
+
+            mbsClosePoliceNav = trnClosestPolice.GetComponent<MBSBasicNavigationGUy>();
+            mbsClosePoliceNavFollow = trnClosestPolice.GetComponent<MBSFollowerGuy>();
+            if (mbsClosePoliceNav != null)
+            {
+                mbsClosePoliceNav.isWanderingMode = false;
+                mbsClosePoliceNav.anim.SetBool("Still", false);
+                mbsClosePoliceNav.anim.SetBool("Run", true);
+
+            }
+
+            if (mbsClosePoliceNavFollow != null)
+            {
+                mbsClosePoliceNavFollow.isWanderingMode = false;
+                mbsClosePoliceNavFollow.anim.SetBool("Still", false);
+                mbsClosePoliceNavFollow.anim.SetBool("Run", true);
+
+            }
+
+            mbsClosestPolice.isArresting = true;
+            mbsClosestPolice.trnPersonArrested = transform;
+
+
+            isArrested = true;
         }
 
-        if (mbsClosePoliceNavFollow != null)
+        else
         {
-            mbsClosePoliceNavFollow.isWanderingMode = false;
-            mbsClosePoliceNavFollow.anim.SetBool("Still", false);
-            mbsClosePoliceNavFollow.anim.SetBool("Run", true);
-          
+            //no more police
+
         }
-
-        mbsClosestPolice.isArresting = true;
-        mbsClosestPolice.trnPersonArrested = transform;
-      
-
-        isArrested = true;
-
 
     }
 

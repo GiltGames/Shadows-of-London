@@ -6,7 +6,7 @@ using UnityEngine.Android;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header ("Movement variables")]
+    [Header("Movement variables")]
     float moveSpeed;
     [SerializeField] float walkSpeed = 4f;
     [SerializeField] float runSpeed = 10f;
@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     float rotationSpeed = 2.0f;
     Vector3 moveDirection;
 
-    [Header ("Stamina variables")]
+    [Header("Stamina variables")]
     float minJumpStamina = 30;
     float minRunStamina = 10;
     public float stamina = 100f;
@@ -27,11 +27,11 @@ public class PlayerMovement : MonoBehaviour
     //public float health = 100f;
     //public Image healthBar;
 
-    [Header ("Components")]
+    [Header("Components")]
     Animator anim;
     CharacterController controller;
 
-    [Header ("Booleans")]
+    [Header("Booleans")]
     public bool gameOver = false;
     bool isCrouching = false;
 
@@ -48,19 +48,19 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
+
         #region Movement
-        if(controller.isGrounded)
+        if (controller.isGrounded)
         {
             float horizontalInput = Input.GetAxis("Horizontal");
             float verticalInput = Input.GetAxis("Vertical");
 
-            if(verticalInput != 0 && !isRunning) 
+            if (verticalInput != 0 && !isRunning)
             {
                 anim.SetBool("isWalking", true);
                 anim.SetBool("isIdle", false);
             }
-            else if(verticalInput == 0 && horizontalInput == 0) 
+            else if (verticalInput == 0 && horizontalInput == 0)
             {
                 anim.SetBool("isWalking", false);
                 anim.SetBool("isIdle", true);
@@ -76,17 +76,17 @@ public class PlayerMovement : MonoBehaviour
             //if(horizontalInput != 0) anim.SetBool("isTurning", true); 
 
             // set walking and running animation states while turning
-            if(horizontalInput != 0 && !isRunning) anim.SetBool("isWalking", true); 
-            if(horizontalInput != 0 && isRunning) anim.SetBool("isRunning", true);
+            if (horizontalInput != 0 && !isRunning) anim.SetBool("isWalking", true);
+            if (horizontalInput != 0 && isRunning) anim.SetBool("isRunning", true);
 
-            if(Input.GetButtonDown("Jump") && stamina >= minJumpStamina)
+            if (Input.GetButtonDown("Jump") && stamina >= minJumpStamina)
             // hardcoding jumping rather than relying on rigidbodies 
             {
                 moveDirection.y = jumpForce;
                 stamina -= minJumpStamina;
                 anim.SetTrigger("isJumping");
             }
-            else 
+            else
             {
                 // sharper fall by setting moveDirection to the last preserved y velocity
                 // faster than waiting for gravity to reduce moveDirection.y
@@ -99,15 +99,15 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // sprint mechanic
-        if(Input.GetKeyDown(KeyCode.LeftShift) && stamina >= minRunStamina) 
-        { 
+        if (Input.GetKeyDown(KeyCode.LeftShift) && stamina >= minRunStamina)
+        {
             moveSpeed = runSpeed;
             isRunning = true;
             anim.SetBool("isWalking", false);
             anim.SetBool("isRunning", true);
         }
 
-        if(Input.GetKey(KeyCode.LeftShift) && stamina >= minRunStamina)
+        if (Input.GetKey(KeyCode.LeftShift) && stamina >= minRunStamina)
         {
             // reduce stamina while key is pressed
             stamina -= Time.deltaTime * staminaDrainSpeed;
@@ -116,14 +116,14 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             // recover stamina over time if sprint button is not pressed
-            if(stamina < 100)
+            if (stamina < 100)
             {
                 stamina += Time.deltaTime * staminaDrainSpeed;
                 StaminaBarUpdate();
             }
 
         }
-        if(Input.GetKeyUp(KeyCode.LeftShift) || stamina < minRunStamina) 
+        if (Input.GetKeyUp(KeyCode.LeftShift) || stamina < minRunStamina)
         {
             // change so setting a fixed speed
             moveSpeed = walkSpeed;
@@ -132,17 +132,17 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // crouch or uncrouch when left control is pressed
-        if(Input.GetKeyDown(KeyCode.LeftControl)) 
-            { 
-                isCrouching = !isCrouching; 
-                anim.SetBool("isCrouching", isCrouching);
-                if (isCrouching) 
-                {
-                    anim.SetTrigger("crouchDown");
-                    moveSpeed = crouchSpeed;
-                }
-                if(!isCrouching) moveSpeed = walkSpeed;
-            }            
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            isCrouching = !isCrouching;
+            anim.SetBool("isCrouching", isCrouching);
+            if (isCrouching)
+            {
+                anim.SetTrigger("crouchDown");
+                moveSpeed = crouchSpeed;
+            }
+            if (!isCrouching) moveSpeed = walkSpeed;
+        }
 
 
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
@@ -176,4 +176,22 @@ public class PlayerMovement : MonoBehaviour
     //     isTurning = false;
     //     anim.SetBool("isTurning", false);
     // }
+
+    public void FnUpdateStamina(float fltStaminaChange)
+    {
+        stamina += fltStaminaChange;
+        if (stamina < 0)
+        {
+            stamina = 0;
+        }
+
+        if (stamina > 100)
+        {
+            stamina = 100;
+        }
+
+        StaminaBarUpdate();
+
+
+    }
 }
