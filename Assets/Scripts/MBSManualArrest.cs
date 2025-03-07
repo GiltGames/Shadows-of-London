@@ -8,7 +8,7 @@ public class MBSManualArrest : MonoBehaviour
 
     [Header("Manual Arrest")]
     [SerializeField] float fltArrestPossibleAllowed = 15.0f;
-   [SerializeField] float fltArrestTime = 10f;
+   [SerializeField] float fltArrestTime = 4f;
     [SerializeField] Transform trnSuspect;
     [SerializeField] float fltDistancetoSuspect;
     [SerializeField] float fltAngletoSuspect;
@@ -43,7 +43,9 @@ public class MBSManualArrest : MonoBehaviour
         {
             if (trnSuspect != null)
             {
+                FnTurnOffSpeech();
                 trnSuspect.gameObject.GetComponent<MBSArrestGuy>().FnArrested();
+                trnSuspect = null;
             }
         }
 
