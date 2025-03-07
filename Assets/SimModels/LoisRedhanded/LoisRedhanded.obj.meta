@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0c5603dbd9efc1d4db93976f8427c15d
+guid: ddebb1237118cf9429df5151f2e87db7
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -81,28 +81,33 @@ ModelImporter:
     serializedVersion: 3
     human: []
     skeleton:
-    - name: MiloRedhanded(Clone)
+    - name: LoisRedhanded(Clone)
       parentName: 
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
+    - name: afAccessoryNecklaceEP3ChokerVelvet
+      parentName: LoisRedhanded(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: Body
-      parentName: MiloRedhanded(Clone)
+      parentName: LoisRedhanded(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Face
-      parentName: MiloRedhanded(Clone)
+      parentName: LoisRedhanded(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Hair
-      parentName: MiloRedhanded(Clone)
+      parentName: LoisRedhanded(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Scalp
-      parentName: MiloRedhanded(Clone)
+      parentName: LoisRedhanded(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
