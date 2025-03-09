@@ -5,6 +5,8 @@ public class MBSDrain : MonoBehaviour
     [SerializeField] PlayerMovement mbsPlayer;
     [SerializeField] float fltRangetoSee=15f;
     [SerializeField] bool isVisible;
+    [SerializeField] float fltRangeHurt =7f;
+    [SerializeField] float fltDistance;
     [SerializeField] float fltStaminaLoss= 10f;
     [SerializeField] GameObject gmoGhost;
 
@@ -18,9 +20,11 @@ public class MBSDrain : MonoBehaviour
     void Update()
     {
 
-        if (isVisible)
+        fltDistance = (transform.position - mbsPlayer.transform.position).magnitude;
+
+      /*  if (isVisible)
         {
-            if ((transform.position - mbsPlayer.transform.position).magnitude > fltRangetoSee)
+            if (fltDistance > fltRangetoSee)
             {
                 isVisible = false;
                 gmoGhost.SetActive(false);
@@ -32,7 +36,7 @@ public class MBSDrain : MonoBehaviour
 
        else
         {
-            if ((transform.position - mbsPlayer.transform.position).magnitude < fltRangetoSee)
+            if (fltDistance < fltRangetoSee)
             {
                 isVisible = true;
                 gmoGhost.SetActive(true);
@@ -41,24 +45,20 @@ public class MBSDrain : MonoBehaviour
 
 
         }
+      */
 
-
-   
-
-    }
-
-   
-
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.GetComponent<PlayerMovement>() != null)
+        if (fltDistance < fltRangeHurt)
         {
-            mbsPlayer.FnUpdateStamina(fltStaminaLoss * Time.deltaTime);
-
-
+            mbsPlayer.FnUpdateStamina(-fltStaminaLoss * Time.deltaTime);
+            Debug.Log("Stamina Drain" + fltStaminaLoss * Time.deltaTime);
         }
+   
+
     }
 
+   
+
+
+  
 
 }

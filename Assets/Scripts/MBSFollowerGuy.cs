@@ -19,6 +19,12 @@ public class MBSFollowerGuy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
         mbsParentNav = trnCurrentTarget.GetComponent<MBSBasicNavigationGUy>();
+
+
+
+
+
+
     }
 
     // Update is called once per frame

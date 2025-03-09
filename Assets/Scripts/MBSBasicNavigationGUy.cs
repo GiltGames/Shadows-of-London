@@ -14,11 +14,21 @@ public class MBSBasicNavigationGUy : MonoBehaviour
     [SerializeField] float fltDelay;
     [SerializeField] float fltDelayLongstop;
     public float fltDelayCount;
+    [SerializeField] float fltDelayTimer;
     public bool isWaiting;
     [SerializeField] float fltVariationInTarget=3f;
     public bool isWanderingMode;
     [SerializeField] float fltDistancetoTarget;
     [SerializeField] float fltMoveRange = 30f;
+
+    [Header("Waypoints")]
+    [SerializeField] Transform[] trnWayPointinWorld;
+    [SerializeField] WaypointIdentifier[] wayPointinWorld;
+    [SerializeField]
+    float[] fltDistancetoWaypoint;
+    [SerializeField] Transform[] trnWayPointinRange;
+
+
 
     [Header ("Crimnal Variables")]
     public bool isCriminal;
@@ -51,6 +61,21 @@ public class MBSBasicNavigationGUy : MonoBehaviour
 
         }
 
+        //find identifier for all waypoints
+       wayPointinWorld = FindObjectsByType<WaypointIdentifier>(FindObjectsSortMode.None);
+        fltDistancetoWaypoint = new float[wayPointinWorld.Length];
+
+        FnSetWayPoint();
+
+        //set five way points into list
+        /*
+        for (int i = 0; i < trnWaypoint.Length; i++)
+        {
+            trnWayPointinRange[i] = wayPointinWorld[i].transform;
+
+        }
+        */
+
     }
 
     // Update is called once per frame
@@ -68,14 +93,15 @@ public class MBSBasicNavigationGUy : MonoBehaviour
                 fltDistancetoTarget = (vecNavTarget - transform.position).magnitude;
             }
 
+            if (!isCriminal)
+            {
+                fltDelayTimer += Time.deltaTime;
 
-         
-
-          //  if (fltDelayCount > fltDelayLongstop)
-            //{
-          //      FnWaypointUpdatequery();
-           // }
-
+                if (fltDelayTimer > fltDelayLongstop)
+                {
+                    FnWaypointUpdatequery();
+                }
+            }
 
          /*   if (isWaiting)
             {
@@ -138,7 +164,7 @@ public class MBSBasicNavigationGUy : MonoBehaviour
             //isWaiting = false;
             FnWaypointUpdate();
             fltDelayCount = 0;
-
+            fltDelayTimer = 0;
         }
 
     }
@@ -215,6 +241,57 @@ public class MBSBasicNavigationGUy : MonoBehaviour
 
 
     }
+
+
+    public void FnSetWayPoint()
+    {
+        // sets the five closest waypoints into the script for navigation 
+       for (int i = 0;i<wayPointinWorld.Length; i++)
+        {
+            fltDistancetoWaypoint[i] = (wayPointinWorld[i].transform.position - transform.position).magnitude;
+
+        }
+
+        bool isNotSorted = true;
+       while (isNotSorted)
+        {
+            isNotSorted = false;
+            for (int i = 0; i<wayPointinWorld.Length-1;i++)
+
+            {
+                if (fltDistancetoWaypoint[i] > fltDistancetoWaypoint[i + 1])
+                        {
+                   float swapTmp = fltDistancetoWaypoint[i]; 
+                    fltDistancetoWaypoint[i] = fltDistancetoWaypoint[i+1];
+                    fltDistancetoWaypoint[i+1] = swapTmp;
+                    isNotSorted = true;
+
+                    WaypointIdentifier swapTmp2 = wayPointinWorld[i];
+                    wayPointinWorld[i] = wayPointinWorld[i+1];
+                    wayPointinWorld[i+1] = swapTmp2;    
+
+
+                }
+
+            }
+            Debug.Log(transform.name + " is being sorted");
+        }
+
+        Debug.Log(transform.name + " is NOW sorted");
+
+
+
+
+        for (int i = 0; i < trnWaypoint.Length; i++)
+        {
+            trnWaypoint[i] = wayPointinWorld[i].transform;
+
+        }
+
+
+
+    }
+
 
 
 }

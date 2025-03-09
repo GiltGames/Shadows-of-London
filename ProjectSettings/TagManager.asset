@@ -10,6 +10,8 @@ TagManager:
   - Crowd
   - CriminalWaypoint
   - OOB
+  - CubeBig
+  - Waypoint
   layers:
   - Default
   - TransparentFX
