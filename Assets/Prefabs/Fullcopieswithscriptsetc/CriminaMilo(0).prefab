@@ -691,6 +691,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   fltTimetoMovetoCriminalWaypoint:
   - 300
   - 290
@@ -699,6 +701,8 @@ MonoBehaviour:
   - 160
   - 140
   - 120
+  - 100
+  - 80
   intCriminalProgress: 0
   mbsTimer: {fileID: 0}
   isEscaping: 0
@@ -761,8 +765,7 @@ MonoBehaviour:
   fltEvadeInterval: 3
   fltClosestDistanceforEvade: 0
   sobWords: {fileID: 11400000, guid: 661f24e0d3c9d1549b2dad857987d378, type: 2}
-  fltSpeechInterval: 5
-  fltSpeechRandomInterval: 0.5
+  audSource: {fileID: 0}
 --- !u!136 &498552958209639679
 CapsuleCollider:
   m_ObjectHideFlags: 0
