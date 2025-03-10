@@ -6,6 +6,7 @@ public class endStateBehav : MonoBehaviour
 {
     public GameObject gameWinOverlay;
     public GameObject gameLoseOverlay;
+    public GameObject gamePartialWinOverlay;
     public GameObject staminaUI;
     public TMP_Text timeRemaining;
     public TMP_Text arrestsRemaining;
@@ -40,6 +41,12 @@ public class endStateBehav : MonoBehaviour
     {
         DisableHUD();
         gameLoseOverlay.SetActive(true);
+    }
+
+    public void ActivateGamePartialWin()
+    {
+        DisableHUD();
+        gamePartialWinOverlay.SetActive(true);
     }
 
     void DisableHUD()
