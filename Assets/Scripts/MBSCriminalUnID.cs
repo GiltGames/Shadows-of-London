@@ -29,6 +29,7 @@ public class MBSCriminalUnID : MonoBehaviour
     public int intCriminalProgress;
     [SerializeField] Timer mbsTimer;
     public bool isEscaping;
+    public float fltRuntoBoatMod;
 
     [Header("Clue Related")]
     public int intCriminalIndex;
