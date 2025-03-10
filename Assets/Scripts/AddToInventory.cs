@@ -45,16 +45,7 @@ public class AddToInventory : MonoBehaviour
     // this function is called from MBSArrestUpdateUI script
     public void AddEnemy(Sprite mugshot, int enemyInt)
     {
-        // find enemyInt position in enemyOrder[]
-        int enemyPos = -1;
-        for (int i = 0; i < enemyOrder.Length; i++)
-        {
-            if (enemyOrder[i] == enemyInt) 
-            {
-                enemyPos = i;
-                break;
-            }
-        }
+        int enemyPos = FindEnemyPos(enemyInt);
 
         // for debugging...
         if (enemyPos == -1)
@@ -69,7 +60,31 @@ public class AddToInventory : MonoBehaviour
         mugShots[enemyPos].gameObject.SetActive(true);
 
     }
+
+    public void GotAway(int enemyInt)
+    {
+        
+        int enemyPos = FindEnemyPos(enemyInt);
+
+        mugShots[enemyPos].color = Color.red;
+        Debug.Log("enemy " + enemyInt + " got away");
+    }
     
 
+    int FindEnemyPos(int enemyInt)
+    {
+        // find enemyInt position in enemyOrder[]
+        int enemyPos = -1;
+        for (int i = 0; i < enemyOrder.Length; i++)
+        {
+            if (enemyOrder[i] == enemyInt) 
+            {
+                enemyPos = i;
+                break;
+            }
+        }
+
+        return enemyPos;   
+    }
 
 }
