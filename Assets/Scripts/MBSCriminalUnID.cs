@@ -206,6 +206,7 @@ public class MBSCriminalUnID : MonoBehaviour
 
     public void FnGotAway()
     {
+     //   mbsInventory.GotAway(intCriminalIndex);
         Destroy(gameObject);
 
     }

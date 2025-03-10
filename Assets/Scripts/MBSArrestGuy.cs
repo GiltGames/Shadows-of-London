@@ -36,8 +36,12 @@ public class MBSArrestGuy : MonoBehaviour
     [SerializeField] float fltEvadeInterval;
     [SerializeField] float fltClosestDistanceforEvade;
 
+    [Header("Audio")]
+    [SerializeField] SObWords sobWords;
+    //[SerializeField] float fltSpeechInterval;
+    //[SerializeField] float fltSpeechRandomInterval;
+    [SerializeField] AudioSource audSource;
     
-
 
 
 
@@ -54,7 +58,9 @@ public class MBSArrestGuy : MonoBehaviour
 
 
         }
-        
+        audSource = GetComponent<AudioSource>();
+
+        StartCoroutine(IERandomSpeech());
 
     }
 
@@ -186,9 +192,10 @@ public class MBSArrestGuy : MonoBehaviour
     public void FnInCustody()
     {
 
-        gmoSpeech.SetActive(true);
-        txtSpeech.text = "You have got me, Mr  " + trnClosestPolice.name;
-        StartCoroutine(IESpeechOff());
+        // sends string and audio clip to the speech function
+        FnSpeak(sobWords.strArrestWords, sobWords.audArrestWords);
+
+       
 
 
         if (mbsNav != null)
@@ -304,5 +311,37 @@ public class MBSArrestGuy : MonoBehaviour
         gmoSpeech.SetActive(false);
 
     }
+
+
+    IEnumerator IERandomSpeech()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(sobWords.fltRandomSpeechBaseInterval * (1 + Random.Range(0, sobWords.fltRandomSpeechRandomMultiple)));
+
+            int wordchoice = Random.Range(0, sobWords.strRandomWords.Length);
+
+         
+           FnSpeak(sobWords.strRandomWords[wordchoice], sobWords.audRandomWords[wordchoice]);
+        
+
+
+
+        }
+
+       
+    }
+
+    public void FnSpeak(string words, AudioClip audWords)
+    {
+        gmoSpeech.SetActive(true);
+        txtSpeech.text = words;
+        //play audio to add
+
+        StartCoroutine(IESpeechOff());
+
+
+    }
+
 
 }
