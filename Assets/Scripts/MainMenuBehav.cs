@@ -7,7 +7,7 @@ public class MainMenuBehav : MonoBehaviour
     public GameObject helpOverlay;
     public GameObject settingsOverlay;
     public GameObject mainButtons; 
-    GameObject currentUI;
+    public GameObject currentUI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,7 +40,7 @@ public class MainMenuBehav : MonoBehaviour
         currentUI = settingsOverlay; 
     }
 
-    public void CloseButton(GameObject currentUI)
+    public void CloseButton()
     {
         currentUI.SetActive(false);
         mainButtons.SetActive(true);
