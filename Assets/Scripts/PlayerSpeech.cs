@@ -9,19 +9,18 @@ public class PlayerSpeech : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        playerSpeech = GetComponent<TMP_Text>();
+        
     }
 
-    public void DisplayText(string textToShow)
+    public void ChangePlayerSpeech(string textToShow)
     {
-        TextTimeout(textToShow);
+        StartCoroutine(TextTimeout(textToShow));
     }
 
-    IEnumerator TextTimeout(string textToShow)
+    public IEnumerator TextTimeout(string textToShow)
     {
-        playerSpeech.text = textToShow;
-        playerSpeech.gameObject.SetActive(true);
+        playerSpeech.text = textToShow.ToString();
         yield return new WaitForSeconds(5);
-        playerSpeech.gameObject.SetActive(false);
+        playerSpeech.text = "";
     }
 }

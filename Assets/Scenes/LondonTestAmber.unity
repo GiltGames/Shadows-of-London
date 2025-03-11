@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueIcon: {fileID: 21300000, guid: f808fcda93c3923488257ca70ebc70f5, type: 3}
   enemyInt: 1
+  clueDescription: 
 --- !u!114 &11173985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,6 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueIcon: {fileID: 21300000, guid: b209f7b129e1d4a4aa971f0cd2edb605, type: 3}
   enemyInt: 3
+  clueDescription: What a mess!
 --- !u!4 &277179213 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 373503379604911981, guid: 1382fe62d18f4a342bf7edbc3eb36e2b, type: 3}
@@ -848,6 +850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueIcon: {fileID: 21300000, guid: f808fcda93c3923488257ca70ebc70f5, type: 3}
   enemyInt: 3
+  clueDescription: 
 --- !u!1001 &828545636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -992,6 +995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clueIcon: {fileID: 21300000, guid: 684e2c24a4ffc024eb73ec9077093b2e, type: 3}
   enemyInt: 3
+  clueDescription: 
 --- !u!1 &1047672442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,7 +1286,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198415484}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 775ed045c8f6f984fb82d5142f404387, type: 3}
   m_Name: 
@@ -1308,7 +1312,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: ' '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa98cff226c34bc42bea3963013aa270, type: 2}
   m_sharedMaterial: {fileID: 6062300588025357139, guid: fa98cff226c34bc42bea3963013aa270, type: 2}
@@ -1439,7 +1443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294b374109371d844ace7196b45d6a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeech: {fileID: 0}
+  playerSpeech: {fileID: 1198415487}
 --- !u!1 &1258406349
 GameObject:
   m_ObjectHideFlags: 0
@@ -2520,6 +2524,10 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 1131957989}
+    - target: {fileID: 6861917791697641122, guid: 1382fe62d18f4a342bf7edbc3eb36e2b, type: 3}
+      propertyPath: playerSpeechScript
+      value: 
+      objectReference: {fileID: 1198415489}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
