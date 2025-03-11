@@ -645,7 +645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 798185651736888002, guid: 2e6d9c7ad6e53e4449fed637daa1da69, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.61
+      value: -11.23
       objectReference: {fileID: 0}
     - target: {fileID: 798185651736888002, guid: 2e6d9c7ad6e53e4449fed637daa1da69, type: 3}
       propertyPath: m_LocalPosition.y
@@ -653,7 +653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 798185651736888002, guid: 2e6d9c7ad6e53e4449fed637daa1da69, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -52.76
+      value: -49.71
       objectReference: {fileID: 0}
     - target: {fileID: 798185651736888002, guid: 2e6d9c7ad6e53e4449fed637daa1da69, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5171,6 +5171,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5edefafc23ff9a24daae042d08fc6606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &265957229
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 265957230}
+  - component: {fileID: 265957231}
+  m_Layer: 0
+  m_Name: Criminal Waypoint (20)
+  m_TagString: CriminalWaypoint
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &265957230
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265957229}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15.653655, y: 0.5, z: 179.59169}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1730760383}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &265957231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265957229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7576fde086fc6ff43bb83681e7ae6c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intCrimWaypoint: 0
 --- !u!1001 &276424974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7773,7 +7818,7 @@ Transform:
   m_GameObject: {fileID: 444982544}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -15.40516, y: 2.4186401, z: -51.54939}
+  m_LocalPosition: {x: -13.02516, y: 2.4186401, z: -48.49939}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8257,6 +8302,38 @@ Transform:
   - {fileID: 1644686260}
   - {fileID: 2105177032}
   - {fileID: 622148657}
+  m_Father: {fileID: 2146823224}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &467615082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 467615083}
+  m_Layer: 0
+  m_Name: Triggers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &467615083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467615082}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 979819572}
   m_Father: {fileID: 2146823224}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &471894041
@@ -14857,6 +14934,14 @@ PrefabInstance:
       propertyPath: enemyInt
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8047672149227438046, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.084
+      objectReference: {fileID: 0}
+    - target: {fileID: 8047672149227438046, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.665
+      objectReference: {fileID: 0}
     - target: {fileID: 8284456691361851851, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: clueIcon
       value: 
@@ -14886,6 +14971,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 932993914627026543, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
   m_PrefabInstance: {fileID: 924522133}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &924756197
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 924756198}
+  - component: {fileID: 924756199}
+  m_Layer: 0
+  m_Name: Criminal Waypoint (18)
+  m_TagString: CriminalWaypoint
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &924756198
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924756197}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 32.953655, y: 0.5, z: 139.6917}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1730760383}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &924756199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924756197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7576fde086fc6ff43bb83681e7ae6c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intCrimWaypoint: 0
 --- !u!1 &933603399
 GameObject:
   m_ObjectHideFlags: 0
@@ -15392,6 +15522,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4733772755456769034, guid: 3ad7a1cffb2556547a8b7e60fd320431, type: 3}
   m_PrefabInstance: {fileID: 952794465}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &960683886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 960683887}
+  - component: {fileID: 960683888}
+  m_Layer: 0
+  m_Name: Criminal Waypoint (17)
+  m_TagString: CriminalWaypoint
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &960683887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960683886}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.553655, y: 0.5, z: 121.09169}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1730760383}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &960683888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960683886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7576fde086fc6ff43bb83681e7ae6c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intCrimWaypoint: 0
 --- !u!1001 &963411539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15563,6 +15738,114 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975185033}
   m_Mesh: {fileID: 4300028, guid: 3276e1f8914d4434992fa538b64a3da5, type: 3}
+--- !u!1 &979819571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 979819572}
+  - component: {fileID: 979819575}
+  - component: {fileID: 979819574}
+  - component: {fileID: 979819573}
+  m_Layer: 0
+  m_Name: Start Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &979819572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979819571}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 100.92, y: 1, z: 68.37}
+  m_LocalScale: {x: 10.957, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 467615083}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &979819573
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979819571}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &979819574
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979819571}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &979819575
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979819571}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &981297990
 GameObject:
   m_ObjectHideFlags: 0
@@ -24271,6 +24554,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intCrimWaypoint: 0
+--- !u!1 &1627894924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1627894925}
+  - component: {fileID: 1627894926}
+  m_Layer: 0
+  m_Name: Criminal Waypoint (22)
+  m_TagString: CriminalWaypoint
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1627894925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627894924}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 29.953655, y: 4.48, z: 232.9917}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1730760383}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1627894926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627894924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7576fde086fc6ff43bb83681e7ae6c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intCrimWaypoint: 0
 --- !u!1 &1629161921
 GameObject:
   m_ObjectHideFlags: 0
@@ -25055,6 +25383,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4733772755456769034, guid: 3ad7a1cffb2556547a8b7e60fd320431, type: 3}
   m_PrefabInstance: {fileID: 1675511123}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1690309620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1690309621}
+  - component: {fileID: 1690309622}
+  m_Layer: 0
+  m_Name: Criminal Waypoint (23)
+  m_TagString: CriminalWaypoint
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1690309621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690309620}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 19.523655, y: 4.78, z: 253.9117}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1730760383}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1690309622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690309620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7576fde086fc6ff43bb83681e7ae6c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intCrimWaypoint: 0
 --- !u!1 &1693558437
 GameObject:
   m_ObjectHideFlags: 0
@@ -25804,6 +26177,14 @@ Transform:
   - {fileID: 1869979920}
   - {fileID: 1336799978}
   - {fileID: 1278245210}
+  - {fileID: 1740455533}
+  - {fileID: 960683887}
+  - {fileID: 924756198}
+  - {fileID: 1801573074}
+  - {fileID: 265957230}
+  - {fileID: 1837919196}
+  - {fileID: 1627894925}
+  - {fileID: 1690309621}
   - {fileID: 1809153841}
   m_Father: {fileID: 1574230068}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25851,6 +26232,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 785517504505520603, guid: 2e6d9c7ad6e53e4449fed637daa1da69, type: 3}
   m_PrefabInstance: {fileID: 42243153}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1740455532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1740455533}
+  - component: {fileID: 1740455534}
+  m_Layer: 0
+  m_Name: Criminal Waypoint (16)
+  m_TagString: CriminalWaypoint
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1740455533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740455532}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 19.053654, y: 0.5, z: 106.09169}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1730760383}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1740455534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740455532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7576fde086fc6ff43bb83681e7ae6c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intCrimWaypoint: 0
 --- !u!1001 &1744276767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26794,6 +27220,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 793378924}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1801573073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1801573074}
+  - component: {fileID: 1801573075}
+  m_Layer: 0
+  m_Name: Criminal Waypoint (19)
+  m_TagString: CriminalWaypoint
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1801573074
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801573073}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.453656, y: 0.5, z: 164.6917}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1730760383}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1801573075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801573073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7576fde086fc6ff43bb83681e7ae6c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intCrimWaypoint: 0
 --- !u!1 &1802494607
 GameObject:
   m_ObjectHideFlags: 0
@@ -27802,6 +28273,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836110052}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1837919195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1837919196}
+  - component: {fileID: 1837919197}
+  m_Layer: 0
+  m_Name: Criminal Waypoint (21)
+  m_TagString: CriminalWaypoint
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1837919196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837919195}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 25.853653, y: 1.32, z: 210.4917}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1730760383}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1837919197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837919195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7576fde086fc6ff43bb83681e7ae6c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intCrimWaypoint: 0
 --- !u!1 &1840342887
 GameObject:
   m_ObjectHideFlags: 0
@@ -31844,6 +32360,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 467615083}
   - {fileID: 466967612}
   - {fileID: 924522134}
   - {fileID: 623399626}
@@ -34835,6 +35352,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 841248439}
     - target: {fileID: 6971601712990183864, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
+      propertyPath: trnWayPointsCriminal.Array.size
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971601712990183864, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
       propertyPath: 'trnWayPointinWorld.Array.data[0]'
       value: 
       objectReference: {fileID: 992835381}
@@ -34932,6 +35453,38 @@ PrefabInstance:
       objectReference: {fileID: 539561400}
     - target: {fileID: 6971601712990183864, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
       propertyPath: 'trnWayPointsCriminal.Array.data[9]'
+      value: 
+      objectReference: {fileID: 1740455533}
+    - target: {fileID: 6971601712990183864, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
+      propertyPath: 'trnWayPointsCriminal.Array.data[10]'
+      value: 
+      objectReference: {fileID: 960683887}
+    - target: {fileID: 6971601712990183864, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
+      propertyPath: 'trnWayPointsCriminal.Array.data[11]'
+      value: 
+      objectReference: {fileID: 924756198}
+    - target: {fileID: 6971601712990183864, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
+      propertyPath: 'trnWayPointsCriminal.Array.data[12]'
+      value: 
+      objectReference: {fileID: 1801573074}
+    - target: {fileID: 6971601712990183864, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
+      propertyPath: 'trnWayPointsCriminal.Array.data[13]'
+      value: 
+      objectReference: {fileID: 265957230}
+    - target: {fileID: 6971601712990183864, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
+      propertyPath: 'trnWayPointsCriminal.Array.data[14]'
+      value: 
+      objectReference: {fileID: 1837919196}
+    - target: {fileID: 6971601712990183864, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
+      propertyPath: 'trnWayPointsCriminal.Array.data[15]'
+      value: 
+      objectReference: {fileID: 1627894925}
+    - target: {fileID: 6971601712990183864, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
+      propertyPath: 'trnWayPointsCriminal.Array.data[16]'
+      value: 
+      objectReference: {fileID: 1690309621}
+    - target: {fileID: 6971601712990183864, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
+      propertyPath: 'trnWayPointsCriminal.Array.data[17]'
       value: 
       objectReference: {fileID: 456019430}
     - target: {fileID: 9188749449964971951, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
