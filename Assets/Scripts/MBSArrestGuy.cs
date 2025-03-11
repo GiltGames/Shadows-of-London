@@ -80,7 +80,7 @@ public class MBSArrestGuy : MonoBehaviour
                     if (fltEvadeTimer > fltEvadeInterval)
                     {
                         fltEvadeTimer = 0;
-                        FnEvade();
+                       // FnEvade();
                     }
                 }
             }
