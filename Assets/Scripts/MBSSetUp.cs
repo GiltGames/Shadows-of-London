@@ -10,10 +10,14 @@ public class MBSSetUp : MonoBehaviour
     [SerializeField] MBSCriminalUnID[] mbsCriminal;
     [SerializeField] Timer mbsTime;
     [SerializeField] float fltRunforBoatTime =60;
+    [SerializeField] Transform[] allWaypoints;
+    [SerializeField] WaypointIdentifier[] wayAllwaypoints;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+       
+
         // selects the boat for departure
         int intExitTmp = Random.Range(0, trnPossibleExit.Length);
 
