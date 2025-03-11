@@ -24,6 +24,9 @@ public class MBSArrestGuy : MonoBehaviour
     public float lineRange = 50f;
     public static Vector3 hitPosition;
     public GameObject gmoHighlight;
+    [SerializeField] MBSArrestUpdateUI mbsArrestUI;
+    [SerializeField] MBSCriminalUnID mbsCrim;
+
 
     [SerializeField] Animator aniPlayer;
 
@@ -51,6 +54,13 @@ public class MBSArrestGuy : MonoBehaviour
 
         mbsPoliceGuy = Object.FindObjectsByType<MBSPoliceGuy>(FindObjectsSortMode.None);    
         mbsNav = GetComponent<MBSBasicNavigationGUy>();
+
+       if (GetComponent<MBSCriminalUnID>() != null)
+        {
+            mbsArrestUI = GetComponent<MBSArrestUpdateUI>();
+            mbsCrim = GetComponent<MBSCriminalUnID>();
+        }
+
 
         if (mbsNav == null)
         {
@@ -195,6 +205,8 @@ public class MBSArrestGuy : MonoBehaviour
         // sends string and audio clip to the speech function
         FnSpeak(sobWords.strArrestWords, sobWords.audArrestWords);
 
+        mbsArrestUI.FnArrestUpdateUI(mbsCrim.intCriminalIndex);
+        
        
 
 
