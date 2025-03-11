@@ -164,7 +164,7 @@ public class MBSCriminalUnID : MonoBehaviour
 
         intCriminalProgress++;
 
-        if (intCriminalProgress >= trnWayPointsCriminal.Length -1)
+        if (intCriminalProgress > trnWayPointsCriminal.Length-1)
         {
 
 
@@ -229,7 +229,7 @@ public class MBSCriminalUnID : MonoBehaviour
 
     public void FnGotAway()
     {
-      //mbsInventory.GotAway(intCriminalIndex);
+     // mbsInventory.GotAway(intCriminalIndex);
         
         
         mbsNav.isCriminal = false;
