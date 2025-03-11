@@ -29,17 +29,17 @@ public class MBSSetUp : MonoBehaviour
         {
             trnFinalWayPoint[i].position = trnPossibleExit[intExitTmp].position;
 
-            float interval = (mbsTime.timeLimit - (fltRunforBoatTime * mbsCriminal[i].fltRuntoBoatMod)) / mbsCriminal[i].fltTimetoMovetoCriminalWaypoint.Length;
+          //  float interval = (mbsTime.timeLimit - (fltRunforBoatTime * mbsCriminal[i].fltRuntoBoatMod)) / mbsCriminal[i].fltTimetoMovetoCriminalWaypoint.Length;
             mbsCriminal[i].fltTimetoMovetoCriminalWaypoint[mbsCriminal[i].fltTimetoMovetoCriminalWaypoint.Length-1] = fltRunforBoatTime * mbsCriminal[i].fltRuntoBoatMod;
 
-            for (int j = 0; j < mbsCriminal[i].fltTimetoMovetoCriminalWaypoint.Length - 1; j++)
+          /*  for (int j = 0; j < mbsCriminal[i].fltTimetoMovetoCriminalWaypoint.Length - 1; j++)
             {
 
                 mbsCriminal[i].fltTimetoMovetoCriminalWaypoint[j] = mbsTime.timeLimit -
                    Mathf.Lerp(interval * j, interval * (j + 1), Random.Range(0, 1.0f));
 
             }
-
+          */
             //sets final waypoint time to runto boat time
 
          

@@ -131,7 +131,7 @@ public class MBSCriminalUnID : MonoBehaviour
     }
 
 
-    void FnArrest()
+    public void FnArrest()
     {
         //Update the UI
 
@@ -229,7 +229,7 @@ public class MBSCriminalUnID : MonoBehaviour
 
     public void FnGotAway()
     {
-     // mbsInventory.GotAway(intCriminalIndex);
+      mbsInventory.GotAway(intCriminalIndex);
         
         
         mbsNav.isCriminal = false;
