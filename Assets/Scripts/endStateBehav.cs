@@ -78,7 +78,7 @@ public class endStateBehav : MonoBehaviour
     void DisableHUD()
     {
         staminaUI.SetActive(false);
-
+        Time.timeScale = 0;
     }
 
 
