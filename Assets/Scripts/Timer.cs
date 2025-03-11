@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public Image timerImage;
-    float timeLimit = 600.0f;
+    public float timeLimit = 600.0f;
     public float timeLeft;
     public bool timeOut = false;
 
