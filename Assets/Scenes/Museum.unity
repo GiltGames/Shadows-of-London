@@ -7842,6 +7842,18 @@ PrefabInstance:
       value: Museum (Prefab)
       objectReference: {fileID: 0}
     - target: {fileID: 932993914627026543, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 932993914627026543, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 932993914627026543, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 932993914627026543, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
