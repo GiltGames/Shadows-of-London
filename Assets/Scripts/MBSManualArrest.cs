@@ -45,7 +45,7 @@ public class MBSManualArrest : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetMouseButtonDown(0))
         {
             if (trnSuspect != null)
             {
