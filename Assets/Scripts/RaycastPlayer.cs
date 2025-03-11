@@ -7,12 +7,14 @@ public class RaycastPlayer : MonoBehaviour
     public static Vector3 hitPosition;
     AddToInventory addToInventoryScript;
     Animator anim;
+    public PlayerSpeech playerSpeechScript;
 
     void Start()
     {
         playerCamera = Camera.main;
         anim = GetComponentInChildren<Animator>();
         addToInventoryScript = FindFirstObjectByType<AddToInventory>();
+        playerSpeechScript = GetComponentInChildren<PlayerSpeech>();
     }
 
     void Update()
@@ -37,6 +39,17 @@ public class RaycastPlayer : MonoBehaviour
                 Debug.Log("there is a clue");
                 EvidenceProperties evidenceProps = hit.transform.GetComponent<EvidenceProperties>();
                 StartCoroutine(PickUpItem(clueObject, evidenceProps));
+                
+                if(evidenceProps.clueDescription != null)
+                {
+                    if (playerSpeechScript == null)
+                    {
+                        Debug.Log("cant get player speech script");
+                    }
+                    else {
+                    playerSpeechScript.ChangePlayerSpeech(evidenceProps.clueDescription);
+                    }
+                }
             }
         }
     }
