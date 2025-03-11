@@ -179,13 +179,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1343207397738025829}
   - {fileID: 7978970859667072848}
+  - {fileID: 1343207397738025829}
   m_Father: {fileID: 7494270793746322238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -330, y: 158}
+  m_AnchoredPosition: {x: -333.6, y: 154.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2789037699639829551
@@ -201,8 +201,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerImage: {fileID: 6070304779934904185}
-  timeLimit: 200
   timeLeft: 0
+  timeOut: 0
 --- !u!1 &575875747644984444
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,7 +965,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -35.361435, y: 24.99998}
-  m_SizeDelta: {x: 29.277, y: 50}
+  m_SizeDelta: {x: 60, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9094761134029311221
 CanvasRenderer:
@@ -988,14 +988,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2e89e72d9f40aec49bfcddfd671c2cbc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c5dea56b8bb94a44d8df4d024507c747, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1547,7 +1547,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6349626491812156120}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4782583941421391727}
+        m_TargetAssemblyTypeName: endStateBehav, Assembly-CSharp
+        m_MethodName: ReturnToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2832601684184032090
 GameObject:
   m_ObjectHideFlags: 0
@@ -3073,6 +3085,8 @@ MonoBehaviour:
   - {fileID: 6573693997480844484}
   enemyOrder: ffffffffffffffffffffffffffffffffffffffffffffffff
   nextSlot: 0
+  enemiesCaught: 0
+  enemyEscaped: 0
 --- !u!114 &4782583941421391727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3235,7 +3249,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: minutes
+  m_text: seconds
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa98cff226c34bc42bea3963013aa270, type: 2}
   m_sharedMaterial: {fileID: 6062300588025357139, guid: fa98cff226c34bc42bea3963013aa270, type: 2}
@@ -3244,7 +3258,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4284909457
   m_fontColor: {r: 0.5686275, g: 0.5294118, b: 0.40000004, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -3633,7 +3647,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -35.361435, y: 24.99998}
-  m_SizeDelta: {x: 29.277, y: 50}
+  m_SizeDelta: {x: 60, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6959217998536141606
 CanvasRenderer:
@@ -3663,7 +3677,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2e89e72d9f40aec49bfcddfd671c2cbc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 71ad88a678231364a8dad0633ff15e29, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3944,7 +3958,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9143936901924211270}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4782583941421391727}
+        m_TargetAssemblyTypeName: endStateBehav, Assembly-CSharp
+        m_MethodName: ReturnToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7882028010916193518
 GameObject:
   m_ObjectHideFlags: 0
@@ -4394,7 +4420,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7256463484220991532}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4782583941421391727}
+        m_TargetAssemblyTypeName: endStateBehav, Assembly-CSharp
+        m_MethodName: ReturnToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9108197641422304694
 GameObject:
   m_ObjectHideFlags: 0
