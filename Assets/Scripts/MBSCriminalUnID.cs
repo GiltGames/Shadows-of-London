@@ -1,3 +1,4 @@
+using Unity.Hierarchy;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -30,6 +31,7 @@ public class MBSCriminalUnID : MonoBehaviour
     [SerializeField] Timer mbsTimer;
     public bool isEscaping;
     public float fltRuntoBoatMod;
+    [SerializeField] float fltVariationInTarget = 2;
 
     [Header("Clue Related")]
     public int intCriminalIndex;
@@ -160,10 +162,32 @@ public class MBSCriminalUnID : MonoBehaviour
     public void FnCriminalMoveUpdate()
     {
 
+        intCriminalProgress++;
+
+        if (intCriminalProgress > trnWayPointsCriminal.Length-1)
+        {
 
 
+            //Gets away
+            // FnEscape();
+            FnGotAway();
 
-        for (int i = 0; i < trnWayPointsCriminal.Length; i++)
+        }
+
+        else { 
+
+        trnNewTarget = trnWayPointsCriminal[intCriminalProgress];
+        Vector3 fltOffsetTmp = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)) * fltVariationInTarget;
+
+        agent.SetDestination(trnNewTarget.position + fltOffsetTmp);
+        mbsNav.trnCurrentTarget = trnNewTarget;
+        mbsNav.vecNavTarget = trnNewTarget.position + fltOffsetTmp;
+        
+
+        anim.SetBool("Still", false);
+       
+
+        /*for (int i = 0; i < trnWayPointsCriminal.Length; i++)
         {
             if (mbsTimer.timeLeft < fltTimetoMovetoCriminalWaypoint[i])
             {
@@ -177,18 +201,15 @@ public class MBSCriminalUnID : MonoBehaviour
 
 
         mbsNav.FnSetWayPoint();
+        */
+
+        
 
 
-        if (intCriminalProgress == trnWayPointsCriminal.Length - 1)
-        {
-
-
-            //Gets away
-            FnEscape();
         }
 
-        isTryingtoMakeProgress = true;
-        trnNewTarget = trnWayPointsCriminal[intCriminalProgress];
+      //  isTryingtoMakeProgress = true;
+       // trnNewTarget = trnWayPointsCriminal[intCriminalProgress];
 
 
 
@@ -201,14 +222,19 @@ public class MBSCriminalUnID : MonoBehaviour
     void FnEscape()
     {
         isEscaping = true;
+        
 
 
     }
 
     public void FnGotAway()
     {
-     //   mbsInventory.GotAway(intCriminalIndex);
-        Destroy(gameObject);
+     // mbsInventory.GotAway(intCriminalIndex);
+        
+        
+        mbsNav.isCriminal = false;
+        agent.enabled = false;
+        gameObject.SetActive(false);
 
     }
 
