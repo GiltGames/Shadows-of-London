@@ -1914,37 +1914,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1182970966853011276, guid: 7f4f2b6876d971841ac7e3cf980a3b49, type: 3}
-      propertyPath: FollowOffset.y
-      value: 2.92
-      objectReference: {fileID: 0}
-    - target: {fileID: 1182970966853011276, guid: 7f4f2b6876d971841ac7e3cf980a3b49, type: 3}
-      propertyPath: FollowOffset.z
-      value: -0.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 1182970966853011276, guid: 7f4f2b6876d971841ac7e3cf980a3b49, type: 3}
-      propertyPath: TrackerSettings.BindingMode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1253271584754371676, guid: 7f4f2b6876d971841ac7e3cf980a3b49, type: 3}
-      propertyPath: Priority.m_Value
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1253271584754371676, guid: 7f4f2b6876d971841ac7e3cf980a3b49, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 277179213}
-    - target: {fileID: 1662042262866112243, guid: 7f4f2b6876d971841ac7e3cf980a3b49, type: 3}
-      propertyPath: TargetOffset.y
-      value: 1.19
-      objectReference: {fileID: 0}
     - target: {fileID: 2364378203232329829, guid: 7f4f2b6876d971841ac7e3cf980a3b49, type: 3}
       propertyPath: m_Name
       value: topDownCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 2364378203232329829, guid: 7f4f2b6876d971841ac7e3cf980a3b49, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5125922164182063873, guid: 7f4f2b6876d971841ac7e3cf980a3b49, type: 3}
       propertyPath: m_LocalPosition.x
