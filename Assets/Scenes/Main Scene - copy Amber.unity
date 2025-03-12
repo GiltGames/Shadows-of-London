@@ -1188,9 +1188,21 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 644386824}
+    - target: {fileID: 5815223774797929031, guid: 2e6d9c7ad6e53e4449fed637daa1da69, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6655633692737570650, guid: 2e6d9c7ad6e53e4449fed637daa1da69, type: 3}
       propertyPath: m_Name
       value: PlayerAndCams
+      objectReference: {fileID: 0}
+    - target: {fileID: 8288625998437182172, guid: 2e6d9c7ad6e53e4449fed637daa1da69, type: 3}
+      propertyPath: m_fontSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 8288625998437182172, guid: 2e6d9c7ad6e53e4449fed637daa1da69, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
