@@ -56234,6 +56234,8 @@ MonoBehaviour:
   fltDistancetoSuspect: 0
   fltAngletoSuspect: 0
   fltCheckInterval: 1
+  mbsPlaySpeech: {fileID: 0}
+  strWords: Arrest that Criminal!
 --- !u!208 &1737074571
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -70993,10 +70995,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 841248439}
     - target: {fileID: 1139561278457259910, guid: 1b86cd0b4d753564cba4b5b01fa19572, type: 3}
-      propertyPath: trnWayPointsCriminal.Array.size
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1139561278457259910, guid: 1b86cd0b4d753564cba4b5b01fa19572, type: 3}
       propertyPath: 'trnWayPointinWorld.Array.data[0]'
       value: 
       objectReference: {fileID: 992835381}
@@ -71253,10 +71251,6 @@ PrefabInstance:
       propertyPath: mbsInventory
       value: 
       objectReference: {fileID: 841248439}
-    - target: {fileID: 461351660964529580, guid: 8826f9191ddc5f448b6e4d1ed140fff5, type: 3}
-      propertyPath: trnWayPointsCriminal.Array.size
-      value: 22
-      objectReference: {fileID: 0}
     - target: {fileID: 461351660964529580, guid: 8826f9191ddc5f448b6e4d1ed140fff5, type: 3}
       propertyPath: 'trnWayPointinWorld.Array.data[0]'
       value: 
@@ -72041,10 +72035,6 @@ PrefabInstance:
       propertyPath: mbsInventory
       value: 
       objectReference: {fileID: 841248439}
-    - target: {fileID: 892254543852312725, guid: e82f9f3ab2c14ca4387c3745294b4d03, type: 3}
-      propertyPath: trnWayPointsCriminal.Array.size
-      value: 24
-      objectReference: {fileID: 0}
     - target: {fileID: 892254543852312725, guid: e82f9f3ab2c14ca4387c3745294b4d03, type: 3}
       propertyPath: 'trnWayPointinWorld.Array.data[0]'
       value: 
@@ -73173,10 +73163,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 841248439}
     - target: {fileID: 8351000677349987191, guid: f958e014e301e8a44a90c842216d7642, type: 3}
-      propertyPath: trnWayPointsCriminal.Array.size
-      value: 26
-      objectReference: {fileID: 0}
-    - target: {fileID: 8351000677349987191, guid: f958e014e301e8a44a90c842216d7642, type: 3}
       propertyPath: 'trnWayPointinWorld.Array.data[0]'
       value: 
       objectReference: {fileID: 992835381}
@@ -73347,7 +73333,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 473557285523233123, guid: f958e014e301e8a44a90c842216d7642, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: f958e014e301e8a44a90c842216d7642, type: 3}
 --- !u!114 &5631883452553119763 stripped
 MonoBehaviour:
@@ -73684,10 +73673,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2559186410631333478, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3312305691719603805, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
       propertyPath: m_Name
       value: CriminaMilo(0)
@@ -73903,7 +73888,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2898352700409481507, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
 --- !u!4 &6332939590362701701 stripped
 Transform:
@@ -74817,10 +74805,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 841248439}
     - target: {fileID: 7208970820035485802, guid: 326f6ad34938d3f41bc94a6e972e7d52, type: 3}
-      propertyPath: trnWayPointsCriminal.Array.size
-      value: 26
-      objectReference: {fileID: 0}
-    - target: {fileID: 7208970820035485802, guid: 326f6ad34938d3f41bc94a6e972e7d52, type: 3}
       propertyPath: 'trnWayPointinWorld.Array.data[0]'
       value: 
       objectReference: {fileID: 992835381}
@@ -74987,7 +74971,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3462697460425441830, guid: 326f6ad34938d3f41bc94a6e972e7d52, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 326f6ad34938d3f41bc94a6e972e7d52, type: 3}
 --- !u!4 &8590239869583732691 stripped
 Transform:

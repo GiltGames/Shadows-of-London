@@ -87,13 +87,13 @@ public class MBSCriminalUnID : MonoBehaviour
 
     private void OnMouseStay()
     {
-
+/*
         if (Input.GetMouseButtonDown(1))
         {
             FnArrest();
         }
 
-
+        */
         // highlights not needed now
         /*
         if (isDetectable)
@@ -112,7 +112,7 @@ public class MBSCriminalUnID : MonoBehaviour
 
     private void OnMouseExit()
     {
-        gmoAura.SetActive(false);
+      //  gmoAura.SetActive(false);
     }
 
     void FnClueGive()
