@@ -15,6 +15,7 @@ public class MBSManualArrest : MonoBehaviour
     [SerializeField] float fltCheckInterval = 1f;
 
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -45,7 +46,7 @@ public class MBSManualArrest : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetMouseButtonDown(0))
         {
             if (trnSuspect != null)
             {
@@ -114,7 +115,8 @@ public class MBSManualArrest : MonoBehaviour
         if (trnSuspect != null)
         {
             trnSuspect.Find("Speech").gameObject.SetActive(true);
-            trnSuspect.Find("Speech").GetComponent<TextMeshPro>().text = "F";
+          // trnSuspect.Find("Speech").GetComponent<TextMeshPro>().text = "F";
+            trnSuspect.Find("Whistle").gameObject.SetActive(true);
             StartCoroutine(IEUnselect());
 
 
@@ -140,7 +142,7 @@ public class MBSManualArrest : MonoBehaviour
 
         if (trnSuspect != null)
         {
-
+            trnSuspect.Find("Whistle").gameObject.SetActive(false);
             trnSuspect.Find("Speech").GetComponent<TextMeshPro>().text = "";
             trnSuspect.Find("Speech").gameObject.SetActive(false);
         }

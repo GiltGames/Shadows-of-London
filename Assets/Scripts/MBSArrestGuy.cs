@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class MBSArrestGuy : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class MBSArrestGuy : MonoBehaviour
     public GameObject gmoHighlight;
     [SerializeField] MBSArrestUpdateUI mbsArrestUI;
     [SerializeField] MBSCriminalUnID mbsCrim;
+
+
+
 
 
     [SerializeField] Animator aniPlayer;
