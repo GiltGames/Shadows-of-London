@@ -8,6 +8,7 @@ public class endStateBehav : MonoBehaviour
     public GameObject gameWinOverlay;
     public GameObject gameLoseOverlay;
     public GameObject gamePartialWinOverlay;
+    public GameObject gamePauseOverlay;
     public GameObject staminaUI;
     public TMP_Text timeRemaining;
     public TMP_Text arrestsRemaining;
@@ -36,6 +37,11 @@ public class endStateBehav : MonoBehaviour
             {
                 ActivateGameLose();
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ShowPauseMenu();
         }
 
         // this can be removed after debugging as seems more efficient to call it when enemiesCaught is updated in AddToInventory.cs rather than checking here every frame
@@ -79,6 +85,23 @@ public class endStateBehav : MonoBehaviour
     {
         staminaUI.SetActive(false);
         Time.timeScale = 0;
+    }
+
+    public void ShowPauseMenu()
+    {
+        gamePauseOverlay.SetActive(true);
+        DisableHUD();
+    }
+
+    public void ResumeGame()
+    {
+        gamePauseOverlay.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
 

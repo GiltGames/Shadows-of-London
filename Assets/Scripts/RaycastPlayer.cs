@@ -16,13 +16,15 @@ public class RaycastPlayer : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         addToInventoryScript = FindFirstObjectByType<AddToInventory>();
         playerSpeechScript = GetComponentInChildren<PlayerSpeech>();
+
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     void Update()
     {
         Vector3 mousePos = Input.mousePosition;
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.timeScale != 0)
         {
             RaycastHit hit;
             Ray ray = playerCamera.ScreenPointToRay(mousePos);
@@ -40,20 +42,24 @@ public class RaycastPlayer : MonoBehaviour
             {
                 RaycastCube clueObject = hit.transform.GetComponent<RaycastCube>();
                 Debug.Log("there is a clue");
-                EvidenceProperties evidenceProps = hit.transform.GetComponent<EvidenceProperties>();
-                StartCoroutine(PickUpItem(clueObject, evidenceProps));
-                
-                if(evidenceProps.clueDescription != null)
+                if (hit.transform.GetComponent<EvidenceProperties>() != null)
                 {
-                    if (playerSpeechScript == null)
+                    EvidenceProperties evidenceProps = hit.transform.GetComponent<EvidenceProperties>();
+                    StartCoroutine(PickUpItem(clueObject, evidenceProps));
+                    
+                    if(evidenceProps.clueDescription != null)
                     {
-                        Debug.Log("cant get player speech script");
-                    }
-                    else {
-                    playerSpeechScript.ChangePlayerSpeech(evidenceProps.clueDescription);
+                        playerSpeechScript.ChangePlayerSpeech(evidenceProps.clueDescription);
                     }
                 }
-                                
+
+                else
+                {
+                    // logic for selectable objects that are not evidence/clues here
+                    Debug.Log("Object is not a clue but does something");
+                    // playerSpeechScript.ChangePlayerSpeech(text)
+                }
+                
             }
 
             // Is the boject hit a door?
