@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d2959226abee63e42afe64c17736919a
+timeCreated: 1526715252
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 118984
+  packageName: 3D Knife for Game
+  packageVersion: 1.0
+  assetPath: Assets/Knife_Unity_Free/Prefabs/knife_unity.prefab
+  uploadId: 248941

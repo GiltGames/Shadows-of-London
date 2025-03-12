@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f6f3208b87677dc429707a352a83e317
+timeCreated: 1526715172
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 118984
+  packageName: 3D Knife for Game
+  packageVersion: 1.0
+  assetPath: Assets/Knife_Unity_Free/Meshes/Materials/knife_unity.mat
+  uploadId: 248941
