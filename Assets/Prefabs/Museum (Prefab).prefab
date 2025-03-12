@@ -5684,7 +5684,11 @@ Light:
   m_Intensity: 387.7274
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_Range: 6
+=======
+  m_Range: 5
+>>>>>>> Stashed changes
 =======
   m_Range: 5
 >>>>>>> Stashed changes
@@ -5733,9 +5737,12 @@ Light:
   m_AreaSize: {x: 0.5, y: 0.5}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_BounceIntensity: 1
   m_ColorTemperature: 3217
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   m_BounceIntensity: 0
@@ -16358,7 +16365,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       value: -2.351
+=======
+      value: -4.371
+>>>>>>> Stashed changes
 =======
       value: -4.371
 >>>>>>> Stashed changes
