@@ -453,6 +453,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6880260445649341681, guid: 1382fe62d18f4a342bf7edbc3eb36e2b, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7179659784328739371, guid: 1382fe62d18f4a342bf7edbc3eb36e2b, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -508,6 +512,14 @@ PrefabInstance:
     - target: {fileID: 8793257140717002034, guid: 1382fe62d18f4a342bf7edbc3eb36e2b, type: 3}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993501763626564714, guid: 1382fe62d18f4a342bf7edbc3eb36e2b, type: 3}
+      propertyPath: m_fontSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993501763626564714, guid: 1382fe62d18f4a342bf7edbc3eb36e2b, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 9042670740532037447, guid: 1382fe62d18f4a342bf7edbc3eb36e2b, type: 3}
       propertyPath: m_Layer
