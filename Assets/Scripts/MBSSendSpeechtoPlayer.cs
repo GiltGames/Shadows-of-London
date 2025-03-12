@@ -19,17 +19,20 @@ public class MBSSendSpeechtoPlayer : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        mbsPlaySpeech.ChangePlayerSpeech(strWords);
-
-
-        if (audClip != null)
+        if (other.GetComponent<PlayerMovement>() != null)
         {
-            mbsAudio.FnPlayGlobalAudio(audClip);
 
+            mbsPlaySpeech.ChangePlayerSpeech(strWords);
+
+
+            if (audClip != null)
+            {
+                mbsAudio.FnPlayGlobalAudio(audClip);
+
+            }
+
+            StartCoroutine(IEDisable());
         }
-
-        StartCoroutine(IEDisable());
-
     }
 
 
