@@ -209,10 +209,16 @@ public class MBSArrestGuy : MonoBehaviour
         // sends string and audio clip to the speech function
         FnSpeak(sobWords.strArrestWords, sobWords.audArrestWords);
 
-        mbsArrestUI.FnArrestUpdateUI(mbsCrim.intCriminalIndex);
-        
-       
+        if (mbsNav.isCriminal)
+        {
 
+            if (mbsCrim.isDetectable)
+            {
+
+                mbsArrestUI.FnArrestUpdateUI(mbsCrim.intCriminalIndex);
+
+            }
+        }
 
         if (mbsNav != null)
         {

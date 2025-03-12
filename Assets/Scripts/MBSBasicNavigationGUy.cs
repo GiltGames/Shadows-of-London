@@ -187,17 +187,22 @@ public class MBSBasicNavigationGUy : MonoBehaviour
     void FnCriminalMoveFrame()
     {
 
+   
+
         if (fltDistancetoTarget < fltDistance)
         {
-
+     Debug.Log(transform.name + " changes waypoint script");
+        Debug.Log(transform.name + " old way" + trnCurrentTarget.name);
             if (mbsCrim.isEscaping)
             {
                 mbsCrim.FnGotAway();
                 gameObject.SetActive(false);
             }
+//set agent to go to self before rest
+            agent.SetDestination(transform.position);
 
             mbsCrim.FnCriminalMoveUpdate();
-
+            Debug.Log(transform.name + " new way" + trnCurrentTarget.name);
         }
     }
 
@@ -259,7 +264,7 @@ public class MBSBasicNavigationGUy : MonoBehaviour
         {
             // FnCriminalMove();
 
-            mbsCrim.FnCriminalMoveUpdate();
+           // mbsCrim.FnCriminalMoveUpdate();
         }
 
 
