@@ -26821,6 +26821,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: NeerDoWell (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4487929756053811888, guid: 77a1054b13fbb154bb0c619dcb2283d5, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487929756053811888, guid: 77a1054b13fbb154bb0c619dcb2283d5, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: fa98cff226c34bc42bea3963013aa270, type: 2}
+    - target: {fileID: 4487929756053811888, guid: 77a1054b13fbb154bb0c619dcb2283d5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4487929756053811888, guid: 77a1054b13fbb154bb0c619dcb2283d5, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4658942338669754828, guid: 77a1054b13fbb154bb0c619dcb2283d5, type: 3}
       propertyPath: 'trnWaypoint.Array.data[0]'
       value: 
@@ -74099,10 +74115,6 @@ PrefabInstance:
     - target: {fileID: 1767977779253731988, guid: 77a1054b13fbb154bb0c619dcb2283d5, type: 3}
       propertyPath: m_Name
       value: NeerDoWell
-      objectReference: {fileID: 0}
-    - target: {fileID: 4422488187904540642, guid: 77a1054b13fbb154bb0c619dcb2283d5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4658942338669754828, guid: 77a1054b13fbb154bb0c619dcb2283d5, type: 3}
       propertyPath: 'trnWaypoint.Array.data[0]'
