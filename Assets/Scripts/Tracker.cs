@@ -3,6 +3,7 @@ using UnityEngine;
 public class Tracker : MonoBehaviour
 {
     [SerializeField] Transform tracked;
+    [SerializeField] Vector3 trackedloction;
     [SerializeField] Vector3 offset;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,7 +14,9 @@ public class Tracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3 (tracked.position.x,1,tracked.position.y);
+        trackedloction = tracked.position;
         
+
+
     }
 }

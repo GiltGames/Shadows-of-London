@@ -184,10 +184,10 @@ public class MBSCriminalUnID : MonoBehaviour
         trnNewTarget = trnWayPointsCriminal[intCriminalProgress];
         Vector3 fltOffsetTmp = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)) * fltVariationInTarget;
 
-        agent.SetDestination(trnNewTarget.position + fltOffsetTmp);
+      
         mbsNav.trnCurrentTarget = trnNewTarget;
         mbsNav.vecNavTarget = trnNewTarget.position + fltOffsetTmp;
-        
+          agent.SetDestination(mbsNav.vecNavTarget);
 
         anim.SetBool("Still", false);
        
