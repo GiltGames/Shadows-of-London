@@ -13,7 +13,7 @@ public class MBSCriminalUnID : MonoBehaviour
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator anim;
     [SerializeField] GameObject gmoAura;
-    [SerializeField] bool isDetectable;
+    public bool isDetectable;
     [SerializeField] int intHintType;
     public bool isArrested;
 
