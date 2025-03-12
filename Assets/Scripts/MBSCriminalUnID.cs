@@ -1,6 +1,7 @@
 using Unity.Hierarchy;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering;
 
 public class MBSCriminalUnID : MonoBehaviour
 {
@@ -164,6 +165,9 @@ public class MBSCriminalUnID : MonoBehaviour
 
         intCriminalProgress++;
 
+        Debug.Log(transform.name + "progress updated to " + intCriminalProgress);
+
+
         if (intCriminalProgress > trnWayPointsCriminal.Length-1)
         {
 
@@ -174,7 +178,8 @@ public class MBSCriminalUnID : MonoBehaviour
 
         }
 
-        else { 
+        else
+        { 
 
         trnNewTarget = trnWayPointsCriminal[intCriminalProgress];
         Vector3 fltOffsetTmp = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)) * fltVariationInTarget;
