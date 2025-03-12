@@ -8,6 +8,7 @@ public class RaycastPlayer : MonoBehaviour
     AddToInventory addToInventoryScript;
     Animator anim;
     public PlayerSpeech playerSpeechScript;
+   
 
     void Start()
     {
@@ -33,7 +34,9 @@ public class RaycastPlayer : MonoBehaviour
                 Debug.Log("Hit object: " + hit.collider.name);
             }
 
-            if(hit.transform.GetComponent<RaycastCube>() != null) 
+            // Is the boject hit evidence
+
+            if (hit.transform.GetComponent<RaycastCube>() != null) 
             {
                 RaycastCube clueObject = hit.transform.GetComponent<RaycastCube>();
                 Debug.Log("there is a clue");
@@ -50,7 +53,19 @@ public class RaycastPlayer : MonoBehaviour
                     playerSpeechScript.ChangePlayerSpeech(evidenceProps.clueDescription);
                     }
                 }
+                                
             }
+
+            // Is the boject hit a door?
+            if (hit.transform.GetComponent<MBSDoor>() != null)
+                {
+                    MBSDoor mbsDoor = hit.transform.GetComponent<MBSDoor>();
+                    mbsDoor.FnDoorMove();
+                }
+
+            // check for anything else we want to here
+
+
         }
     }
 
