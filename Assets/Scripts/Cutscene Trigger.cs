@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 public class TimerScript : MonoBehaviour
@@ -12,4 +13,21 @@ public class TimerScript : MonoBehaviour
     {
 
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<PlayableDirector>() != null)
+        {
+
+            SceneManager.LoadScene(2);
+
+
+
+
+        }
+
+
+
+    }
+
 }
