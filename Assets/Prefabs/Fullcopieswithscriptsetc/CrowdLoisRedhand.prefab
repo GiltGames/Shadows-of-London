@@ -198,7 +198,7 @@ MonoBehaviour:
   fltEvadeTimer: 0
   fltEvadeInterval: 100
   fltClosestDistanceforEvade: 0
-  sobWords: {fileID: 11400000, guid: 822a23c25a4fe4047b54915fe844762c, type: 2}
+  sobWords: {fileID: 11400000, guid: 8648517799c3cb447a6b389e6d910990, type: 2}
   audSource: {fileID: 0}
 --- !u!65 &103511237348008712
 BoxCollider:
