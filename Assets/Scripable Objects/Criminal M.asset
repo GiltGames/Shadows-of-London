@@ -19,12 +19,12 @@ MonoBehaviour:
   - Good Evening
   - Dark tonight
   - Did you hear about the museum?
-  audArrestWords: {fileID: 8300000, guid: fede66f8279161748bf6b733a2641ab5, type: 3}
-  audGotAwayWords: {fileID: 8300000, guid: fede66f8279161748bf6b733a2641ab5, type: 3}
+  audArrestWords: {fileID: 8300000, guid: 94154b18d0f4e0042921146065d1ae7c, type: 3}
+  audGotAwayWords: {fileID: 8300000, guid: 83ca16e88a1fd5442add9a6b0923e021, type: 3}
   audRandomWords:
-  - {fileID: 8300000, guid: fede66f8279161748bf6b733a2641ab5, type: 3}
-  - {fileID: 8300000, guid: fede66f8279161748bf6b733a2641ab5, type: 3}
-  - {fileID: 8300000, guid: fede66f8279161748bf6b733a2641ab5, type: 3}
-  audIDwords: {fileID: 8300000, guid: fede66f8279161748bf6b733a2641ab5, type: 3}
+  - {fileID: 8300000, guid: a5218fe588ce3074d82546827899ed82, type: 3}
+  - {fileID: 8300000, guid: 348b252c066059544a34bda70a22cea9, type: 3}
+  - {fileID: 8300000, guid: 9bf8573a09039ac44bf2a105d1237a35, type: 3}
+  audIDwords: {fileID: 8300000, guid: bf9eb10cc1b8f4f4f9438f70771fdcb8, type: 3}
   fltRandomSpeechBaseInterval: 10
   fltRandomSpeechRandomMultiple: 3

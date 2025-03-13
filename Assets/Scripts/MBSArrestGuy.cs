@@ -345,7 +345,8 @@ public class MBSArrestGuy : MonoBehaviour
 
          
            FnSpeak(sobWords.strRandomWords[wordchoice], sobWords.audRandomWords[wordchoice]);
-        
+        audSource.clip= sobWords.audRandomWords[wordchoice];
+            audSource.Play();
 
 
 
