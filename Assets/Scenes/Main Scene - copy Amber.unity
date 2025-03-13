@@ -1200,6 +1200,10 @@ PrefabInstance:
       propertyPath: staminaBar
       value: 
       objectReference: {fileID: 644386824}
+    - target: {fileID: 5832767049032992788, guid: 2e6d9c7ad6e53e4449fed637daa1da69, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6655633692737570650, guid: 2e6d9c7ad6e53e4449fed637daa1da69, type: 3}
       propertyPath: m_Name
       value: PlayerAndCams
@@ -54897,6 +54901,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6900788722815376999, guid: 864358365a7db9741b26ecf803d448d0, type: 3}
   m_PrefabInstance: {fileID: 12620007542688700}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &975103527102248928
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8255318739175799245, guid: e7234be6e2bdedf4582c6dbe1721c013, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.3257496
+      objectReference: {fileID: 0}
+    - target: {fileID: 8255318739175799245, guid: e7234be6e2bdedf4582c6dbe1721c013, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.03999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 8255318739175799245, guid: e7234be6e2bdedf4582c6dbe1721c013, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.002506
+      objectReference: {fileID: 0}
+    - target: {fileID: 8255318739175799245, guid: e7234be6e2bdedf4582c6dbe1721c013, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8255318739175799245, guid: e7234be6e2bdedf4582c6dbe1721c013, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8255318739175799245, guid: e7234be6e2bdedf4582c6dbe1721c013, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8255318739175799245, guid: e7234be6e2bdedf4582c6dbe1721c013, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8255318739175799245, guid: e7234be6e2bdedf4582c6dbe1721c013, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8255318739175799245, guid: e7234be6e2bdedf4582c6dbe1721c013, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8255318739175799245, guid: e7234be6e2bdedf4582c6dbe1721c013, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780638334121845623, guid: e7234be6e2bdedf4582c6dbe1721c013, type: 3}
+      propertyPath: m_Name
+      value: ColonelSpanker
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e7234be6e2bdedf4582c6dbe1721c013, type: 3}
 --- !u!1001 &1093310837175801962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58513,3 +58574,4 @@ SceneRoots:
   - {fileID: 1705551916}
   - {fileID: 1635569186}
   - {fileID: 2113903664}
+  - {fileID: 975103527102248928}
