@@ -79468,7 +79468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8451312121385897947, guid: 91d1b79bc4f6dc140a1e816e6a2427f9, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -88740,7 +88740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5735685930934635819, guid: 5721275126630c04e9c5312fb2c16bc3, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -92524,7 +92524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8330198479909537204, guid: 57d411634a715644f805c3bb2c15b01d, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -103819,7 +103819,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4750007377948389786, guid: 0a9da6ce3894126418ce7314a40e4cbe, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6005078849888489586, guid: 0a9da6ce3894126418ce7314a40e4cbe, type: 3}
       propertyPath: m_Name
@@ -106860,7 +106860,7 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 50
+      scalar: 10
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -107126,7 +107126,7 @@ ParticleSystem:
     gravitySource: 0
     maxNumParticles: 20000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
-    size3D: 1
+    size3D: 0
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
@@ -111285,7 +111285,7 @@ Transform:
   m_GameObject: {fileID: 1494299690}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.95, y: 0.73, z: -55.11}
+  m_LocalPosition: {x: -13.95, y: 0.12, z: -55.11}
   m_LocalScale: {x: 1.2136033, y: 0.13872033, z: 1.2136033}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -161016,7 +161016,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3431845314605454855, guid: 8004e3ccc7479bc429011f24095baf74, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8134155638537426144, guid: 8004e3ccc7479bc429011f24095baf74, type: 3}
       propertyPath: m_Name
