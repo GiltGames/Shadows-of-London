@@ -924,7 +924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mbsPlaySpeech: {fileID: 0}
-  strWords: The river is just ahead
+  strWords: The river is just ahead - I can't let them escape by boat
   mbsAudio: {fileID: 0}
   audClip: {fileID: 0}
   fltTriggerRemoveDelay: 0.5
@@ -30692,7 +30692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491030142464645586, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: clueDescription
-      value: The smell of laundenam - unmistakable
+      value: The smell of laudanum  - unmistakable
       objectReference: {fileID: 0}
     - target: {fileID: 8930188665234762063, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: clueIcon
@@ -38377,7 +38377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
       propertyPath: m_LocalScale.x
