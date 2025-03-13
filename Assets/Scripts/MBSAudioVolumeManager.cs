@@ -10,6 +10,8 @@ public class MBSAudioVolumeManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+      mainManager = FindFirstObjectByType<MainManager>();
+        
         volMusic = mainManager.musicVolume;
         volSFX = mainManager.sfxVolume;
     }
