@@ -30,20 +30,29 @@ public class PlayerMovement : MonoBehaviour
     [Header("Components")]
     Animator anim;
     CharacterController controller;
+    //AudioSource audioS;
 
     [Header("Booleans")]
     public bool gameOver = false;
     bool isCrouching = false;
 
+    [Header("Audio clips")]
+    public AudioClip walkSound;
+    public AudioClip runSound;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
         anim = GetComponentInChildren<Animator>();
+        //audioS = GetComponent<AudioSource>();
         //playerCamera = Camera.main;
 
         Cursor.visible = true;
 
         moveSpeed = walkSpeed;
+
+        //audioS.PlayOneShot(walkSound);
+        //audioS.Pause();
     }
 
     void Update()
@@ -59,11 +68,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 anim.SetBool("isWalking", true);
                 anim.SetBool("isIdle", false);
+                //audioS.Play();
             }
             else if (verticalInput == 0 && horizontalInput == 0)
             {
                 anim.SetBool("isWalking", false);
                 anim.SetBool("isIdle", true);
+                //audioS.Pause();
             }
 
             // preserve y velocity of the player, if player is grounded
@@ -105,6 +116,8 @@ public class PlayerMovement : MonoBehaviour
             isRunning = true;
             anim.SetBool("isWalking", false);
             anim.SetBool("isRunning", true);
+            //audioS.PlayOneShot(runSound);
+            //audioS.Play();
         }
 
         if (Input.GetKey(KeyCode.LeftShift) && stamina >= minRunStamina)
@@ -129,6 +142,7 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = walkSpeed;
             anim.SetBool("isRunning", false);
             isRunning = false;
+            //audioS.Pause();
         }
 
         // crouch or uncrouch when left control is pressed

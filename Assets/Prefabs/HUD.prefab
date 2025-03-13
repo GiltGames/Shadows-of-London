@@ -2818,12 +2818,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3306808763381079385}
   m_Layer: 5
-  m_Name: gameLoseOverlay (1)
+  m_Name: gamePauseOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3306808763381079385
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3892,7 +3892,7 @@ MonoBehaviour:
   gameWinOverlay: {fileID: 7882028010916193518}
   gameLoseOverlay: {fileID: 3622856930987104355}
   gamePartialWinOverlay: {fileID: 6755260007605556864}
-  gamePauseOverlay: {fileID: 0}
+  gamePauseOverlay: {fileID: 4798650833147041677}
   staminaUI: {fileID: 7828592043875716645}
   timeRemaining: {fileID: 1928910461072773765}
   arrestsRemaining: {fileID: 5192444890300349473}
