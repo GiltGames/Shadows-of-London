@@ -30687,7 +30687,7 @@ PrefabInstance:
     - target: {fileID: 304374640646581397, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: clueIcon
       value: 
-      objectReference: {fileID: 21300000, guid: 684e2c24a4ffc024eb73ec9077093b2e, type: 3}
+      objectReference: {fileID: 21300000, guid: a025459ee247e6c459162a0cad891fe8, type: 3}
     - target: {fileID: 304374640646581397, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: enemyInt
       value: 0
@@ -30696,17 +30696,29 @@ PrefabInstance:
       propertyPath: clueDescription
       value: This knife looks like one of a pair - it's very distinctive
       objectReference: {fileID: 0}
+    - target: {fileID: 652692257119462261, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.896
+      objectReference: {fileID: 0}
+    - target: {fileID: 652692257119462261, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.165
+      objectReference: {fileID: 0}
+    - target: {fileID: 652692257119462261, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.704
+      objectReference: {fileID: 0}
     - target: {fileID: 932993914627026543, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.2
+      value: 1.22
       objectReference: {fileID: 0}
     - target: {fileID: 932993914627026543, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.2
+      value: 1.22
       objectReference: {fileID: 0}
     - target: {fileID: 932993914627026543, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.2
+      value: 1.22
       objectReference: {fileID: 0}
     - target: {fileID: 932993914627026543, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30714,7 +30726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 932993914627026543, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 932993914627026543, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -30775,11 +30787,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4525521495898182780, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.454
+      value: -2.449
       objectReference: {fileID: 0}
     - target: {fileID: 4525521495898182780, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.508
+      value: -7.67
       objectReference: {fileID: 0}
     - target: {fileID: 4642961597137338176, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
