@@ -9,6 +9,7 @@ public class MainManager : MonoBehaviour
     public float musicVolume;
     public float sfxVolume;
     public float timeLeft;
+    public float highScore;
 
     private void Awake()
     // awake function is called before anything else
@@ -35,6 +36,7 @@ public class MainManager : MonoBehaviour
 
     public void SaveTime()
     {
+        Debug.Log("running SaveTime");
         SaveData data = new SaveData();
         data._timeLeft = timeLeft;
 
@@ -43,8 +45,9 @@ public class MainManager : MonoBehaviour
         Debug.Log("New time saved: " + timeLeft);
     }
 
-    public void LoadTime()
+    public void LoadBestTime()
     {
+        Debug.Log("running LoadBestTime");
         string path =  Application.persistentDataPath + "/saveFile.json";
         if (File.Exists(path))
         {
@@ -53,7 +56,10 @@ public class MainManager : MonoBehaviour
             // deserialisation using SaveData template
             SaveData data = JsonUtility.FromJson<SaveData>(jsonData);
 
-            timeLeft = data._timeLeft;
+            highScore = data._timeLeft;
+        }
+        else {
+            highScore = 0;
         }
     }
     # endregion
