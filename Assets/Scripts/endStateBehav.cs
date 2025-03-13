@@ -10,6 +10,8 @@ public class endStateBehav : MonoBehaviour
     public GameObject gameLoseOverlay;
     public GameObject gamePartialWinOverlay;
     public GameObject gamePauseOverlay;
+    public GameObject gameNoPoliceOverlay;
+    public GameObject gameDrownedOverlay;
     public GameObject staminaUI;
     public TMP_Text timeRemaining;
     public TMP_Text arrestsRemaining;
@@ -88,13 +90,13 @@ public class endStateBehav : MonoBehaviour
     {
         Debug.Log("activate game partial win");
         DisableHUD();
-        gamePartialWinOverlay.SetActive(true);
+        gameNoPoliceOverlay.SetActive(true);
     }
     public void ActivateGameDrowned()
     {
         Debug.Log("activate game partial win");
         DisableHUD();
-        gamePartialWinOverlay.SetActive(true);
+        gameDrownedOverlay.SetActive(true);
     }
 
     void DisableHUD()
