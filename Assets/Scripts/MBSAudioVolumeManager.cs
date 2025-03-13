@@ -3,24 +3,41 @@ using UnityEngine;
 public class MBSAudioVolumeManager : MonoBehaviour
 {
     [SerializeField] MainManager mainManager;
-    public float volMusic;
-    public float volSFX;
+    
+    
+
     [SerializeField] 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
       mainManager = FindFirstObjectByType<MainManager>();
-        
-        volMusic = mainManager.musicVolume;
-        volSFX = mainManager.sfxVolume;
+
+        AudioSource[] audSources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+
+        foreach (AudioSource audSource in audSources)
+        {
+            float vol = mainManager.sfxVolume;
+            if (audSource.transform.tag == "Music")
+            {
+                vol = mainManager.musicVolume;
+            }
+
+            FnSetVolume(audSource, vol);
+        }    
+
+
+
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+    public void FnSetVolume(AudioSource aSource, float vol)
     {
-        
+        aSource.volume = vol;
 
 
     }
+
+
 }
