@@ -17,6 +17,7 @@ public class Tracker : MonoBehaviour
         trackedLocation = tracked.position + tracked.transform.forward * offset.x + tracked.transform.right * offset.z;
 
         trackedLocation.y = offset.y;
+        transform.rotation = tracked.transform.rotation;
 
 
 
