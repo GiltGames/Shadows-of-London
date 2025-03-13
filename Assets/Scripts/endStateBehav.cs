@@ -1,5 +1,6 @@
 using System.Timers;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +13,7 @@ public class endStateBehav : MonoBehaviour
     public GameObject staminaUI;
     public TMP_Text timeRemaining;
     public TMP_Text arrestsRemaining;
+    public GameObject highscoreNotification;
 
     AddToInventory addToInvScript;
     Timer timerScript;
@@ -65,6 +67,7 @@ public class endStateBehav : MonoBehaviour
         timeRemaining.text = timerScript.timeLeft.ToString("F1");
         // 1 is a placeholder. Replace with arrests left
         arrestsRemaining.text = 1.ToString();
+        ActivateSaveTime();
     }
 
     public void ActivateGameLose()
@@ -102,6 +105,18 @@ public class endStateBehav : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void ActivateSaveTime()
+    {
+        MainManager.Instance.timeLeft = timerScript.timeLeft;
+        MainManager.Instance.LoadBestTime();
+        // save the time left only if it is higher than the previous high score
+        if (MainManager.Instance.highScore < MainManager.Instance.timeLeft) 
+        {
+            MainManager.Instance.SaveTime();
+            highscoreNotification.SetActive(true);
+        }
     }
 
 
