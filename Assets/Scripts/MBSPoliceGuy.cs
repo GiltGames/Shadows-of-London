@@ -18,9 +18,9 @@ public class MBSPoliceGuy : MonoBehaviour
     [SerializeField] TMP_Text txtSpeech;
     [SerializeField] float fltSpeechTime = 1.5f;
     [SerializeField] GameObject gmoSpeech;
-    [SerializeField] AudioSource audSource;
-    [SerializeField] AudioClip audBangtoRights;
-    [SerializeField] AudioClip audOntheCase;
+   public AudioSource audSource;
+    public AudioClip audBangtoRights;
+   public AudioClip audOntheCase;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -82,6 +82,9 @@ public class MBSPoliceGuy : MonoBehaviour
         isHasSomeoneInCustody = true;
         gmoSpeech.SetActive(true);
         txtSpeech.text = "Got you bang to rights";
+        audSource.clip = audBangtoRights;
+        audSource.Play();
+
         StartCoroutine(IEPSpeechOff());
         
 

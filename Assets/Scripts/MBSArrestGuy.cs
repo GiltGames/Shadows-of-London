@@ -190,9 +190,13 @@ public class MBSArrestGuy : MonoBehaviour
 
             mbsClosestPolice.isArresting = true;
             mbsClosestPolice.trnPersonArrested = transform;
+            mbsClosestPolice.audSource.clip = mbsClosestPolice.audOntheCase;
+            mbsClosestPolice.audSource.Play();
 
 
             isArrested = true;
+            audSource.clip = sobWords.audIDwords;
+            audSource.Play();
         }
 
         else
@@ -208,6 +212,8 @@ public class MBSArrestGuy : MonoBehaviour
 
         // sends string and audio clip to the speech function
         FnSpeak(sobWords.strArrestWords, sobWords.audArrestWords);
+        audSource.clip = sobWords.audArrestWords;
+        audSource.Play();
 
         if (mbsNav.isCriminal)
         {

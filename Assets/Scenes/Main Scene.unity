@@ -72844,6 +72844,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3766156409821982177, guid: ba585a6dcf3836d458700d0203f16860, type: 3}
+      propertyPath: audOntheCase
+      value: 
+      objectReference: {fileID: 8300000, guid: b85561c17ca1a984084b9d3cce94aaa3, type: 3}
+    - target: {fileID: 3766156409821982177, guid: ba585a6dcf3836d458700d0203f16860, type: 3}
+      propertyPath: audBangtoRights
+      value: 
+      objectReference: {fileID: 8300000, guid: 7bdc0edf0f797454a8f024adb08514e3, type: 3}
+    - target: {fileID: 3766156409821982177, guid: ba585a6dcf3836d458700d0203f16860, type: 3}
       propertyPath: trnCustodyLocation
       value: 
       objectReference: {fileID: 167867240}
@@ -73031,6 +73039,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Policeman
       objectReference: {fileID: 0}
+    - target: {fileID: 700979381210915001, guid: ed334675c1c310e47b9c773b8d3c4d8b, type: 3}
+      propertyPath: audOntheCase
+      value: 
+      objectReference: {fileID: 8300000, guid: b85561c17ca1a984084b9d3cce94aaa3, type: 3}
+    - target: {fileID: 700979381210915001, guid: ed334675c1c310e47b9c773b8d3c4d8b, type: 3}
+      propertyPath: audBangtoRights
+      value: 
+      objectReference: {fileID: 8300000, guid: 7bdc0edf0f797454a8f024adb08514e3, type: 3}
     - target: {fileID: 700979381210915001, guid: ed334675c1c310e47b9c773b8d3c4d8b, type: 3}
       propertyPath: trnCustodyLocation
       value: 
