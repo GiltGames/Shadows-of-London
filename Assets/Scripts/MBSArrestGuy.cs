@@ -48,6 +48,7 @@ public class MBSArrestGuy : MonoBehaviour
     //[SerializeField] float fltSpeechInterval;
     //[SerializeField] float fltSpeechRandomInterval;
     [SerializeField] AudioSource audSource;
+    [SerializeField] AudioClip audGroan;
     
 
 
@@ -202,6 +203,10 @@ public class MBSArrestGuy : MonoBehaviour
 
         else
         {
+            FnSpeak("There are no more police - damn it!", audGroan);
+
+            FindFirstObjectByType<endStateBehav>().ActivateGameLose();
+            
             //no more police
 
         }
