@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fb935e14f9ffc045a956f105653f508, type: 3}
+  m_Name: Crowd M
+  m_EditorClassIdentifier: 
+  strArrestWords: Why are you arresting me? Help
+  strIDwords: What have I done?
+  strGotAwayWords: I'm free
+  strRandomWords:
+  - Good Evening
+  - Dark tonight
+  - Did you hear about the museum?
+  audArrestWords: {fileID: 8300000, guid: e6eca4784bbf53b4bbaacfea323002a4, type: 3}
+  audGotAwayWords: {fileID: 8300000, guid: 83ca16e88a1fd5442add9a6b0923e021, type: 3}
+  audRandomWords:
+  - {fileID: 8300000, guid: a5218fe588ce3074d82546827899ed82, type: 3}
+  - {fileID: 8300000, guid: 348b252c066059544a34bda70a22cea9, type: 3}
+  - {fileID: 8300000, guid: 9bf8573a09039ac44bf2a105d1237a35, type: 3}
+  audIDwords: {fileID: 8300000, guid: f440cc6da2c958946838afff634b3287, type: 3}
+  fltRandomSpeechBaseInterval: 8
+  fltRandomSpeechRandomMultiple: 4

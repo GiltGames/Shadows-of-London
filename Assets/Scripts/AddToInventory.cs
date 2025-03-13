@@ -9,12 +9,16 @@ public class AddToInventory : MonoBehaviour
     public Image[] clues;
     public int[] enemyOrder;
     public int nextSlot;
+    public int enemiesCaught;
+    public bool enemyEscaped = false;
 
+    endStateBehav endStateBehavScript;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         nextSlot = 0;
+        endStateBehavScript = GetComponentInParent<endStateBehav>();
     }
 
     // Update is called once per frame
@@ -43,7 +47,7 @@ public class AddToInventory : MonoBehaviour
 
     // if enemy is captured, mugShots[enemy.enemyslot] is set to enemy.Image
     // this function is called from MBSArrestUpdateUI script
-    public void AddEnemy(Sprite mugshot, int enemyInt)
+    public int AddEnemy(Sprite mugshot, int enemyInt)
     {
         int enemyPos = FindEnemyPos(enemyInt);
 
@@ -59,6 +63,13 @@ public class AddToInventory : MonoBehaviour
         mugShots[enemyPos].sprite = mugshot;
         mugShots[enemyPos].gameObject.SetActive(true);
 
+        enemiesCaught += 1;
+        if(enemiesCaught >= 6)
+        {
+            endStateBehavScript.ActivateGameWin();   
+        }
+
+        return enemiesCaught;
     }
 
     public void GotAway(int enemyInt)
@@ -68,9 +79,11 @@ public class AddToInventory : MonoBehaviour
 
         mugShots[enemyPos].color = Color.red;
         Debug.Log("enemy " + enemyInt + " got away");
-    }
-    
 
+        enemyEscaped = true;
+    }
+
+    
     int FindEnemyPos(int enemyInt)
     {
         // find enemyInt position in enemyOrder[]

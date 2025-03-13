@@ -1,5 +1,7 @@
+using Unity.Hierarchy;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering;
 
 public class MBSCriminalUnID : MonoBehaviour
 {
@@ -11,7 +13,7 @@ public class MBSCriminalUnID : MonoBehaviour
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator anim;
     [SerializeField] GameObject gmoAura;
-    [SerializeField] bool isDetectable;
+    public bool isDetectable;
     [SerializeField] int intHintType;
     public bool isArrested;
 
@@ -29,6 +31,8 @@ public class MBSCriminalUnID : MonoBehaviour
     public int intCriminalProgress;
     [SerializeField] Timer mbsTimer;
     public bool isEscaping;
+    public float fltRuntoBoatMod;
+    [SerializeField] float fltVariationInTarget = 2;
 
     [Header("Clue Related")]
     public int intCriminalIndex;
@@ -83,13 +87,13 @@ public class MBSCriminalUnID : MonoBehaviour
 
     private void OnMouseStay()
     {
-
+/*
         if (Input.GetMouseButtonDown(1))
         {
             FnArrest();
         }
 
-
+        */
         // highlights not needed now
         /*
         if (isDetectable)
@@ -108,7 +112,7 @@ public class MBSCriminalUnID : MonoBehaviour
 
     private void OnMouseExit()
     {
-        gmoAura.SetActive(false);
+      //  gmoAura.SetActive(false);
     }
 
     void FnClueGive()
@@ -128,7 +132,7 @@ public class MBSCriminalUnID : MonoBehaviour
     }
 
 
-    void FnArrest()
+    public void FnArrest()
     {
         //Update the UI
 
@@ -159,10 +163,36 @@ public class MBSCriminalUnID : MonoBehaviour
     public void FnCriminalMoveUpdate()
     {
 
+        intCriminalProgress++;
+
+        Debug.Log(transform.name + "progress updated to " + intCriminalProgress);
 
 
+        if (intCriminalProgress > trnWayPointsCriminal.Length-1)
+        {
 
-        for (int i = 0; i < trnWayPointsCriminal.Length; i++)
+
+            //Gets away
+            // FnEscape();
+            FnGotAway();
+
+        }
+
+        else
+        { 
+
+        trnNewTarget = trnWayPointsCriminal[intCriminalProgress];
+        Vector3 fltOffsetTmp = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)) * fltVariationInTarget;
+
+      
+        mbsNav.trnCurrentTarget = trnNewTarget;
+        mbsNav.vecNavTarget = trnNewTarget.position + fltOffsetTmp;
+          agent.SetDestination(mbsNav.vecNavTarget);
+
+        anim.SetBool("Still", false);
+       
+
+        /*for (int i = 0; i < trnWayPointsCriminal.Length; i++)
         {
             if (mbsTimer.timeLeft < fltTimetoMovetoCriminalWaypoint[i])
             {
@@ -176,18 +206,15 @@ public class MBSCriminalUnID : MonoBehaviour
 
 
         mbsNav.FnSetWayPoint();
+        */
+
+        
 
 
-        if (intCriminalProgress == trnWayPointsCriminal.Length - 1)
-        {
-
-
-            //Gets away
-            FnEscape();
         }
 
-        isTryingtoMakeProgress = true;
-        trnNewTarget = trnWayPointsCriminal[intCriminalProgress];
+      //  isTryingtoMakeProgress = true;
+       // trnNewTarget = trnWayPointsCriminal[intCriminalProgress];
 
 
 
@@ -200,14 +227,19 @@ public class MBSCriminalUnID : MonoBehaviour
     void FnEscape()
     {
         isEscaping = true;
+        
 
 
     }
 
     public void FnGotAway()
     {
-     //   mbsInventory.GotAway(intCriminalIndex);
-        Destroy(gameObject);
+      mbsInventory.GotAway(intCriminalIndex);
+        
+        
+        mbsNav.isCriminal = false;
+        agent.enabled = false;
+        gameObject.SetActive(false);
 
     }
 

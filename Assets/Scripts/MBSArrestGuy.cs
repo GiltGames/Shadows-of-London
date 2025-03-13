@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class MBSArrestGuy : MonoBehaviour
 {
@@ -24,6 +25,12 @@ public class MBSArrestGuy : MonoBehaviour
     public float lineRange = 50f;
     public static Vector3 hitPosition;
     public GameObject gmoHighlight;
+    [SerializeField] MBSArrestUpdateUI mbsArrestUI;
+    [SerializeField] MBSCriminalUnID mbsCrim;
+
+
+
+
 
     [SerializeField] Animator aniPlayer;
 
@@ -41,6 +48,7 @@ public class MBSArrestGuy : MonoBehaviour
     //[SerializeField] float fltSpeechInterval;
     //[SerializeField] float fltSpeechRandomInterval;
     [SerializeField] AudioSource audSource;
+    [SerializeField] AudioClip audGroan;
     
 
 
@@ -51,6 +59,13 @@ public class MBSArrestGuy : MonoBehaviour
 
         mbsPoliceGuy = Object.FindObjectsByType<MBSPoliceGuy>(FindObjectsSortMode.None);    
         mbsNav = GetComponent<MBSBasicNavigationGUy>();
+
+       if (GetComponent<MBSCriminalUnID>() != null)
+        {
+            mbsArrestUI = GetComponent<MBSArrestUpdateUI>();
+            mbsCrim = GetComponent<MBSCriminalUnID>();
+        }
+
 
         if (mbsNav == null)
         {
@@ -80,7 +95,7 @@ public class MBSArrestGuy : MonoBehaviour
                     if (fltEvadeTimer > fltEvadeInterval)
                     {
                         fltEvadeTimer = 0;
-                        FnEvade();
+                       // FnEvade();
                     }
                 }
             }
@@ -176,13 +191,22 @@ public class MBSArrestGuy : MonoBehaviour
 
             mbsClosestPolice.isArresting = true;
             mbsClosestPolice.trnPersonArrested = transform;
+            mbsClosestPolice.audSource.clip = mbsClosestPolice.audOntheCase;
+            mbsClosestPolice.audSource.Play();
 
 
             isArrested = true;
+            FnSpeak(sobWords.strIDwords, sobWords.audIDwords);
+
+           
         }
 
         else
         {
+            FnSpeak("There are no more police - damn it!", audGroan);
+
+            FindFirstObjectByType<endStateBehav>().ActivateGameLose();
+            
             //no more police
 
         }
@@ -194,12 +218,24 @@ public class MBSArrestGuy : MonoBehaviour
 
         // sends string and audio clip to the speech function
         FnSpeak(sobWords.strArrestWords, sobWords.audArrestWords);
-
+        
        
 
+      
 
         if (mbsNav != null)
         {
+            if (mbsNav.isCriminal)
+            {
+
+                if (mbsCrim.isDetectable)
+                {
+
+                    mbsArrestUI.FnArrestUpdateUI(mbsCrim.intCriminalIndex);
+
+                }
+            }
+
             mbsNav.agent.SetDestination(trnCustodyLocation.position);
             mbsNav.anim.SetBool("Still", false);
             Debug.Log("Arrested with destination set at " + trnCustodyLocation.position);
@@ -323,7 +359,7 @@ public class MBSArrestGuy : MonoBehaviour
 
          
            FnSpeak(sobWords.strRandomWords[wordchoice], sobWords.audRandomWords[wordchoice]);
-        
+      
 
 
 
@@ -337,6 +373,9 @@ public class MBSArrestGuy : MonoBehaviour
         gmoSpeech.SetActive(true);
         txtSpeech.text = words;
         //play audio to add
+        audSource.clip = audWords;
+        audSource.Play();
+
 
         StartCoroutine(IESpeechOff());
 

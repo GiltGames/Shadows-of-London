@@ -12,6 +12,7 @@ TagManager:
   - OOB
   - CubeBig
   - Waypoint
+  - Music
   layers:
   - Default
   - TransparentFX

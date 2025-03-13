@@ -13,14 +13,20 @@ public class MBSManualArrest : MonoBehaviour
     [SerializeField] float fltDistancetoSuspect;
     [SerializeField] float fltAngletoSuspect;
     [SerializeField] float fltCheckInterval = 1f;
+    [SerializeField] PlayerSpeech mbsPlaySpeech;
+    [SerializeField] string strWords = "Arrest that Criminal!";
+    [SerializeField] AudioClip audArrestCommand;
+    [SerializeField] MBSAudioGlobal mbsAudio;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartCoroutine(IECheckforSuspect());
-
-
+        mbsPlaySpeech = FindFirstObjectByType<PlayerSpeech>();
+        mbsAudio = FindFirstObjectByType<MBSAudioGlobal>();
+        
     }
 
     // Update is called once per frame
@@ -45,13 +51,17 @@ public class MBSManualArrest : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetMouseButtonDown(0))
         {
             if (trnSuspect != null)
             {
                 FnTurnOffSpeech();
                 trnSuspect.gameObject.GetComponent<MBSArrestGuy>().FnArrested();
                 trnSuspect = null;
+
+                mbsPlaySpeech.ChangePlayerSpeech(strWords);
+                mbsAudio.FnPlayGlobalAudio(audArrestCommand);
+
             }
         }
 /*
@@ -114,7 +124,8 @@ public class MBSManualArrest : MonoBehaviour
         if (trnSuspect != null)
         {
             trnSuspect.Find("Speech").gameObject.SetActive(true);
-            trnSuspect.Find("Speech").GetComponent<TextMeshPro>().text = "F";
+          // trnSuspect.Find("Speech").GetComponent<TextMeshPro>().text = "F";
+            trnSuspect.Find("Whistle").gameObject.SetActive(true);
             StartCoroutine(IEUnselect());
 
 
@@ -140,7 +151,7 @@ public class MBSManualArrest : MonoBehaviour
 
         if (trnSuspect != null)
         {
-
+            trnSuspect.Find("Whistle").gameObject.SetActive(false);
             trnSuspect.Find("Speech").GetComponent<TextMeshPro>().text = "";
             trnSuspect.Find("Speech").gameObject.SetActive(false);
         }

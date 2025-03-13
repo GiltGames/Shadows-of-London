@@ -7,19 +7,26 @@ public class RaycastPlayer : MonoBehaviour
     public static Vector3 hitPosition;
     AddToInventory addToInventoryScript;
     Animator anim;
+    public PlayerSpeech playerSpeechScript;
+    [SerializeField] MBSAudioGlobal mbsAudio;
+   
 
     void Start()
     {
         playerCamera = Camera.main;
         anim = GetComponentInChildren<Animator>();
         addToInventoryScript = FindFirstObjectByType<AddToInventory>();
+        playerSpeechScript = FindFirstObjectByType<PlayerSpeech>();
+        mbsAudio = FindFirstObjectByType<MBSAudioGlobal>();
+
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     void Update()
     {
         Vector3 mousePos = Input.mousePosition;
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.timeScale != 0)
         {
             RaycastHit hit;
             Ray ray = playerCamera.ScreenPointToRay(mousePos);
@@ -29,14 +36,44 @@ public class RaycastPlayer : MonoBehaviour
                 hitPosition = hit.point;
                 //Debug.Log("Hit position " + hit.point);
                 Debug.Log("Hit object: " + hit.collider.name);
-            }
 
-            if(hit.transform.GetComponent<RaycastCube>() != null) 
-            {
-                RaycastCube clueObject = hit.transform.GetComponent<RaycastCube>();
-                Debug.Log("there is a clue");
-                EvidenceProperties evidenceProps = hit.transform.GetComponent<EvidenceProperties>();
-                StartCoroutine(PickUpItem(clueObject, evidenceProps));
+
+                // Is the boject hit evidence
+
+                if (hit.transform.GetComponent<RaycastCube>() != null)
+                {
+                    RaycastCube clueObject = hit.transform.GetComponent<RaycastCube>();
+                    Debug.Log("there is a clue");
+                    if (hit.transform.GetComponent<EvidenceProperties>() != null)
+                    {
+                        EvidenceProperties evidenceProps = hit.transform.GetComponent<EvidenceProperties>();
+                        StartCoroutine(PickUpItem(clueObject, evidenceProps));
+
+                        if (evidenceProps.clueDescription != null)
+                        {
+                            playerSpeechScript.ChangePlayerSpeech(evidenceProps.clueDescription);
+                            mbsAudio.FnPlayGlobalAudio(evidenceProps.audDesc);
+                        }
+                    }
+
+                    else
+                    {
+                        // logic for selectable objects that are not evidence/clues here
+                        Debug.Log("Object is not a clue but does something");
+                        // playerSpeechScript.ChangePlayerSpeech(text)
+                    }
+
+                }
+
+                // Is the boject hit a door?
+                if (hit.transform.GetComponent<MBSDoor>() != null)
+                {
+                    MBSDoor mbsDoor = hit.transform.GetComponent<MBSDoor>();
+                    mbsDoor.FnDoorMove();
+                }
+
+                // check for anything else we want to here
+
             }
         }
     }

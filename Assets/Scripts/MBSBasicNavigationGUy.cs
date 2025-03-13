@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.ProBuilder.MeshOperations;
 
 public class MBSBasicNavigationGUy : MonoBehaviour
 {
@@ -81,11 +82,14 @@ public class MBSBasicNavigationGUy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+     
+
+
         // only use this script to set destinations if wanderingmode is on, which it is by default 
         if (isWanderingMode)
         {
-            // if stationary, count before changing waypoiubt
+            //distance to target
+
             fltDistancetoTarget = (trnCurrentTarget.position - transform.position).magnitude;
 
             if ((vecNavTarget - transform.position).magnitude < fltDistancetoTarget)
@@ -93,15 +97,25 @@ public class MBSBasicNavigationGUy : MonoBehaviour
                 fltDistancetoTarget = (vecNavTarget - transform.position).magnitude;
             }
 
-            if (!isCriminal)
-            {
-                fltDelayTimer += Time.deltaTime;
 
-                if (fltDelayTimer > fltDelayLongstop)
-                {
-                    FnWaypointUpdatequery();
-                }
+            if (isCriminal)
+            {
+                FnCriminalMoveFrame();
+
             }
+
+            else
+            {
+                FnNonCriminalMoveFrame();
+
+            }
+
+
+
+         //   if (!isCriminal)
+       //     {
+                
+        //    }
 
          /*   if (isWaiting)
             {
@@ -115,18 +129,14 @@ public class MBSBasicNavigationGUy : MonoBehaviour
             else
             {
          */
-                if (fltDistancetoTarget < fltDistance)
+            /*    if (fltDistancetoTarget < fltDistance)
                 {
                     fltDelayCount += Time.deltaTime;
                
                 if (isCriminal)
                 {
 
-                    if (mbsCrim.isEscaping)
-                    {
-                        mbsCrim.FnGotAway();
-
-                    }
+                   
                 }
 
                     if (fltDelayCount > fltDelay)
@@ -137,14 +147,68 @@ public class MBSBasicNavigationGUy : MonoBehaviour
 
                   
 
-                }
+                } */
             //}
 
 
         }
     }
 
-    
+
+    void FnNonCriminalMoveFrame()
+    {
+        if (isWaiting)
+        {
+            fltDelayTimer += Time.deltaTime;
+
+            if (fltDelayTimer > fltDelayLongstop)
+            {
+                fltDelayTimer = 0;
+                FnWaypointUpdatequery();
+                isWaiting = false;
+            }
+        }
+
+        else
+        {
+            if (fltDistancetoTarget <fltDistance)
+            {
+
+                FnWaypointUpdatequery();
+                isWaiting = false;
+
+            }
+
+
+        }
+
+    }
+
+    void FnCriminalMoveFrame()
+    {
+
+   
+
+        if (fltDistancetoTarget < fltDistance)
+        {
+     Debug.Log(transform.name + " changes waypoint script");
+        Debug.Log(transform.name + " old way" + trnCurrentTarget.name);
+            if (mbsCrim.isEscaping)
+            {
+                mbsCrim.FnGotAway();
+                gameObject.SetActive(false);
+            }
+//set agent to go to self before rest
+            agent.SetDestination(transform.position);
+
+            mbsCrim.FnCriminalMoveUpdate();
+            Debug.Log(transform.name + " new way" + trnCurrentTarget.name);
+        }
+    }
+
+
+
+
     public void FnWaypointUpdatequery()
 
     {
@@ -172,57 +236,57 @@ public class MBSBasicNavigationGUy : MonoBehaviour
     public void FnWaypointUpdate()
     {
 
-       
 
-
-
-
-
-            int intNewWaypointTmp = Random.Range(0,trnWaypoint.Length);
-          trnCurrentTarget = trnWaypoint[intNewWaypointTmp];
-
-        fltDistancetoTarget = (trnCurrentTarget.position - transform.position).magnitude;
-
-        // if its not close enough, wander about a bit
-        if (fltDistancetoTarget > fltMoveRange)
+        if (!isCriminal)
         {
-            trnCurrentTarget = transform;
+
+            int intNewWaypointTmp = Random.Range(0, trnWaypoint.Length);
+            trnCurrentTarget = trnWaypoint[intNewWaypointTmp];
+
+            fltDistancetoTarget = (trnCurrentTarget.position - transform.position).magnitude;
+
+            // if its not close enough, wander about a bit
+            if (fltDistancetoTarget > fltMoveRange)
+            {
+                trnCurrentTarget = transform;
+            }
+
+            // set waypoint with variation
+
+            Vector3 fltOffsetTmp = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)) * fltVariationInTarget;
+
+            agent.SetDestination(trnCurrentTarget.position + fltOffsetTmp);
+            anim.SetBool("Still", false);
+
+            // possible override to location if character is a criminal
         }
-
-// set waypoint with variation
-
-        Vector3 fltOffsetTmp = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)) * fltVariationInTarget;
-
-        agent.SetDestination(trnCurrentTarget.position + fltOffsetTmp);
-        anim.SetBool("Still", false);
-
-        // possible override to location if character is a criminal
-
-        if (isCriminal)
+        else
         {
-            FnCriminalMove();
+            // FnCriminalMove();
+
+           // mbsCrim.FnCriminalMoveUpdate();
         }
 
 
     }
 
-    public void FnCriminalMove()
-    {
+ //  public void FnCriminalMove()
+  //  {
 
-        fltRandomSelectiontoAdvance = Random.Range(0f, 1.0f);
+     //   fltRandomSelectiontoAdvance = Random.Range(0f, 1.0f);
         
-        if (fltRandomSelectiontoAdvance < fltMoveAdvance)
-        {
+    //    if (fltRandomSelectiontoAdvance < fltMoveAdvance)
+     //   {
 
-           mbsCrim.FnCriminalMoveUpdate();
+         //  mbsCrim.FnCriminalMoveUpdate();
 
 
 
-           trnCurrentTarget = mbsCrim.trnNewTarget;
-            agent.SetDestination(trnCurrentTarget.position);
+      //     trnCurrentTarget = mbsCrim.trnNewTarget;
+     //       agent.SetDestination(trnCurrentTarget.position);
 
-        }
-    }
+       // }
+  //  }
 
 
     private void OnTriggerEnter(Collider other)
@@ -293,5 +357,5 @@ public class MBSBasicNavigationGUy : MonoBehaviour
     }
 
 
-
+  
 }
