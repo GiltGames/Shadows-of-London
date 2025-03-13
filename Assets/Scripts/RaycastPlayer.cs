@@ -16,7 +16,7 @@ public class RaycastPlayer : MonoBehaviour
         playerCamera = Camera.main;
         anim = GetComponentInChildren<Animator>();
         addToInventoryScript = FindFirstObjectByType<AddToInventory>();
-        playerSpeechScript = GetComponentInChildren<PlayerSpeech>();
+        playerSpeechScript = FindFirstObjectByType<PlayerSpeech>();
         mbsAudio = FindFirstObjectByType<MBSAudioGlobal>();
 
         Cursor.lockState = CursorLockMode.Confined;
