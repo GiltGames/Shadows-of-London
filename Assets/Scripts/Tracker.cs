@@ -20,7 +20,7 @@ public class Tracker : MonoBehaviour
 
         if (tracked.transform.position.y > trackedLocation.y)
         {
-
+            trackedLocation.y = tracked.transform.position.y    ;
 
         }
 
