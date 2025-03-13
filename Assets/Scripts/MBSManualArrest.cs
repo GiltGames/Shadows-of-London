@@ -15,6 +15,8 @@ public class MBSManualArrest : MonoBehaviour
     [SerializeField] float fltCheckInterval = 1f;
     [SerializeField] PlayerSpeech mbsPlaySpeech;
     [SerializeField] string strWords = "Arrest that Criminal!";
+    [SerializeField] AudioClip audArrestCommand;
+    [SerializeField] MBSAudioGlobal mbsAudio;
 
 
 
@@ -23,7 +25,8 @@ public class MBSManualArrest : MonoBehaviour
     {
         StartCoroutine(IECheckforSuspect());
         mbsPlaySpeech = FindFirstObjectByType<PlayerSpeech>();
-
+        mbsAudio = FindFirstObjectByType<MBSAudioGlobal>();
+        
     }
 
     // Update is called once per frame
@@ -57,6 +60,7 @@ public class MBSManualArrest : MonoBehaviour
                 trnSuspect = null;
 
                 mbsPlaySpeech.ChangePlayerSpeech(strWords);
+                mbsAudio.FnPlayGlobalAudio(audArrestCommand);
 
             }
         }

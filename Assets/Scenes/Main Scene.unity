@@ -46769,6 +46769,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3384034395871587048, guid: 2e6d9c7ad6e53e4449fed637daa1da69, type: 3}
+      propertyPath: audArrestCommand
+      value: 
+      objectReference: {fileID: 8300000, guid: 26b2e95187b7fc0479a86733874cae75, type: 3}
     - target: {fileID: 4622982868146812435, guid: 2e6d9c7ad6e53e4449fed637daa1da69, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.9770453
@@ -56705,6 +56709,8 @@ MonoBehaviour:
   fltCheckInterval: 1
   mbsPlaySpeech: {fileID: 0}
   strWords: Arrest that Criminal!
+  audArrestCommand: {fileID: 0}
+  mbsAudio: {fileID: 0}
 --- !u!208 &1737074571
 NavMeshObstacle:
   m_ObjectHideFlags: 0
