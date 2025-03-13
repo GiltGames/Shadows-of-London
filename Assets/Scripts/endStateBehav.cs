@@ -84,6 +84,19 @@ public class endStateBehav : MonoBehaviour
         gamePartialWinOverlay.SetActive(true);
     }
 
+    public void ActivateGameNoPolice()
+    {
+        Debug.Log("activate game partial win");
+        DisableHUD();
+        gamePartialWinOverlay.SetActive(true);
+    }
+    public void ActivateGameDrowned()
+    {
+        Debug.Log("activate game partial win");
+        DisableHUD();
+        gamePartialWinOverlay.SetActive(true);
+    }
+
     void DisableHUD()
     {
         staminaUI.SetActive(false);
