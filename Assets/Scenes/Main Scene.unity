@@ -34324,7 +34324,7 @@ Transform:
   m_GameObject: {fileID: 979819571}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100.92, y: 1, z: 68.37}
+  m_LocalPosition: {x: 99.77, y: 1, z: 70.95}
   m_LocalScale: {x: 10.957, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -66600,7 +66600,7 @@ PrefabInstance:
       objectReference: {fileID: 444982547}
     - target: {fileID: 5122414159615587768, guid: cebc41d3be9fe4046b8a77422f91dd0c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.38
+      value: -23.24
       objectReference: {fileID: 0}
     - target: {fileID: 5122414159615587768, guid: cebc41d3be9fe4046b8a77422f91dd0c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -66608,7 +66608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5122414159615587768, guid: cebc41d3be9fe4046b8a77422f91dd0c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.47
+      value: -19.17
       objectReference: {fileID: 0}
     - target: {fileID: 5122414159615587768, guid: cebc41d3be9fe4046b8a77422f91dd0c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -77850,6 +77850,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2581175713609116297, guid: 7cd80fb36fbf0534699d72ba4e512e0b, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2638215115833976215, guid: 7cd80fb36fbf0534699d72ba4e512e0b, type: 3}
       propertyPath: aniPlayer
       value: 
@@ -78449,6 +78453,10 @@ PrefabInstance:
       propertyPath: camCamera
       value: 
       objectReference: {fileID: 444982547}
+    - target: {fileID: 8228445407659948451, guid: 0ff71c5d31c5f83429ad8d64c4f185de, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
