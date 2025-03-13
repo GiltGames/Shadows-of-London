@@ -190,9 +190,14 @@ public class MBSArrestGuy : MonoBehaviour
 
             mbsClosestPolice.isArresting = true;
             mbsClosestPolice.trnPersonArrested = transform;
+            mbsClosestPolice.audSource.clip = mbsClosestPolice.audOntheCase;
+            mbsClosestPolice.audSource.Play();
 
 
             isArrested = true;
+            FnSpeak(sobWords.strIDwords, sobWords.audIDwords);
+
+           
         }
 
         else
@@ -208,20 +213,24 @@ public class MBSArrestGuy : MonoBehaviour
 
         // sends string and audio clip to the speech function
         FnSpeak(sobWords.strArrestWords, sobWords.audArrestWords);
+        
+       
 
-        if (mbsNav.isCriminal)
-        {
-
-            if (mbsCrim.isDetectable)
-            {
-
-                mbsArrestUI.FnArrestUpdateUI(mbsCrim.intCriminalIndex);
-
-            }
-        }
+      
 
         if (mbsNav != null)
         {
+            if (mbsNav.isCriminal)
+            {
+
+                if (mbsCrim.isDetectable)
+                {
+
+                    mbsArrestUI.FnArrestUpdateUI(mbsCrim.intCriminalIndex);
+
+                }
+            }
+
             mbsNav.agent.SetDestination(trnCustodyLocation.position);
             mbsNav.anim.SetBool("Still", false);
             Debug.Log("Arrested with destination set at " + trnCustodyLocation.position);
@@ -345,7 +354,7 @@ public class MBSArrestGuy : MonoBehaviour
 
          
            FnSpeak(sobWords.strRandomWords[wordchoice], sobWords.audRandomWords[wordchoice]);
-        
+      
 
 
 
@@ -359,6 +368,9 @@ public class MBSArrestGuy : MonoBehaviour
         gmoSpeech.SetActive(true);
         txtSpeech.text = words;
         //play audio to add
+        audSource.clip = audWords;
+        audSource.Play();
+
 
         StartCoroutine(IESpeechOff());
 
