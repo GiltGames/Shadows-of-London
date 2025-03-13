@@ -15437,7 +15437,7 @@ MonoBehaviour:
   mbsTimer: {fileID: 0}
   isEscaping: 0
   fltRuntoBoatMod: 3
-  fltVariationInTarget: 2
+  fltVariationInTarget: 1
   intCriminalIndex: 3
   gmoHint:
   - {fileID: 7127551208284104641}
@@ -15500,6 +15500,7 @@ MonoBehaviour:
   fltClosestDistanceforEvade: 0
   sobWords: {fileID: 11400000, guid: 661f24e0d3c9d1549b2dad857987d378, type: 2}
   audSource: {fileID: 0}
+  audGroan: {fileID: 8300000, guid: f4d877ca9912539439d3f1ce7fd72b6a, type: 3}
 --- !u!136 &8216313356482715969
 CapsuleCollider:
   m_ObjectHideFlags: 0

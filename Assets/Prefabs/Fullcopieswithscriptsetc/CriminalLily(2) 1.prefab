@@ -231,7 +231,7 @@ MonoBehaviour:
   mbsTimer: {fileID: 0}
   isEscaping: 0
   fltRuntoBoatMod: 2.2
-  fltVariationInTarget: 2
+  fltVariationInTarget: 1
   intCriminalIndex: 2
   gmoHint:
   - {fileID: 8032067056983324582}
@@ -292,8 +292,9 @@ MonoBehaviour:
   fltEvadeTimer: 0
   fltEvadeInterval: 3
   fltClosestDistanceforEvade: 0
-  sobWords: {fileID: 11400000, guid: 661f24e0d3c9d1549b2dad857987d378, type: 2}
+  sobWords: {fileID: 11400000, guid: 346426262c8b1a042857bc7c43cf6e42, type: 2}
   audSource: {fileID: 0}
+  audGroan: {fileID: 8300000, guid: f4d877ca9912539439d3f1ce7fd72b6a, type: 3}
 --- !u!136 &1460842422496252592
 CapsuleCollider:
   m_ObjectHideFlags: 0
