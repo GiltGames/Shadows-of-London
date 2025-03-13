@@ -30567,7 +30567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 304374640646581397, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: clueDescription
-      value: There are scaps of red felt on this knife - a fez, I'll be bound
+      value: This knife looks like one of a pair - it's very distinctive
       objectReference: {fileID: 0}
     - target: {fileID: 932993914627026543, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: m_LocalScale.x
@@ -30631,7 +30631,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1353140789360324406, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: clueDescription
-      value: This feels other-worldy, and I sense a connection to a paired artifact
+      value: This feels other-worldly, and I sense a connection to a paired artifact...
+        and I think its haunted
       objectReference: {fileID: 0}
     - target: {fileID: 2200461971219637143, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: clueIcon
@@ -30659,7 +30660,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f9892413dbc184e4780e2cfc7843bc5e, type: 2}
     - target: {fileID: 7184684947570300664, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: clueDescription
-      value: Blood - someone was hurt here - they will be bleeding
+      value: Fresh blood - someone was hurt here - I can look for their trail
       objectReference: {fileID: 0}
     - target: {fileID: 7885375175677536539, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: enemyInt
@@ -30667,7 +30668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7885375175677536539, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: clueDescription
-      value: Whatever was inside was protected by sand, and its draining away
+      value: Whatever was inside was protected by sand, and it's draining away
       objectReference: {fileID: 0}
     - target: {fileID: 8047672149227438046, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30691,7 +30692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491030142464645586, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: clueDescription
-      value: The smell of laundenam - unmistable
+      value: The smell of laundenam - unmistakable
       objectReference: {fileID: 0}
     - target: {fileID: 8930188665234762063, guid: 29c13ff6b4b71b8409e388f0c997dce9, type: 3}
       propertyPath: clueIcon
@@ -36245,7 +36246,7 @@ Transform:
   m_GameObject: {fileID: 1088715093}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 94.088, y: 1.27, z: 50.41}
+  m_LocalPosition: {x: 90.514, y: 1.27, z: 48.59}
   m_LocalScale: {x: 3.3401444, y: 0.99116, z: 1.4746618}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -38362,6 +38363,164 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8824096071377727647, guid: 7ca8ac85aa00cf34786b21d7edea20c1, type: 3}
   m_PrefabInstance: {fileID: 1178218870}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1180771475
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6241586478377937126}
+    m_Modifications:
+    - target: {fileID: 100000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      propertyPath: m_Name
+      value: knife_unity
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.00166
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00357
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00064
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.18518515
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.2447953
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9480081
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.08403764
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 3.938
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 203.153
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 29.764
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4da9758e2fc973548a1d31fa25e03dfb, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1180771480}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1180771479}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1180771478}
+  m_SourcePrefab: {fileID: 100100000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+--- !u!4 &1180771476 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+  m_PrefabInstance: {fileID: 1180771475}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1180771477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 9335119c74bc9fe4aad1b53c6420c9ce, type: 3}
+  m_PrefabInstance: {fileID: 1180771475}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1180771478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180771477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2f05245ee56e2418ff3e9897d66ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clueIcon: {fileID: 21300000, guid: 684e2c24a4ffc024eb73ec9077093b2e, type: 3}
+  enemyInt: 0
+  clueDescription: This knife looks like one of a pair - it's very distinctive
+--- !u!114 &1180771479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180771477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01a80f5f3fb0a842bfa4162054b0ebd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodYellow: {fileID: 2100000, guid: 95a30e448b08ef947952fc073b0706c6, type: 2}
+  originalMaterial: {fileID: 2100000, guid: f6f3208b87677dc429707a352a83e317, type: 2}
+  renderTarget: {fileID: 1180771477}
+  evidence1: 0
+  evidence2: 0
+  evidence3: 0
+  evidence4: 0
+  evidence5: 0
+  evidence6: 0
+  evidenceValue: 0
+--- !u!65 &1180771480
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180771477}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3910469, y: 1.2245609, z: 6.4049096}
+  m_Center: {x: 0.000003899583, y: -0.000007826166, z: 1.5983013}
 --- !u!1001 &1182032263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50176,6 +50335,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561536804}
   m_Mesh: {fileID: 4300028, guid: 3276e1f8914d4434992fa538b64a3da5, type: 3}
+--- !u!1 &1563507703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563507704}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563507704
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563507703}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.098072, y: -0.03999901, z: -42.528572}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1567701758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66196,7 +66386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mbsPlaySpeech: {fileID: 0}
-  strWords: Now to find someone who looks unusal
+  strWords: Now to find someone who looks unusual
   mbsAudio: {fileID: 0}
   audClip: {fileID: 0}
   fltTriggerRemoveDelay: 0.5
@@ -73738,6 +73928,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 841248439}
     - target: {fileID: 6971601712990183864, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
+      propertyPath: 'gmoHint.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1180771477}
+    - target: {fileID: 6971601712990183864, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
       propertyPath: 'trnWayPointinWorld.Array.data[0]'
       value: 
       objectReference: {fileID: 992835381}
@@ -73939,9 +74133,17 @@ PrefabInstance:
       objectReference: {fileID: 2055485129}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2642042873364122900, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 1180771476}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
+--- !u!4 &6241586478377937126 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2642042873364122900, guid: e29a0e104500d774ea5a3d370a8cb3a4, type: 3}
+  m_PrefabInstance: {fileID: 6241586478377937125}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6332939590362701701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2541370893071504045, guid: 73ab93c8494864e4590da89936c09bb5, type: 3}
@@ -75065,6 +75267,7 @@ SceneRoots:
   - {fileID: 2063543006}
   - {fileID: 1484258538}
   - {fileID: 1349283179}
+  - {fileID: 1141758205}
   - {fileID: 1458306575}
   - {fileID: 1822227688}
   - {fileID: 42243153}
@@ -75076,4 +75279,4 @@ SceneRoots:
   - {fileID: 950748117}
   - {fileID: 1528834126}
   - {fileID: 467650137}
-  - {fileID: 1141758205}
+  - {fileID: 1563507704}
