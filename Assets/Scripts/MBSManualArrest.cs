@@ -13,6 +13,8 @@ public class MBSManualArrest : MonoBehaviour
     [SerializeField] float fltDistancetoSuspect;
     [SerializeField] float fltAngletoSuspect;
     [SerializeField] float fltCheckInterval = 1f;
+    [SerializeField] PlayerSpeech mbsPlaySpeech;
+    [SerializeField] string strWords = "Arrest that Criminal!";
 
 
 
@@ -20,7 +22,7 @@ public class MBSManualArrest : MonoBehaviour
     void Start()
     {
         StartCoroutine(IECheckforSuspect());
-
+        mbsPlaySpeech = FindFirstObjectByType<PlayerSpeech>();
 
     }
 
@@ -53,6 +55,9 @@ public class MBSManualArrest : MonoBehaviour
                 FnTurnOffSpeech();
                 trnSuspect.gameObject.GetComponent<MBSArrestGuy>().FnArrested();
                 trnSuspect = null;
+
+                mbsPlaySpeech.ChangePlayerSpeech(strWords);
+
             }
         }
 /*

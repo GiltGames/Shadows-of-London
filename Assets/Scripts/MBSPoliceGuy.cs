@@ -18,6 +18,9 @@ public class MBSPoliceGuy : MonoBehaviour
     [SerializeField] TMP_Text txtSpeech;
     [SerializeField] float fltSpeechTime = 1.5f;
     [SerializeField] GameObject gmoSpeech;
+    [SerializeField] AudioSource audSource;
+    [SerializeField] AudioClip audBangtoRights;
+    [SerializeField] AudioClip audOntheCase;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,6 +28,7 @@ public class MBSPoliceGuy : MonoBehaviour
     {
         mbsNav = GetComponent<MBSBasicNavigationGUy>();
         mbsNavFollow = GetComponent<MBSFollowerGuy>();
+        audSource = GetComponent<AudioSource>();
         
     }
 
