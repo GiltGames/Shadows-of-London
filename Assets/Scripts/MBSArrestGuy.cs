@@ -205,7 +205,7 @@ public class MBSArrestGuy : MonoBehaviour
         {
             FnSpeak("There are no more police - damn it!", audGroan);
 
-            FindFirstObjectByType<endStateBehav>().ActivateGameLose();
+            FindFirstObjectByType<endStateBehav>().ActivateGameNoPolice();
             
             //no more police
 

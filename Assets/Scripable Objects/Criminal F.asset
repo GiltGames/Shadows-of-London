@@ -24,7 +24,7 @@ MonoBehaviour:
   audRandomWords:
   - {fileID: 8300000, guid: be7ec288e7bf7e94389c630770d1327c, type: 3}
   - {fileID: 8300000, guid: 866cb9f9372526a4f8fe8a4104d0298b, type: 3}
-  - {fileID: 8300000, guid: be7ec288e7bf7e94389c630770d1327c, type: 3}
+  - {fileID: 8300000, guid: 8a188864fdbfa8e429b7ac5f9af76424, type: 3}
   audIDwords: {fileID: 8300000, guid: fc471349cae261d489f9793ddf768bbc, type: 3}
   fltRandomSpeechBaseInterval: 10
   fltRandomSpeechRandomMultiple: 3
