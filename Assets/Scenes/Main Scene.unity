@@ -1005,7 +1005,7 @@ Transform:
   m_GameObject: {fileID: 10728337}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.7, y: 0.54, z: 31.7}
+  m_LocalPosition: {x: 31.57, y: 0.54, z: 30.35}
   m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -30779,7 +30779,7 @@ Transform:
   m_GameObject: {fileID: 856129062}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.6, y: 0.54, z: 6.8}
+  m_LocalPosition: {x: 30.86, y: 0.54, z: 2.17}
   m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -36233,7 +36233,7 @@ Transform:
   m_GameObject: {fileID: 991713785}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.73, y: 0.54, z: 2.39}
+  m_LocalPosition: {x: 1.52, y: 0.54, z: -7.14}
   m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -64673,7 +64673,7 @@ Transform:
   m_GameObject: {fileID: 1801573073}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.6, y: 0.5, z: 69.6}
+  m_LocalPosition: {x: -8.2, y: 0.5, z: 65.6}
   m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -65604,7 +65604,7 @@ Transform:
   m_GameObject: {fileID: 1821435523}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.71, y: 0.87, z: 30.78}
+  m_LocalPosition: {x: 48.7, y: 0.87, z: 29.9}
   m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -72272,7 +72272,7 @@ Transform:
   m_GameObject: {fileID: 2004569157}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.2, y: 0.54, z: -10.82}
+  m_LocalPosition: {x: 14.33, y: 0.54, z: -16.36}
   m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -78563,6 +78563,10 @@ PrefabInstance:
       propertyPath: mbsInventory
       value: 
       objectReference: {fileID: 841248439}
+    - target: {fileID: 892254543852312725, guid: e82f9f3ab2c14ca4387c3745294b4d03, type: 3}
+      propertyPath: fltVariationInTarget
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 892254543852312725, guid: e82f9f3ab2c14ca4387c3745294b4d03, type: 3}
       propertyPath: 'trnWayPointinWorld.Array.data[0]'
       value: 
