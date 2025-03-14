@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
             // preserve y velocity of the player, if player is grounded
             float movementDirectionY = moveDirection.y;
 
-            moveDirection = (horizontalInput * transform.right) + (verticalInput * transform.forward);
+            moveDirection = (horizontalInput *0* transform.right) + (verticalInput * transform.forward);
 
             // rotate player based on horizontal input
             transform.Rotate(0, horizontalInput * rotationSpeed, 0);
