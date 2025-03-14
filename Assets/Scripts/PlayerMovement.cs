@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float crouchSpeed = 2f;
     [SerializeField] float jumpForce = 2;
     [SerializeField] float gravity = 10f;
-    float rotationSpeed = 2.0f;
+    float rotationSpeed = 4.0f;
     Vector3 moveDirection;
 
     [Header("Stamina variables")]
