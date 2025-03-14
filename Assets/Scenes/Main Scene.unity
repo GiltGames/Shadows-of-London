@@ -1074,7 +1074,7 @@ MonoBehaviour:
   mbsPlaySpeech: {fileID: 0}
   strWords: The river is just ahead - I can't let them escape by boat
   mbsAudio: {fileID: 0}
-  audClip: {fileID: 0}
+  audClip: {fileID: 8300000, guid: 0486f513c81c09745911f5c849c36951, type: 3}
   fltTriggerRemoveDelay: 0.5
 --- !u!65 &15422372
 BoxCollider:
@@ -9505,7 +9505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &228784541
 Transform:
   m_ObjectHideFlags: 0
@@ -30941,12 +30941,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'While you caught a lot of innocent people, some are  the criminals you
-    sought. Perhaps they can be convinced to reveal the location of their ''colleagues''.
+  m_text: 'You caught some of the criminals you sought. Perhaps they can be convinced
+    to reveal the location of their ''colleagues''.
 
 
-    Try
-    again to catch them all?'
+    Try again to catch them
+    all?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa98cff226c34bc42bea3963013aa270, type: 2}
   m_sharedMaterial: {fileID: 6062300588025357139, guid: fa98cff226c34bc42bea3963013aa270, type: 2}
@@ -36848,7 +36848,7 @@ Transform:
   m_GameObject: {fileID: 1016838714}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100.92, y: 1, z: 63.46}
+  m_LocalPosition: {x: 100.92, y: 1, z: 59.88}
   m_LocalScale: {x: 10.957, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40270,6 +40270,7 @@ MonoBehaviour:
   tracked: {fileID: 1512301727}
   trackedLocation: {x: 0, y: 0, z: 0}
   offset: {x: 0.2, y: 0.07, z: 0.2}
+  endStateBehav: {fileID: 0}
 --- !u!135 &1141758202
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -43225,6 +43226,7 @@ MonoBehaviour:
   tracked: {fileID: 1737074572}
   trackedLocation: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 1, z: 0}
+  endStateBehav: {fileID: 0}
 --- !u!1001 &1245018360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60737,7 +60739,7 @@ MonoBehaviour:
   strWords: Its suddenly very cold - unearthly
   mbsAudio: {fileID: 0}
   audClip: {fileID: 8300000, guid: 7f8e70b42fe9dff4ab327aa66841f399, type: 3}
-  fltTriggerRemoveDelay: 0.5
+  fltTriggerRemoveDelay: 1
 --- !u!65 &1744998462
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -79852,7 +79854,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 7251a7222109d704db944a7c3f2346e1, type: 3}
   m_Resource: {fileID: 8300000, guid: 7251a7222109d704db944a7c3f2346e1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.288
+  m_Volume: 0.872
   m_Pitch: 1.42
   Loop: 0
   Mute: 0
@@ -79861,9 +79863,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -79871,23 +79873,23 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.26383668
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -1.0526316
+      outSlope: -1.0526316
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
