@@ -48,4 +48,9 @@ public class MainMenuBehav : MonoBehaviour
         currentUI.SetActive(false);
         mainButtons.SetActive(true);
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
