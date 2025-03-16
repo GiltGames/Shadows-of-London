@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float crouchSpeed = 2f;
     [SerializeField] float jumpForce = 2;
     [SerializeField] float gravity = 10f;
-    float rotationSpeed = 2.0f;
+    [SerializeField] float rotationSpeed = 100.0f;
     Vector3 moveDirection;
 
     [Header("Stamina variables")]
@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
             moveDirection = (horizontalInput *0* transform.right) + (verticalInput * transform.forward);
 
             // rotate player based on horizontal input
-            transform.Rotate(0, horizontalInput * rotationSpeed, 0);
+            transform.Rotate(0, horizontalInput * rotationSpeed * Time.deltaTime, 0);
             //if(horizontalInput != 0) anim.SetBool("isTurning", true); 
 
             // set walking and running animation states while turning
