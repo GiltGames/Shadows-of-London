@@ -1,11 +1,16 @@
 using System.Collections;
 using TMPro;
+using Unity.AppUI.UI;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class MBSArrestGuy : MonoBehaviour
 {
+
+    //script is attached to each arrestable character, ie crowd and criminals and neerdowells
+
+
     [SerializeField] MBSPoliceGuy[] mbsPoliceGuy;
     [SerializeField] float fltDistance;
     [SerializeField] Transform trnClosestPolice;
@@ -45,19 +50,20 @@ public class MBSArrestGuy : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] SObWords sobWords;
-    //[SerializeField] float fltSpeechInterval;
-    //[SerializeField] float fltSpeechRandomInterval;
+  
     [SerializeField] AudioSource audSource;
     [SerializeField] AudioClip audGroan;
     
 
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        // find all the police in the scene for later use
         mbsPoliceGuy = Object.FindObjectsByType<MBSPoliceGuy>(FindObjectsSortMode.None);    
+        
+        // checks for attached scripts, basic navigation, criminal and arrestUI - which is only present on criminals
+
         mbsNav = GetComponent<MBSBasicNavigationGUy>();
 
        if (GetComponent<MBSCriminalUnID>() != null)
@@ -75,6 +81,7 @@ public class MBSArrestGuy : MonoBehaviour
         }
         audSource = GetComponent<AudioSource>();
 
+        // speaks random phrases
         StartCoroutine(IERandomSpeech());
 
     }
@@ -82,34 +89,9 @@ public class MBSArrestGuy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // EVADES if not arrested and is criminal or Neerdowell
+        // EVADES if not arrested and is criminal or Neerdowell - this was removed - check on github history for this
 
-        if (mbsNav != null)
-        {
-            if (!isArrested)
-            {
-
-                if (mbsNav.isCriminal || mbsNav.isNeerdoWell)
-                {
-                    fltEvadeTimer += Time.deltaTime;
-                    if (fltEvadeTimer > fltEvadeInterval)
-                    {
-                        fltEvadeTimer = 0;
-                       // FnEvade();
-                    }
-                }
-            }
-
-           
-        }
-
-        if (!isArrested)
-        {
-          //  FnRayArrest();
-        // redundant raycast check to see if the mouse is on    
-            
-
-        }
+        
 
 
 
@@ -117,30 +99,20 @@ public class MBSArrestGuy : MonoBehaviour
 
     }
 
-    private void OnMouseOver()
-    {
-     /*   gmoHighlight.SetActive(true);
+   
 
-
-        if (Input.GetMouseButtonDown(1) && !isArrested)
-        {
-
-            FnArrested();
-        }
-     */
-    }
-
-    private void OnMouseExit()
-    {
-       // gmoHighlight.SetActive(false);
-    }
-
+  
 
     public void FnArrested()
     {
+       
+        // function called if an arrest is called for on this character
+        
         fltDistance = 1000;
 
         aniPlayer.SetTrigger("isArresting");
+
+        //finds closest policeman
 
         foreach (MBSPoliceGuy policeman in mbsPoliceGuy)
         {
@@ -164,6 +136,8 @@ public class MBSArrestGuy : MonoBehaviour
 
         }
 
+        // if there is a closest policeman who has not already been used for an arrest then triggers arrest fucntions int he MBSPOlice script
+
         if (trnClosestPolice != null)
         {
 
@@ -173,6 +147,9 @@ public class MBSArrestGuy : MonoBehaviour
 
             mbsClosePoliceNav = trnClosestPolice.GetComponent<MBSBasicNavigationGUy>();
             mbsClosePoliceNavFollow = trnClosestPolice.GetComponent<MBSFollowerGuy>();
+
+            //check to see if the policemna is a base or a follower and call equivalent provisions
+
             if (mbsClosePoliceNav != null)
             {
                 mbsClosePoliceNav.isWanderingMode = false;
@@ -196,6 +173,8 @@ public class MBSArrestGuy : MonoBehaviour
 
 
             isArrested = true;
+            
+           //calls on data in the scriptable object for the character type for their reaction tot he arrest
             FnSpeak(sobWords.strIDwords, sobWords.audIDwords);
 
            
@@ -215,8 +194,11 @@ public class MBSArrestGuy : MonoBehaviour
 
     public void FnInCustody()
     {
+        // triggered when the arresting policeman gets close enough to arrest someone
+
 
         // sends string and audio clip to the speech function
+        //calls on data in the scriptable object for the character type for their reaction to being taken into custody
         FnSpeak(sobWords.strArrestWords, sobWords.audArrestWords);
         
        
@@ -231,10 +213,14 @@ public class MBSArrestGuy : MonoBehaviour
                 if (mbsCrim.isDetectable)
                 {
 
+                    // if the arrested character is a criminal who has theirhint switched on then update the UI
+
                     mbsArrestUI.FnArrestUpdateUI(mbsCrim.intCriminalIndex);
 
                 }
             }
+
+            // arrested character walks back to custody poistion useing the navmesh
 
             mbsNav.agent.SetDestination(trnCustodyLocation.position);
             mbsNav.anim.SetBool("Still", false);
@@ -246,6 +232,8 @@ public class MBSArrestGuy : MonoBehaviour
            
             
         }
+
+        // equivalent if the arrested character has a following script, so follows another crowd memmerb - these can't be criminals
 
         if (mbsFollower != null)
         {
@@ -264,7 +252,7 @@ public class MBSArrestGuy : MonoBehaviour
 
     void FnEvade()
     {
-
+        //redundant as this did not work well and appeared to confuse the use of the navmesh - the call was originall in the update function.
 
 
         fltClosestDistanceforEvade = 1000;
@@ -304,6 +292,11 @@ public class MBSArrestGuy : MonoBehaviour
 
     void FnRayArrest()
     {
+
+        //redundant, from when the arrest was triggered by a right click when over a character uses raycast to detect who was hit.
+        //this ewas unreliable so was dropped in favour of the MBSArrestManual script -
+        // this code is never called but has been left in just in case this function is reactivated.
+
         Vector3 mousePos = Input.mousePosition;
 
 
@@ -340,7 +333,7 @@ public class MBSArrestGuy : MonoBehaviour
 
     IEnumerator IESpeechOff()
     {
-
+        // switches the speech object on the character off after a time
 
         yield return new WaitForSeconds(fltSpeechTime);
 
@@ -351,6 +344,10 @@ public class MBSArrestGuy : MonoBehaviour
 
     IEnumerator IERandomSpeech()
     {
+
+        // runs throughout the game 
+        //random speech from the scriptable object is displayed as text above the character and the audio dialogue is played
+
         while (true)
         {
             yield return new WaitForSeconds(sobWords.fltRandomSpeechBaseInterval * (1 + Random.Range(0, sobWords.fltRandomSpeechRandomMultiple)));
@@ -370,6 +367,8 @@ public class MBSArrestGuy : MonoBehaviour
 
     public void FnSpeak(string words, AudioClip audWords)
     {
+        //The actual code to display the speech and play the dialogue audio.
+
         gmoSpeech.SetActive(true);
         txtSpeech.text = words;
         //play audio to add

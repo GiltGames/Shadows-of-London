@@ -4,7 +4,11 @@ public class MBSFallbackDetectorForPlayer : MonoBehaviour
 {
     [SerializeField] MBSArrestGuy mbsArrest;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // redundant script from when arresting was called by right clicking.
+    // this was attached to an extra object around the character intended to be detected even if the player itself was not
+    // outdated now the MBSManualArrest logic is used.
+
+
 
     /*   private void OnMouseOver()
      {

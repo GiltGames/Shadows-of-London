@@ -2,15 +2,6 @@ using UnityEngine;
 
 public class WaypointIdentifier : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    // identiies a waypoint for the initial character checks when they select the closest waypoints
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

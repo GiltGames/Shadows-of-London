@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class MBSDoor : MonoBehaviour
 {
+    // Opens and closes a door a few degrees whenever the door is clicked
+    // Not used now as the moving doors were not ultimately inclued in the museum
+
+
     [SerializeField] float fltMoveSpeed;
         [SerializeField] float fltLowerAngle = 0;
         [SerializeField] float fltUpperAngle = 60;
@@ -29,6 +33,8 @@ public class MBSDoor : MonoBehaviour
 
     }
 
+    // highlights the movable door on mouse over
+
     private void OnMouseEnter()
     {
         objectRenderer.material = newMaterial;
@@ -42,9 +48,15 @@ public class MBSDoor : MonoBehaviour
     }
 
 
+    // This function is called from raycastPlayer if the object has an MBSDoor script attached, ie it is a movable door.
+
 
     public void FnDoorMove()
     {
+
+        // doors move a few degrees on a click
+        // when they reach a limit they reverse direction and rotate the other way
+
 
         Debug.Log("Door move script called");
         if (!isOpening)

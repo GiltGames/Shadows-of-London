@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class MBSFogDrift : MonoBehaviour
 {
+    // attached to fog to allow it to drift
+    // fog type 1 tracks the player - this goes round the ghost
+    // fog type 0 moves according to the direction set in the inspector
+
+
     public Vector3 vecFogDrift;
     [SerializeField] float fltFogSpeed;
     public float vecFogExpand=1;

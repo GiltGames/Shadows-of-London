@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class MBSAudioGlobal : MonoBehaviour
 {
+  
+    // Plays the audio spoken by the player or her internal thoughts
+    // attached to the Audio -Global game object
+    
     [SerializeField] AudioSource audSource;
    
     
@@ -11,11 +15,7 @@ public class MBSAudioGlobal : MonoBehaviour
         audSource= GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
 
     public void FnPlayGlobalAudio(AudioClip clip)
     {

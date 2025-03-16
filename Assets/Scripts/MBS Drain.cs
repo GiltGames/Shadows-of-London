@@ -20,32 +20,11 @@ public class MBSDrain : MonoBehaviour
     void Update()
     {
 
+        //checks to see if the ghost is close enough to the player and then drains stamina if it is
+
         fltDistance = (transform.position - mbsPlayer.transform.position).magnitude;
 
-      /*  if (isVisible)
-        {
-            if (fltDistance > fltRangetoSee)
-            {
-                isVisible = false;
-                gmoGhost.SetActive(false);
-
-
-            }
-
-        }
-
-       else
-        {
-            if (fltDistance < fltRangetoSee)
-            {
-                isVisible = true;
-                gmoGhost.SetActive(true);
-
-            }
-
-
-        }
-      */
+      
 
         if (fltDistance < fltRangeHurt)
         {
@@ -55,9 +34,7 @@ public class MBSDrain : MonoBehaviour
    
 
     }
-
-   
-
+       
 
   
 

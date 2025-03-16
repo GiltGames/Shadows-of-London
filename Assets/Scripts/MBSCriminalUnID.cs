@@ -5,6 +5,9 @@ using UnityEngine.Rendering;
 
 public class MBSCriminalUnID : MonoBehaviour
 {
+    // this script is attached to each criminal and controls most of the criminal-specific logic
+
+
     [SerializeField] MBSBasicNavigationGUy mbsNav;
     [SerializeField] AddToInventory mbsInventory;
     [SerializeField] MBSArrestGuy mbsArrest;
@@ -43,6 +46,9 @@ public class MBSCriminalUnID : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //sets up navigation paramenters.
+        // quite a lot of the logic is on the MBSBasicNavigationGuy Script
+
         mbsNav = GetComponent<MBSBasicNavigationGUy>();
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
@@ -50,7 +56,11 @@ public class MBSCriminalUnID : MonoBehaviour
         mbsNav.isWanderingMode = true;
         mbsArrest = GetComponent<MBSArrestGuy>();
 
+
+        // not needed now - used when time to move to the next waypoint was set by script - now they just move through in order
         mbsTimer = FindFirstObjectByType<Timer>();
+
+
 /*
         for (int i = 0; i < mbsNav.trnWaypoint.Length; i++)
         {
@@ -74,6 +84,8 @@ public class MBSCriminalUnID : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // each frame checks to see if their clue has been found - stops running when the clue is found
+
         if (!isDetectable)
         {
             FnCheckIfClueFound();
@@ -85,51 +97,11 @@ public class MBSCriminalUnID : MonoBehaviour
 
     }
 
-    private void OnMouseStay()
-    {
-/*
-        if (Input.GetMouseButtonDown(1))
-        {
-            FnArrest();
-        }
+   
 
-        */
-        // highlights not needed now
-        /*
-        if (isDetectable)
-        {
-            anim.SetTrigger("Seen");
-            agent.SetDestination(transform.position);
-            mbsNav.fltDelayCount = 0;
-            mbsNav.isWaiting = true;
+   
 
-            gmoAura.SetActive(true);
-        }
-        */
-
-
-    }
-
-    private void OnMouseExit()
-    {
-      //  gmoAura.SetActive(false);
-    }
-
-    void FnClueGive()
-    {
-        // different effect depending on type of clue
-        switch (intHintType)
-        {
-            case 0:
-
-
-                break;
-
-
-
-        }
-
-    }
+   
 
 
     public void FnArrest()
@@ -155,7 +127,7 @@ public class MBSCriminalUnID : MonoBehaviour
     void FnEvade()
     {
 
-
+        //No longer used
 
     }
 
@@ -163,11 +135,17 @@ public class MBSCriminalUnID : MonoBehaviour
     public void FnCriminalMoveUpdate()
     {
 
+        // called when the criminal reaches its criminal waypoint
+        // this increments the progress and sets the next criminal waypoint
+        // unless it is the last one, in which case the criminal gets away and the UI is updated
+
+        // the criminal waypoints are fixed for each criminal and are set in the inspector
+
         intCriminalProgress++;
 
         Debug.Log(transform.name + "progress updated to " + intCriminalProgress);
 
-
+        // check if the cirminal has reached their final waypoint
         if (intCriminalProgress > trnWayPointsCriminal.Length-1)
         {
 
@@ -181,6 +159,9 @@ public class MBSCriminalUnID : MonoBehaviour
         else
         { 
 
+
+            //sets destination to next criminal waypoint
+
         trnNewTarget = trnWayPointsCriminal[intCriminalProgress];
         Vector3 fltOffsetTmp = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)) * fltVariationInTarget;
 
@@ -192,32 +173,13 @@ public class MBSCriminalUnID : MonoBehaviour
         anim.SetBool("Still", false);
        
 
-        /*for (int i = 0; i < trnWayPointsCriminal.Length; i++)
-        {
-            if (mbsTimer.timeLeft < fltTimetoMovetoCriminalWaypoint[i])
-            {
-                trnNewTarget = trnWayPointsCriminal[intCriminalProgress];
-                intCriminalProgress = i;
-
-            }
-
-
-        }
-
-
-        mbsNav.FnSetWayPoint();
-        */
-
+        
         
 
 
         }
 
-      //  isTryingtoMakeProgress = true;
-       // trnNewTarget = trnWayPointsCriminal[intCriminalProgress];
-
-
-
+      
 
 
 
@@ -226,6 +188,8 @@ public class MBSCriminalUnID : MonoBehaviour
 
     void FnEscape()
     {
+        //redundant - function not called now
+        
         isEscaping = true;
         
 
@@ -234,6 +198,8 @@ public class MBSCriminalUnID : MonoBehaviour
 
     public void FnGotAway()
     {
+        //updates the UI if the criminal gets away and hides the criminal object
+
       mbsInventory.GotAway(intCriminalIndex);
         
         
@@ -243,24 +209,13 @@ public class MBSCriminalUnID : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        /*    No longer used
-            if (other.tag == "CriminalWaypoint")
-            {
-              int indexTmp = other.GetComponent<MBSCriminalWaypoint>().intWaypointIndex;
-
-                if (indexTmp == intCriminalProgress)
-                {
-                    intCriminalProgress++;
-                }
-
-            }
-        */
-    }
+   
 
 void    FnCheckIfClueFound()
     {
+       // checks to see if the cirmianls clue is found
+       // criminal and clue identified by the intCirminalIndex 
+        
         for (int i = 0; i < intClue.Length; i++)
         {
             if (mbsInventory.enemyOrder[i] == intCriminalIndex)
@@ -276,6 +231,8 @@ void    FnCheckIfClueFound()
     public void FnSwitchOnHint(int intHintTmp)
     {
         // intClue[i] = i by default but we set up so it can be randmoised
+
+
         gmoHint[intClue[intHintTmp]].SetActive(true);
 
     }

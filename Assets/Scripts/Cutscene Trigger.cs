@@ -4,15 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class TimerScript : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-
-    }
+    // triggers main scene when the camera enters the trigger at the doorway
 
     private void OnTriggerEnter(Collider other)
     {
