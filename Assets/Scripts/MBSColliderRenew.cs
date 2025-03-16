@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class MBSColliderRenew : MonoBehaviour
 {
+    // redundant script that rest the collider on an object every few seconds -
+
+    // this was used while the rightclick to arrest function was in play - now superceded by the MBSManualArrest logic
+
 
     [SerializeField] Collider collider;
     [SerializeField] Collider originalCollider;

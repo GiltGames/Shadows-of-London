@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class MBSFaceCamera : MonoBehaviour
 {
+  
+    // this is attached to the text above the characters to make sure it faces the camera
+    
     [SerializeField] Transform camCamera;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         transform.LookAt(camCamera);

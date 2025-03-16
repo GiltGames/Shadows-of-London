@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class MBSSendSpeechtoPlayer : MonoBehaviour
 {
+
+    // this attaches to teh triggers set the in the scene
+    // sends the text to the ChangePlayerSpeech script an the audio to the Audio Global screipt
+    // text and audio defined in the inspector
+
     [SerializeField] PlayerSpeech mbsPlaySpeech;
     [TextArea (1,10)]
     [SerializeField] string strWords;
@@ -19,8 +24,14 @@ public class MBSSendSpeechtoPlayer : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
+        // detects if it is the player that his the tirrger
+
         if (other.GetComponent<PlayerMovement>() != null)
         {
+
+            // sends text and audio to relevant functions
+            
+
 
             mbsPlaySpeech.ChangePlayerSpeech(strWords);
 
@@ -38,6 +49,8 @@ public class MBSSendSpeechtoPlayer : MonoBehaviour
 
     IEnumerator IEDisable()
     {
+
+        // truns off the trigger so it only rns once
         yield return new WaitForSeconds(fltTriggerRemoveDelay);
         gameObject.SetActive(false);
 

@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class MBSSetUp : MonoBehaviour
 {
+
+    // sets up the final way point - selects which boat it is on
+
     [SerializeField] Transform[] trnPossibleExit;
     [SerializeField] Transform[] trnFinalWayPoint;
     [SerializeField] Transform[] trnBoats;
@@ -25,22 +28,16 @@ public class MBSSetUp : MonoBehaviour
         
         trnEscapeBoat = trnBoats[intExitTmp];
 
+
+        // redundant script that set the time for progression through waypoints - now superseded by the criminal waypoints
         for (int i = 0; i < mbsCriminal.Length; i++)
         {
             trnFinalWayPoint[i].position = trnPossibleExit[intExitTmp].position;
 
-          //  float interval = (mbsTime.timeLimit - (fltRunforBoatTime * mbsCriminal[i].fltRuntoBoatMod)) / mbsCriminal[i].fltTimetoMovetoCriminalWaypoint.Length;
+         
             mbsCriminal[i].fltTimetoMovetoCriminalWaypoint[mbsCriminal[i].fltTimetoMovetoCriminalWaypoint.Length-1] = fltRunforBoatTime * mbsCriminal[i].fltRuntoBoatMod;
 
-          /*  for (int j = 0; j < mbsCriminal[i].fltTimetoMovetoCriminalWaypoint.Length - 1; j++)
-            {
-
-                mbsCriminal[i].fltTimetoMovetoCriminalWaypoint[j] = mbsTime.timeLimit -
-                   Mathf.Lerp(interval * j, interval * (j + 1), Random.Range(0, 1.0f));
-
-            }
-          */
-            //sets final waypoint time to runto boat time
+         
 
          
         }

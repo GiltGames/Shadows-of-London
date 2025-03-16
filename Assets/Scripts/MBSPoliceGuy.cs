@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class MBSPoliceGuy : MonoBehaviour
 {
+    // attached to the police and police followers
+
 
     public bool isArresting;
     public Transform trnPersonArrested;
@@ -38,12 +40,19 @@ public class MBSPoliceGuy : MonoBehaviour
     if (isArresting)
         {
 
+            // if they are arresting, then they say so,
+            // audio is called from the MBS Arrest script as it is jus called once
+
+
             Vector3 vecArrest = trnPersonArrested.position;
             
             gmoSpeech.SetActive(true);
             txtSpeech.text = "On the case, ma'am";
             StartCoroutine(IEPSpeechOff());
+          
 
+            // sets tto run speed
+            // the only thing that runs..
 
             if (mbsNav != null)
             {
@@ -60,6 +69,9 @@ public class MBSPoliceGuy : MonoBehaviour
             }
 
 
+
+            // checks to see if they are close enough to arrest
+            
 
             float fltDistanceTmp = (trnPersonArrested.position - transform.position).magnitude;
 
@@ -78,6 +90,9 @@ public class MBSPoliceGuy : MonoBehaviour
 
     void FnTakeintoCustody()
     {
+
+        // displays the arresting narrative
+
         isArresting = false;
         isHasSomeoneInCustody = true;
         gmoSpeech.SetActive(true);
@@ -87,6 +102,8 @@ public class MBSPoliceGuy : MonoBehaviour
 
         StartCoroutine(IEPSpeechOff());
         
+
+        // sets the police navmesh destination to the custoy position
 
         Vector3 vecCustody = trnCustodyLocation.position;
 
@@ -113,7 +130,7 @@ public class MBSPoliceGuy : MonoBehaviour
             mbsNavFollow.agent.speed = fltWalkSpeed;
         }
         
-        
+        // calls ths function that sets the arrestsed person movement to the custody lcation 
         trnPersonArrested.GetComponent<MBSArrestGuy>().FnInCustody();
 
 
@@ -125,7 +142,7 @@ public class MBSPoliceGuy : MonoBehaviour
     
     IEnumerator IEPSpeechOff()
     {
-
+        // turns speech off after a few seconds
 
         yield return new WaitForSeconds(fltSpeechTime);
 

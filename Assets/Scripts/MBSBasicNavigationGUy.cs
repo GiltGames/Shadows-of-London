@@ -1,9 +1,14 @@
+using Unity.AppUI.UI;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.ProBuilder.MeshOperations;
 
 public class MBSBasicNavigationGUy : MonoBehaviour
 {
+    // This script is attached to most of the crowd members and all the criminals.
+    // it controls movement between waypoints - in the case of criminals the target is set in the MBSCriminalUnID scripts but the checks on reaching destinations are here
+
+
     [Header ("Navigation")]
     public Transform[] trnWaypoint;
     [SerializeField] MBSCriminalUnID mbsCrim;
@@ -62,20 +67,17 @@ public class MBSBasicNavigationGUy : MonoBehaviour
 
         }
 
+        
+
         //find identifier for all waypoints
        wayPointinWorld = FindObjectsByType<WaypointIdentifier>(FindObjectsSortMode.None);
         fltDistancetoWaypoint = new float[wayPointinWorld.Length];
+        
+        
+        //set five way points into list
 
         FnSetWayPoint();
 
-        //set five way points into list
-        /*
-        for (int i = 0; i < trnWaypoint.Length; i++)
-        {
-            trnWayPointinRange[i] = wayPointinWorld[i].transform;
-
-        }
-        */
 
     }
 
@@ -86,69 +88,35 @@ public class MBSBasicNavigationGUy : MonoBehaviour
 
 
         // only use this script to set destinations if wanderingmode is on, which it is by default 
+        // wanderingmode is turned off when the character is taken into custody
+
         if (isWanderingMode)
         {
             //distance to target
 
             fltDistancetoTarget = (trnCurrentTarget.position - transform.position).magnitude;
 
+            // the actual navigation point is a random point close to the waypoint, set each time. This is checked too and if the character is closer to that than the waypoint, that distance is used
+
             if ((vecNavTarget - transform.position).magnitude < fltDistancetoTarget)
             {
                 fltDistancetoTarget = (vecNavTarget - transform.position).magnitude;
             }
 
-
+            // movement instructions if criminal
             if (isCriminal)
             {
                 FnCriminalMoveFrame();
 
             }
 
+
+            //movement instructon if not criminal
             else
             {
                 FnNonCriminalMoveFrame();
 
             }
-
-
-
-         //   if (!isCriminal)
-       //     {
-                
-        //    }
-
-         /*   if (isWaiting)
-            {
-                if (fltDelayCount > fltDelay)
-                {
-                    FnWaypointUpdatequery();
-                    isWaiting = false;
-                }
-
-            }
-            else
-            {
-         */
-            /*    if (fltDistancetoTarget < fltDistance)
-                {
-                    fltDelayCount += Time.deltaTime;
-               
-                if (isCriminal)
-                {
-
-                   
-                }
-
-                    if (fltDelayCount > fltDelay)
-                    {
-                        FnWaypointUpdatequery();
-                        isWaiting = false;
-                    }
-
-                  
-
-                } */
-            //}
 
 
         }
@@ -157,6 +125,9 @@ public class MBSBasicNavigationGUy : MonoBehaviour
 
     void FnNonCriminalMoveFrame()
     {
+
+        // if the character is waiting to move, check the timer and when it gets high enough, check to move againg
+
         if (isWaiting)
         {
             fltDelayTimer += Time.deltaTime;
@@ -168,6 +139,8 @@ public class MBSBasicNavigationGUy : MonoBehaviour
                 isWaiting = false;
             }
         }
+
+        // if character is moving, the desinaation update happens when it is close enough to the destination
 
         else
         {
@@ -187,12 +160,19 @@ public class MBSBasicNavigationGUy : MonoBehaviour
     void FnCriminalMoveFrame()
     {
 
+        // if the criminal is close enough  call the update function in the MBSCriminalUnID script.
+
+        
+
    
 
         if (fltDistancetoTarget < fltDistance)
         {
      Debug.Log(transform.name + " changes waypoint script");
         Debug.Log(transform.name + " old way" + trnCurrentTarget.name);
+
+            // redundant check for the last waypoint - now done in MBSCriminalUnID script
+
             if (mbsCrim.isEscaping)
             {
                 mbsCrim.FnGotAway();
@@ -200,6 +180,8 @@ public class MBSBasicNavigationGUy : MonoBehaviour
             }
 //set agent to go to self before rest
             agent.SetDestination(transform.position);
+
+            //calls MBSCriminalUnID for update function
 
             mbsCrim.FnCriminalMoveUpdate();
             Debug.Log(transform.name + " new way" + trnCurrentTarget.name);
@@ -212,6 +194,8 @@ public class MBSBasicNavigationGUy : MonoBehaviour
     public void FnWaypointUpdatequery()
 
     {
+
+        // checks to see if the character waits or moves to a new waypoint
 
         if (Random.Range(0, 1f) < fltChanceIdle)
         {
@@ -236,6 +220,8 @@ public class MBSBasicNavigationGUy : MonoBehaviour
     public void FnWaypointUpdate()
     {
 
+        //selects a new waypoint from one of the 5 available - the cloeses 5
+
 
         if (!isCriminal)
         {
@@ -258,39 +244,20 @@ public class MBSBasicNavigationGUy : MonoBehaviour
             agent.SetDestination(trnCurrentTarget.position + fltOffsetTmp);
             anim.SetBool("Still", false);
 
-            // possible override to location if character is a criminal
+            
         }
-        else
-        {
-            // FnCriminalMove();
-
-           // mbsCrim.FnCriminalMoveUpdate();
-        }
-
+       
 
     }
 
- //  public void FnCriminalMove()
-  //  {
 
-     //   fltRandomSelectiontoAdvance = Random.Range(0f, 1.0f);
-        
-    //    if (fltRandomSelectiontoAdvance < fltMoveAdvance)
-     //   {
-
-         //  mbsCrim.FnCriminalMoveUpdate();
-
-
-
-      //     trnCurrentTarget = mbsCrim.trnNewTarget;
-     //       agent.SetDestination(trnCurrentTarget.position);
-
-       // }
-  //  }
 
 
     private void OnTriggerEnter(Collider other)
     {
+
+        // there are some out of bounds triggers - if the character hits one, then it selects a new waypoint to move to 
+
         if (other != null)
         {
             if (other.tag == "OOB")
@@ -310,11 +277,25 @@ public class MBSBasicNavigationGUy : MonoBehaviour
     public void FnSetWayPoint()
     {
         // sets the five closest waypoints into the script for navigation 
+
+        // this is only run once for crowd members 
+
+        // it was also used at one point to reset random waypoitns for criinals but that is no longer needed as they follow a strict list now.
+
+
+
+        // reads all waypoints and puts the distances in an array
+
        for (int i = 0;i<wayPointinWorld.Length; i++)
         {
             fltDistancetoWaypoint[i] = (wayPointinWorld[i].transform.position - transform.position).magnitude;
 
         }
+
+       //runs through the array. 
+       // if at any stage the distance to a waypoint is greater than that to the next waypoint, then the two are swapped (as are their distances)
+       // and the isNotSorted bool is set to true.
+       // this is re-run until isNotSorted remains false which means they are all in the right order
 
         bool isNotSorted = true;
        while (isNotSorted)
@@ -325,6 +306,8 @@ public class MBSBasicNavigationGUy : MonoBehaviour
             {
                 if (fltDistancetoWaypoint[i] > fltDistancetoWaypoint[i + 1])
                         {
+                    // swap
+
                    float swapTmp = fltDistancetoWaypoint[i]; 
                     fltDistancetoWaypoint[i] = fltDistancetoWaypoint[i+1];
                     fltDistancetoWaypoint[i+1] = swapTmp;
@@ -345,7 +328,7 @@ public class MBSBasicNavigationGUy : MonoBehaviour
 
 
 
-
+        // puts the closest 5 into an array for later use
         for (int i = 0; i < trnWaypoint.Length; i++)
         {
             trnWaypoint[i] = wayPointinWorld[i].transform;

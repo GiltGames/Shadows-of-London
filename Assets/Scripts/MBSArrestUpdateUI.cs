@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class MBSArrestUpdateUI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+   
+    //Script attached to each criminal
+    // updated the UI when the criminal is taken into custody
+    // called from the MBSArrestGuy script
+
     
     public Sprite mugshot;
     int enemyInt;
